@@ -31,7 +31,7 @@ def _load_tickers_from_yaml(year: int = 2020) -> dict:
 
 
 def n100_tickers_set_for_date(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
-    """given a calendar date, return the set of nasdaq 100 tickers in the index on that date"""
+    """given a calendar date, return a frozenset of nasdaq 100 tickers in the index on that date"""
 
     tickers = _load_tickers_from_yaml(year=year)
     dates = list(map(lambda d: datetime.date.fromisoformat(d), sorted(list(tickers["changes"].keys()))))
