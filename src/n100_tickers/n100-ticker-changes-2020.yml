@@ -1,0 +1,136 @@
+---
+year: 2020
+base_set: !!set
+  ? AAL
+  ? AAPL
+  ? ADBE
+  ? ADI
+  ? ADP
+  ? ADSK
+  ? ALGN
+  ? ALXN
+  ? AMAT
+  ? AMD
+  ? AMGN
+  ? AMZN
+  ? ANSS
+  ? ASML
+  ? ATVI
+  ? AVGO
+  ? BIDU
+  ? BIIB
+  ? BKNG
+  ? BMRN
+  ? CDNS
+  ? CDW
+  ? CERN
+  ? CHKP
+  ? CHTR
+  ? CMCSA
+  ? COST
+  ? CPRT
+  ? CSCO
+  ? CSGP
+  ? CSX
+  ? CTAS
+  ? CTSH
+  ? CTXS
+  ? DLTR
+  ? EA
+  ? EBAY
+  ? EXC
+  ? EXPE
+  ? FAST
+  ? FB
+  ? FISV
+  ? FOX
+  ? FOXA
+  ? GILD
+  ? GOOG
+  ? GOOGL
+  ? IDXX
+  ? ILMN
+  ? INCY
+  ? INTC
+  ? INTU
+  ? ISRG
+  ? JD
+  ? KHC
+  ? KLAC
+  ? LBTYA
+  ? LBTYK
+  ? LRCX
+  ? LULU
+  ? MAR
+  ? MCHP
+  ? MDLZ
+  ? MELI
+  ? MNST
+  ? MSFT
+  ? MU
+  ? MXIM
+  ? NFLX
+  ? NTAP
+  ? NTES
+  ? NVDA
+  ? NXPI
+  ? ORLY
+  ? PAYX
+  ? PCAR
+  ? PEP
+  ? PYPL
+  ? QCOM
+  ? REGN
+  ? ROST
+  ? SBUX
+  ? SGEN
+  ? SIRI
+  ? SNPS
+  ? SPLK
+  ? SWKS
+  ? TCOM
+  ? TMUS
+  ? TSLA
+  ? TTWO
+  ? TXN
+  ? UAL
+  ? ULTA
+  ? VRSK
+  ? VRSN
+  ? VRTX
+  ? WBA
+  ? WDAY
+  ? WDC
+  ? WLTW
+  ? XEL
+  ? XLNX
+changes: {
+  '2020-04-20': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {'AAL'},
+      !!set {'DXCM'},
+    ],
+  },
+  '2020-04-30': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {'WLTW'},
+      !!set {'ZM'},
+    ],
+  },
+ '2020-06-22': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {'UAL'},
+      !!set {'DOCU'},
+    ],
+  },
+  '2020-07-20': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {'CSGP'},
+      !!set {'MRNA'},
+    ],
+  },
+ }

@@ -1,0 +1,136 @@
+---
+year: 2018
+base_set: !!set
+  ? AAL
+  ? AAPL
+  ? ADBE
+  ? ADI
+  ? ADP
+  ? ADSK
+  ? ALGN
+  ? ALXN
+  ? AMAT
+  ? AMGN
+  ? AMZN
+  ? ASML
+  ? ATVI
+  ? AVGO
+  ? BIDU
+  ? BIIB
+  ? BKNG
+  ? BMRN
+  ? CA
+  ? CDNS
+  ? CELG
+  ? CERN
+  ? CHKP
+  ? CHTR
+  ? CMCSA
+  ? COST
+  ? CSCO
+  ? CSX
+  ? CTAS
+  ? CTSH
+  ? CTXS
+  ? DISH
+  ? DLTR
+  ? EA
+  ? EBAY
+  ? ESRX
+  ? EXPE
+  ? FAST
+  ? FB
+  ? FISV
+  ? FOX
+  ? FOXA
+  ? GILD
+  ? GOOG
+  ? GOOGL
+  ? HAS
+  ? HOLX
+  ? HSIC
+  ? IDXX
+  ? ILMN
+  ? INCY
+  ? INTC
+  ? INTU
+  ? ISRG
+  ? JBHT
+  ? JD
+  ? KHC
+  ? KLAC
+  ? LBTYA
+  ? LBTYK
+  ? LRCX
+  ? MAR
+  ? MCHP
+  ? MDLZ
+  ? MELI
+  ? MNST
+  ? MSFT
+  ? MU
+  ? MXIM
+  ? MYL
+  ? NFLX
+  ? NLOK
+  ? NTES
+  ? NVDA
+  ? ORLY
+  ? PAYX
+  ? PCAR
+  ? PYPL
+  ? QCOM
+  ? QRTEA
+  ? REGN
+  ? ROST
+  ? SBUX
+  ? SHPG
+  ? SIRI
+  ? SNPS
+  ? STX
+  ? SWKS
+  ? TCOM
+  ? TMUS
+  ? TSLA
+  ? TTWO
+  ? TXN
+  ? ULTA
+  ? VOD
+  ? VRSK
+  ? VRTX
+  ? WBA
+  ? WDAY
+  ? WDC
+  ? WYNN
+  ? XLNX
+  ? XRAY
+changes: {
+  '2018-12-24': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {ESRX, HOLX, QRTEA, SHPG, STX, VOD},
+      !!set {AMD, LULU, NTAP, UAL, VRSN, WLTW},
+    ],
+  },
+  '2018-11-19': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {XRAY},
+      !!set {XEL},
+    ],
+  },
+  '2018-11-05': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {CA},
+      !!set {NXPI},
+    ],
+  },
+  '2018-07-23': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {DISH},
+      !!set {PEP},
+    ],
+  },
+}
