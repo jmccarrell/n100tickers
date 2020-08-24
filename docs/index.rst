@@ -3,18 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-n100tickers: Nasdaq 100 ticker symbols by date
-==============================================
+n100tickers: Nasdaq 100 ticker symbols over time
+================================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-n100tickers is a python3 library that provides date-aware consitutents of the NASDAQ 100 [#n100_overview]_.
-As the members of this index change regularly [#n100_changes]_, the API provides a date-centric view.
-Ie, given a calendar date, return the set of ticker symbols that were in the index on that date.
+n100tickers is a python3 library that provides a historical view of the member companies of the NASDAQ 100
+[#n100_overview]_.  As the members companies of this index change regularly [#n100_changes]_, the API
+provides a date-centric view.  Ie, given a calendar date, it will return the set of ticker symbols (eg,
+``AAPL``) that were in the index on that date.
 
 As of this writing, coverage is provided for the years 2018 through 2020.
+
+Example
+-------
+
+>>> 'AMZN' in n100_tickers_set_for_date(2020, 6, 1)
+True
+
 
 API
 ---
