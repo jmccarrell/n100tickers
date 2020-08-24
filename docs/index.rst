@@ -7,8 +7,11 @@ n100tickers: Nasdaq 100 ticker symbols over time
 ================================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :hidden:
+
+   changelog
+
 
 n100tickers is a python3 library that provides a historical view of the member companies of the NASDAQ 100
 [#n100_overview]_.  As the members companies of this index change regularly [#n100_changes]_, the API
@@ -35,7 +38,7 @@ API
 
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`

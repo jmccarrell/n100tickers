@@ -16,7 +16,7 @@ towncrier = "^19.2.0"
 
 [tool.towncrier]
 package = "n100tickers"
-file = "docs/changelog.rst"
+newsfile = "docs/changelog.rst"
 
 [build-system]
 requires = ["poetry>=0.12"]
