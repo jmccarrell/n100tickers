@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../src/n100_tickers'))
+sys.path.insert(0, os.path.abspath('../../src/n100tickers'))
 
 
 # -- Project information -----------------------------------------------------
@@ -22,7 +22,7 @@ copyright = '2020, Jeff McCarrell'
 author = 'Jeff McCarrell'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.0'
+release = '0.1.1-alpha.0'
 
 
 # -- General configuration ---------------------------------------------------
