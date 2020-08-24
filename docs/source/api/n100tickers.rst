@@ -1,8 +1,8 @@
 ============
-n100_tickers
+n100tickers
 ============
 
-.. automodule:: n100_tickers
+.. automodule:: n100tickers
    :member-order: bysource
 
 .. autofunction:: n100_tickers_sorted_for_date

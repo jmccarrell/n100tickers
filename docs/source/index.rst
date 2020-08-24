@@ -1,16 +1,16 @@
-.. n100-tickers documentation master file, created by
+.. n100tickers documentation master file, created by
    sphinx-quickstart on Sun Aug 23 12:22:32 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-n100-ticker: Nasdaq 100 ticker symbols by date
+n100tickers: Nasdaq 100 ticker symbols by date
 ==============================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-n100-ticker is a python3 library that provides date-aware consitutents of the NASDAQ 100 [#n100_overview]_.
+n100tickers is a python3 library that provides date-aware consitutents of the NASDAQ 100 [#n100_overview]_.
 As the members of this index change regularly [#n100_changes]_, the API provides a date-centric view.
 Ie, given a calendar date, return the set of ticker symbols that were in the index on that date.
 

@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('../../src/n100_tickers'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'n100-tickers'
+project = 'n100tickers'
 copyright = '2020, Jeff McCarrell'
 author = 'Jeff McCarrell'
 

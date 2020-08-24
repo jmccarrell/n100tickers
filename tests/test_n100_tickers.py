@@ -1,4 +1,4 @@
-from n100_tickers import __version__, n100_tickers_set_for_date
+from n100tickers import __version__, n100_tickers_set_for_date
 
 
 def test_version():
