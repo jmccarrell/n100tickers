@@ -22,7 +22,9 @@ copyright = '2020, Jeff McCarrell'
 author = 'Jeff McCarrell'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.1-alpha.0'
+from importlib.metadata import version as pkg_version
+version = pkg_version(project)
+release = version
 
 
 # -- General configuration ---------------------------------------------------
