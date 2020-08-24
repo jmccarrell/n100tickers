@@ -1,4 +1,5 @@
-"functions to help compute over the nasdaq 100"
+"""functions that return date-aware consituents of the NASDAQ 100 index."""
+
 import datetime
 from functools import lru_cache
 import importlib.resources
@@ -7,7 +8,16 @@ from typing import Iterable
 
 
 def n100_tickers_sorted_for_date(year: int = 2020, month: int = 1, day: int = 1) -> Iterable[str]:
-    """return the nasdaq 100 ticker symbols in sorted order as of the date passed in."""
+    """
+    Return the nasdaq 100 ticker symbols in sorted order as of the date.
+
+    :param year: the year of the date for the query
+    :param month: month
+    :param day: days
+
+    :returns: an iterator that returns the ticker symbols in sorted order.
+
+    """
 
     tickers = list(n100_tickers_set_for_date(year=year, month=month, day=day))
     return (t for t in sorted(tickers))
@@ -19,7 +29,7 @@ def _load_tickers_from_yaml(year: int = 2020) -> dict:
     constituents of the nasdaq 100 index for any date in the given year
 
     """
-    module_name = "n100_tickers"
+    module_name = "n100tickers"
     resource_name = f"n100-ticker-changes-{year}.yml"
     if not importlib.resources.is_resource(module_name, resource_name):
         raise NotImplementedError(
@@ -31,7 +41,19 @@ def _load_tickers_from_yaml(year: int = 2020) -> dict:
 
 
 def n100_tickers_set_for_date(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
-    """given a calendar date, return a frozenset of nasdaq 100 tickers in the index on that date"""
+    """
+    Return a frozenset of NASDAQ 100 tickers in the index as of a date.
+
+    :param year: the year of the date for the query
+    :param month: month
+    :param day: days
+    :return: a set of ``str`` of symbol names in the index of of year, month, day.
+    :rtype: frozenset
+
+    >>> s = n100_tickers_set_for_date(2020, 6, 1)
+    >>> print(next(s))
+    AMD
+    """
 
     tickers = _load_tickers_from_yaml(year=year)
     dates = list(map(lambda d: datetime.date.fromisoformat(d), sorted(list(tickers["changes"].keys()))))

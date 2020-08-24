@@ -16,6 +16,16 @@ Ie, given a calendar date, return the set of ticker symbols that were in the ind
 
 As of this writing, coverage is provided for the years 2018 through 2020.
 
+API
+---
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   api/*
+
+
 Indices and tables
 ==================
 
