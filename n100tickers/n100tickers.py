@@ -7,7 +7,7 @@ import yaml
 from typing import Iterable
 
 
-def n100_tickers_sorted_for_date(year: int = 2020, month: int = 1, day: int = 1) -> Iterable[str]:
+def sorted_tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> Iterable[str]:
     """
     Return the nasdaq 100 ticker symbols in sorted order as of the date.
 
@@ -18,11 +18,11 @@ def n100_tickers_sorted_for_date(year: int = 2020, month: int = 1, day: int = 1)
     :returns: an iterator that returns the ticker symbols in sorted order.
 
 
-    >>> next(n100_tickers_sorted_for_date(2020, 6, 1))
+    >>> next(sorted_tickers_as_of(2020, 6, 1))
     'AAPL'
     """
 
-    tickers = list(n100_tickers_set_for_date(year=year, month=month, day=day))
+    tickers = list(tickers_as_of(year=year, month=month, day=day))
     return (t for t in sorted(tickers))
 
 
@@ -43,7 +43,7 @@ def _load_tickers_from_yaml(year: int = 2020) -> dict:
     return yaml.safe_load(n100_tickers_yaml)
 
 
-def n100_tickers_set_for_date(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
+def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
     """
     Return a frozenset of NASDAQ 100 tickers in the index as of a date.
 
@@ -53,9 +53,9 @@ def n100_tickers_set_for_date(year: int = 2020, month: int = 1, day: int = 1) ->
     :return: a set of ``str`` of symbol names in the index of of year, month, day.
     :rtype: frozenset
 
-    >>> 'AMZN' in n100_tickers_set_for_date(2020, 6, 1)
+    >>> 'AMZN' in tickers_as_of(2020, 6, 1)
     True
-    >>> len(n100_tickers_set_for_date(2020, 6, 1)) >= 100
+    >>> len(tickers_as_of(2020, 6, 1)) >= 100
     True
     """
 

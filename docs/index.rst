@@ -20,7 +20,7 @@ As of this writing, coverage is provided for the years 2018 through 2020.
 Example
 -------
 
->>> 'AMZN' in n100_tickers_set_for_date(2020, 6, 1)
+>>> 'AMZN' in tickers_as_of(2020, 6, 1)
 True
 
 

@@ -5,6 +5,6 @@ n100tickers
 .. automodule:: n100tickers
    :member-order: bysource
 
-.. autofunction:: n100_tickers_sorted_for_date
+.. autofunction:: sorted_tickers_as_of
 
-.. autofunction:: n100_tickers_set_for_date
+.. autofunction:: tickers_as_of
