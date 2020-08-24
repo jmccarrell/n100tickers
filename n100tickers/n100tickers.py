@@ -17,6 +17,9 @@ def n100_tickers_sorted_for_date(year: int = 2020, month: int = 1, day: int = 1)
 
     :returns: an iterator that returns the ticker symbols in sorted order.
 
+
+    >>> next(n100_tickers_sorted_for_date(2020, 6, 1))
+    'AAPL'
     """
 
     tickers = list(n100_tickers_set_for_date(year=year, month=month, day=day))
@@ -50,9 +53,10 @@ def n100_tickers_set_for_date(year: int = 2020, month: int = 1, day: int = 1) ->
     :return: a set of ``str`` of symbol names in the index of of year, month, day.
     :rtype: frozenset
 
-    >>> s = n100_tickers_set_for_date(2020, 6, 1)
-    >>> print(next(s))
-    AMD
+    >>> 'AMZN' in n100_tickers_set_for_date(2020, 6, 1)
+    True
+    >>> len(n100_tickers_set_for_date(2020, 6, 1)) >= 100
+    True
     """
 
     tickers = _load_tickers_from_yaml(year=year)
