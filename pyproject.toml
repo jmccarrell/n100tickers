@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "n100tickers"
-version = "0.2.0-alpha.0"
+version = "0.2.0"
 description = "Return NASDAQ 100 ticker symbols by date."
 authors = ["Jeff McCarrell <jeff@mccarrell.org>"]
 
@@ -16,7 +16,7 @@ towncrier = "^19.2.0"
 
 [tool.towncrier]
 package = "n100tickers"
-newsfile = "docs/changelog.rst"
+filename = "docs/changelog.rst"
 
 [build-system]
 requires = ["poetry>=0.12"]

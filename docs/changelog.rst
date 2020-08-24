@@ -6,9 +6,8 @@ Release History
 
 .. towncrier release notes start
 
-
-n100tickers 0.2.0a0 (2020-08-23)
-================================
+N100Tickers 0.2.0 (2020-08-23)
+==============================
 
 Features
 --------
