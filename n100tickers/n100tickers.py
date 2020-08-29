@@ -3,8 +3,8 @@
 import datetime
 from functools import lru_cache
 import importlib.resources
-import yaml
 from typing import Iterable
+import yaml
 
 
 def sorted_tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> Iterable[str]:
@@ -28,10 +28,10 @@ def sorted_tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> Iter
 
 @lru_cache
 def _load_tickers_from_yaml(year: int = 2020) -> dict:
-    """load from the file system, parse, and return the structure defining the set operations to compute the
-    constituents of the nasdaq 100 index for any date in the given year
-
     """
+    Load and return the data structure defining nasdaq constituents for the given year.
+    """
+
     module_name = "n100tickers"
     resource_name = f"n100-ticker-changes-{year}.yml"
     if not importlib.resources.is_resource(module_name, resource_name):
@@ -49,7 +49,7 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
 
     :param year: the year of the date for the query
     :param month: month
-    :param day: days
+    :param day: day
     :return: a set of ``str`` of symbol names in the index of of year, month, day.
     :rtype: frozenset
 

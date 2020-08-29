@@ -54,6 +54,17 @@ def test_tickers_2020() -> None:
     assert tickers_2020_jan_1 == tickers_2019_dec_31
 
 
+def test_PDD_replaces_NTAP() -> None:
+    # On 24 Aug 2020, Pinduoduo, Inc. PDD replaced NetApp, Inc. NTAP in the NASDAQ-100 Index.
+    #  https://www.globenewswire.com/news-release/2020/08/15/2078875/0/en/Pinduoduo-Inc-to-Join-the-NASDAQ-100-Index-Beginning-August-24-2020.html
+    assert 'PDD' not in tickers_as_of(2020, 8, 21)
+    assert 'NTAP' in tickers_as_of(2020, 8, 21)
+    assert 'NTPA' not in tickers_as_of(2020, 8, 24)
+    assert 'PDD' in tickers_as_of(2020, 8, 24)
+    assert len(tickers_as_of(2020, 8, 21)) == 103
+    assert len(tickers_as_of(2020, 8, 24)) == 103
+
+
 def test_tickers_2019() -> None:
     # 6 tickers added and removed on 12/23/2019
     #  https://finance.yahoo.com/news/annual-changes-nasdaq-100-index-010510822.html
