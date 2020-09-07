@@ -1,4 +1,4 @@
-"""functions that return date-aware consituents of the NASDAQ 100 index."""
+"""Return the member companies of the NASDAQ 100 index as it has changed over time."""
 
 import datetime
 from functools import lru_cache
