@@ -1,3 +1,5 @@
+import datetime
+
 from n100tickers import tickers_as_of
 
 
@@ -6,102 +8,105 @@ def test_basics() -> None:
     assert len(tickers_as_of(2020, 6, 1)) >= 100
 
 
+def _test_one_swap(as_of_date: datetime.date,
+                   removed_ticker: str,
+                   added_ticker: str,
+                   expected_number_of_tickers: int) -> None:
+    tickers_on_change_date = tickers_as_of(as_of_date.year,
+                                           as_of_date.month,
+                                           as_of_date.day)
+    assert len(tickers_on_change_date) == expected_number_of_tickers
+    before_change_date = as_of_date - datetime.timedelta(days=1)
+    tickers_before_change_date = tickers_as_of(before_change_date.year,
+                                               before_change_date.month,
+                                               before_change_date.day)
+    assert len(tickers_before_change_date) == expected_number_of_tickers
+
+    assert removed_ticker in tickers_before_change_date
+    assert added_ticker not in tickers_before_change_date
+    assert removed_ticker not in tickers_on_change_date
+    assert added_ticker in tickers_on_change_date
+
+
+def _test_at_year_boundary(year: int, expected_number_of_tickers: int) -> None:
+    """prove the tickers at the beginning of the year match the set at the end of the
+    previous year.
+    """
+    begin_of_current_year = datetime.date.fromisoformat(f"{year}-01-01")
+    end_of_previous_year = begin_of_current_year - datetime.timedelta(days=1)
+
+    current_tickers = tickers_as_of(begin_of_current_year.year,
+                                    begin_of_current_year.month,
+                                    begin_of_current_year.day)
+    previous_tickers = tickers_as_of(end_of_previous_year.year,
+                                     end_of_previous_year.month,
+                                     end_of_previous_year.day)
+    assert previous_tickers == current_tickers
+
+
 def test_tickers_2020() -> None:
-    tickers_2020_jan_1 = tickers_as_of(2020, 1, 1)
-    assert len(tickers_2020_jan_1) == 103
+    num_tickers_2020: int = 103
 
-    #  On April 20, Dexcom replaced American Airlines Group in the index
-    tickers_2020_apr_19 = tickers_as_of(2020, 4, 19)
-    assert len(tickers_2020_apr_19) == 103
-    assert 'AAL' in tickers_2020_apr_19
-    assert 'DXCM' not in tickers_2020_apr_19
+    _test_at_year_boundary(2020, num_tickers_2020)
 
-    tickers_2020_apr_20 = tickers_as_of(2020, 4, 20)
-    assert len(tickers_2020_apr_20) == 103
-    assert 'AAL' not in tickers_2020_apr_20
-    assert 'DXCM' in tickers_2020_apr_20
+    # On April 20, Dexcom replaced American Airlines Group in the index
+    _test_one_swap(datetime.date.fromisoformat('2020-04-20'), 'AAL', 'DXCM', num_tickers_2020)
 
-    #  On April 30, Zoom Video Communications replaced Willis Towers Watson
-    assert 'WLTW' in tickers_2020_apr_20
-    assert 'ZM' not in tickers_2020_apr_20
+    # On April 30, Zoom Video Communications replaced Willis Towers Watson
+    _test_one_swap(datetime.date.fromisoformat('2020-04-30'), 'WLTW', 'ZM', num_tickers_2020)
 
-    tickers_2020_apr_30 = tickers_as_of(2020, 4, 30)
-    assert len(tickers_2020_apr_30) == 103
-    assert 'WLTW' not in tickers_2020_apr_30
-    assert 'ZM' in tickers_2020_apr_30
-
-    #  On June 22, DocuSign, Inc. (DOCU) will replace United Airlines Holdings, Inc. (Nasdaq: UAL)
-    assert 'UAL' in tickers_2020_apr_30
-    assert 'DOCU' not in tickers_2020_apr_30
-
-    tickers_2020_jun_22 = tickers_as_of(2020, 6, 22)
-    assert len(tickers_2020_jun_22) == 103
-    assert 'UAL' not in tickers_2020_jun_22
-    assert 'DOCU' in tickers_2020_jun_22
+    # On June 22, DocuSign, Inc. (DOCU) will replace United Airlines Holdings, Inc. (Nasdaq: UAL)
+    _test_one_swap(datetime.date.fromisoformat('2020-06-22'), 'UAL', 'DOCU', num_tickers_2020)
 
     # On Jul 20, Moderna MRNA replaces CoStar Group CGSP
-    #  https://www.globenewswire.com/news-release/2020/07/13/2061339/0/en/Moderna-Inc-to-Join-the-NASDAQ-100-Index-Beginning-July-20-2020.html
-    assert 'MRNA' not in tickers_2020_jun_22
-    assert 'CSGP' in tickers_2020_jun_22
+    # https://www.globenewswire.com/news-release/2020/07/13/2061339/0/en/Moderna-Inc-to-Join-the-NASDAQ-100-Index-Beginning-July-20-2020.html
+    _test_one_swap(datetime.date.fromisoformat('2020-07-20'), 'CSGP', 'MRNA', num_tickers_2020)
 
-    tickers_2020_jul_20 = tickers_as_of(2020, 7, 20)
-    assert len(tickers_2020_jul_20) == 103
-    assert 'CSGP' not in tickers_2020_jul_20
-    assert 'MRNA' in tickers_2020_jul_20
-
-    # ensure we are consistent at year end / year beginning
-    tickers_2019_dec_31 = tickers_as_of(2019, 12, 31)
-    assert tickers_2020_jan_1 == tickers_2019_dec_31
-
-
-def test_PDD_replaces_NTAP() -> None:
     # On 24 Aug 2020, Pinduoduo, Inc. PDD replaced NetApp, Inc. NTAP in the NASDAQ-100 Index.
-    #  https://www.globenewswire.com/news-release/2020/08/15/2078875/0/en/Pinduoduo-Inc-to-Join-the-NASDAQ-100-Index-Beginning-August-24-2020.html
-    assert 'PDD' not in tickers_as_of(2020, 8, 21)
-    assert 'NTAP' in tickers_as_of(2020, 8, 21)
-    assert 'NTPA' not in tickers_as_of(2020, 8, 24)
-    assert 'PDD' in tickers_as_of(2020, 8, 24)
-    assert len(tickers_as_of(2020, 8, 21)) == 103
-    assert len(tickers_as_of(2020, 8, 24)) == 103
+    # https://www.globenewswire.com/news-release/2020/08/15/2078875/0/en/Pinduoduo-Inc-to-Join-the-NASDAQ-100-Index-Beginning-August-24-2020.html
+    _test_one_swap(datetime.date.fromisoformat('2020-08-24'), 'NTAP', 'PDD', 103)
 
 
 def test_tickers_2019() -> None:
+    num_tickers_2019: int = 103
+
+    _test_at_year_boundary(2019, num_tickers_2019)
+
     # 6 tickers added and removed on 12/23/2019
-    #  https://finance.yahoo.com/news/annual-changes-nasdaq-100-index-010510822.html
+    # https://finance.yahoo.com/news/annual-changes-nasdaq-100-index-010510822.html
     tickers_2019_dec_23 = tickers_as_of(2019, 12, 23)
-    assert len(tickers_2019_dec_23) == 103
+    assert len(tickers_2019_dec_23) == num_tickers_2019
     dec_23_removals = frozenset(('HAS', 'HSIC', 'JBHT', 'MYL', 'NLOK', 'WYNN'))
     assert tickers_2019_dec_23.isdisjoint(dec_23_removals)
     dec_23_additions = frozenset(('ANSS', 'CDW', 'CPRT', 'CSGP', 'SGEN', 'SPLK'))
     assert dec_23_additions.issubset(tickers_2019_dec_23)
 
     tickers_2019_dec_20 = tickers_as_of(2019, 12, 20)
-    assert len(tickers_2019_dec_20) == 103
+    assert len(tickers_2019_dec_20) == num_tickers_2019
     assert dec_23_removals.issubset(tickers_2019_dec_20)
     assert tickers_2019_dec_20.isdisjoint(dec_23_additions)
 
     # 1 swap Nov 19
-    #  https://www.nasdaq.com/press-release/exelon-corporation-to-join-the-nasdaq-100-index-beginning-november-21-2019-2019-11-18
-    tickers_2019_nov_19 = tickers_as_of(2019, 11, 19)
-    assert len(tickers_2019_nov_19) == 103
-    assert 'CELG' not in tickers_2019_nov_19
-    assert 'EXC' in tickers_2019_nov_19
-    tickers_2019_nov_18 = tickers_as_of(2019, 11, 18)
-    assert len(tickers_2019_nov_18) == 103
-    assert 'CELG' in tickers_2019_nov_18
-    assert 'EXC' not in tickers_2019_nov_18
+    # https://www.nasdaq.com/press-release/exelon-corporation-to-join-the-nasdaq-100-index-beginning-november-21-2019-2019-11-18
+    _test_one_swap(datetime.date.fromisoformat('2019-11-19'), 'CELG', 'EXC', num_tickers_2019)
 
-    # there was a record of 21st Century Fox changing to Fox Corp.  But as near as I can tell, the ticker symbols were the same.
+    # there was a record of 21st Century Fox changing to Fox Corp.  But as near as I can tell, the ticker
+    # symbols were the same.
 
 
 def test_tickers_2018() -> None:
+    num_tickers_2018: int = 103
+
+    # put this back in when we add support for 2017
+    # _test_at_year_boundary(2018, num_tickers_2018)
+
     # 6 tickers added and removed on 12/24/2018
-    #  https://www.nasdaq.com/about/press-center/annual-changes-nasdaq-100-index-0
+    # https://www.nasdaq.com/about/press-center/annual-changes-nasdaq-100-index-0
     tickers_2018_dec_23 = tickers_as_of(2018, 12, 23)
-    assert len(tickers_2018_dec_23) == 103
+    assert len(tickers_2018_dec_23) == num_tickers_2018
 
     tickers_2018_dec_24 = tickers_as_of(2018, 12, 24)
-    assert len(tickers_2018_dec_24) == 103
+    assert len(tickers_2018_dec_24) == num_tickers_2018
 
     dec_24_removals = frozenset(('ESRX', 'HOLX', 'QRTEA', 'SHPG', 'STX', 'VOD'))
     assert dec_24_removals.issubset(tickers_2018_dec_23)
@@ -110,38 +115,13 @@ def test_tickers_2018() -> None:
     assert dec_24_additions.issubset(tickers_2018_dec_24)
 
     # 11/19/2018 XEL replaces XRAY
-    #  https://www.nasdaq.com/about/press-center/xcel-energy-inc-join-nasdaq-100-index-beginning-november-19-2018
-    tickers_2018_nov_18 = tickers_as_of(2018, 11, 18)
-    assert len(tickers_2018_nov_18) == 103
-    tickers_2018_nov_19 = tickers_as_of(2018, 11, 19)
-    assert len(tickers_2018_nov_19) == 103
-
-    nov_19_removals = frozenset(('XRAY',))
-    assert nov_19_removals.issubset(tickers_2018_nov_18)
-    assert nov_19_removals.isdisjoint(tickers_2018_nov_19)
-    nov_19_additions = frozenset(('XEL',))
-    nov_19_additions.issubset(tickers_2018_nov_19)
-    nov_19_additions.isdisjoint(tickers_2018_nov_18)
+    # https://www.nasdaq.com/about/press-center/xcel-energy-inc-join-nasdaq-100-index-beginning-november-19-2018
+    _test_one_swap(datetime.date.fromisoformat('2018-11-19'), 'XRAY', 'XEL', num_tickers_2018)
 
     # 11/5/2018 NXPI replaces CA
-    #  (link broken): https://business.nasdaq.com/mediacenter/pressreleases/1831989/nxp-semiconductors-nv-to-join-the-nasdaq-100-index-beginning-november-5-2018
-    tickers_2018_nov_4 = tickers_as_of(2018, 11, 4)
-    assert len(tickers_2018_nov_4) == 103
-
-    nov_5_removals = frozenset(('CA',))
-    assert nov_5_removals.issubset(tickers_2018_nov_4)
-    assert nov_5_removals.isdisjoint(tickers_2018_nov_18)
-    nov_5_additions = frozenset(('NXPI',))
-    assert nov_5_additions.issubset(tickers_2018_nov_18)
-    assert nov_5_additions.isdisjoint(tickers_2018_nov_4)
+    # (link broken):
+    # https://business.nasdaq.com/mediacenter/pressreleases/1831989/nxp-semiconductors-nv-to-join-the-nasdaq-100-index-beginning-november-5-2018
+    _test_one_swap(datetime.date.fromisoformat('2018-11-05'), 'CA', 'NXPI', num_tickers_2018)
 
     # 7/23/2018 PEP replaces DISH
-    tickers_2018_jul_22 = tickers_as_of(2018, 7, 22)
-    assert len(tickers_2018_jul_22) == 103
-
-    jul_23_removals = frozenset(('DISH',))
-    assert jul_23_removals.issubset(tickers_2018_jul_22)
-    assert jul_23_removals.isdisjoint(tickers_2018_nov_4)
-    jul_23_additions = frozenset(('PEP',))
-    assert jul_23_additions.issubset(tickers_2018_nov_4)
-    assert jul_23_additions.isdisjoint(tickers_2018_jul_22)
+    _test_one_swap(datetime.date.fromisoformat('2018-07-23'), 'DISH', 'PEP', num_tickers_2018)
