@@ -14,7 +14,7 @@ Features
 
 - Refactor the test code: DRY it up.
 - Expand coverage to changes made to the Nasdaq 100 index components in 2017.
-  The source of truth for these additions was `wikipedia: https://en.wikipedia.org/wiki/NASDAQ-100#Changes_in_2017`_
+  The source of truth for these additions was wikipedia: `Nasdaq 100: Changes in 2017 <https://en.wikipedia.org/wiki/NASDAQ-100#Changes_in_2017>`_
 
 
 N100Tickers 0.2.1 (2020-08-29)
