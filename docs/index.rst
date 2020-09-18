@@ -18,7 +18,7 @@ n100tickers is a python3 library that provides a historical view of the member c
 provides a date-centric view.  Ie, given a calendar date, it will return the set of ticker symbols (eg,
 ``AAPL``) that were in the index on that date.
 
-As of version |version|, coverage is provided for Jan 1, 2018 through Aug 31, 2020.
+As of version |version|, accurate coverage is provided for Jan 1, 2017 through Sep 17, 2020.
 
 Example
 -------
