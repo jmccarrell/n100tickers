@@ -62,7 +62,7 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
     tickers = _load_tickers_from_yaml(year=year)
     dates = list(map(lambda d: datetime.date.fromisoformat(d), sorted(list(tickers["changes"].keys()))))
     query_date = datetime.date(year=year, month=month, day=day)
-    result = tickers["base_set"]
+    result = tickers["start_of_year_tickers"]
     for d in dates:
         if d <= query_date:
             ops = tickers["changes"][d.isoformat()]

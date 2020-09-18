@@ -1,6 +1,6 @@
 ---
 year: 2019
-base_set: !!set
+start_of_year_tickers: !!set
   ? AAL
   ? AAPL
   ? ADBE
