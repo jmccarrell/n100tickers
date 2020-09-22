@@ -1,6 +1,6 @@
 ---
-year: 2019
-start_of_year_tickers: !!set
+year: 2018
+tickers_on_Jan_1: !!set
   ? AAL
   ? AAPL
   ? ADBE
@@ -10,7 +10,6 @@ start_of_year_tickers: !!set
   ? ALGN
   ? ALXN
   ? AMAT
-  ? AMD
   ? AMGN
   ? AMZN
   ? ASML
@@ -20,6 +19,7 @@ start_of_year_tickers: !!set
   ? BIIB
   ? BKNG
   ? BMRN
+  ? CA
   ? CDNS
   ? CELG
   ? CERN
@@ -32,9 +32,11 @@ start_of_year_tickers: !!set
   ? CTAS
   ? CTSH
   ? CTXS
+  ? DISH
   ? DLTR
   ? EA
   ? EBAY
+  ? ESRX
   ? EXPE
   ? FAST
   ? FB
@@ -45,6 +47,7 @@ start_of_year_tickers: !!set
   ? GOOG
   ? GOOGL
   ? HAS
+  ? HOLX
   ? HSIC
   ? IDXX
   ? ILMN
@@ -59,7 +62,6 @@ start_of_year_tickers: !!set
   ? LBTYA
   ? LBTYK
   ? LRCX
-  ? LULU
   ? MAR
   ? MCHP
   ? MDLZ
@@ -71,52 +73,64 @@ start_of_year_tickers: !!set
   ? MYL
   ? NFLX
   ? NLOK
-  ? NTAP
   ? NTES
   ? NVDA
-  ? NXPI
   ? ORLY
   ? PAYX
   ? PCAR
-  ? PEP
   ? PYPL
   ? QCOM
+  ? QRTEA
   ? REGN
   ? ROST
   ? SBUX
+  ? SHPG
   ? SIRI
   ? SNPS
+  ? STX
   ? SWKS
   ? TCOM
   ? TMUS
   ? TSLA
   ? TTWO
   ? TXN
-  ? UAL
   ? ULTA
+  ? VOD
   ? VRSK
-  ? VRSN
   ? VRTX
   ? WBA
   ? WDAY
   ? WDC
-  ? WLTW
   ? WYNN
-  ? XEL
   ? XLNX
+  ? XRAY
 changes: {
-  '2019-12-23': {
+  '2018-12-24': {
     python_set_operators: [ '-', '|' ],
     rhs_operands: [
-      !!set {HAS, HSIC, JBHT, MYL, NLOK, WYNN},
-      !!set {ANSS, CDW, CPRT, CSGP, SGEN, SPLK},
+      !!set {ESRX, HOLX, QRTEA, SHPG, STX, VOD},
+      !!set {AMD, LULU, NTAP, UAL, VRSN, WLTW},
     ],
   },
-  '2019-11-19': {
+  '2018-11-19': {
     python_set_operators: [ '-', '|' ],
     rhs_operands: [
-      !!set {CELG},
-      !!set {EXC},
+      !!set {XRAY},
+      !!set {XEL},
+    ],
+  },
+  '2018-11-05': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {CA},
+      !!set {NXPI},
+    ],
+  },
+  '2018-07-23': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {DISH},
+      !!set {PEP},
     ],
   },
 }

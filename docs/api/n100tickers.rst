@@ -1,10 +1,8 @@
-============
-n100tickers
-============
+=========================
+nasdaq-100-ticker-history
+=========================
 
-.. automodule:: n100tickers
+.. automodule:: nasdaq_100_ticker_history
    :member-order: bysource
-
-.. autofunction:: sorted_tickers_as_of
 
 .. autofunction:: tickers_as_of

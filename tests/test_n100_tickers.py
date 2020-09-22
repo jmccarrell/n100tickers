@@ -1,6 +1,6 @@
 import datetime
 
-from n100tickers import tickers_as_of
+from nasdaq_100_ticker_history import tickers_as_of
 
 
 def test_basics() -> None:

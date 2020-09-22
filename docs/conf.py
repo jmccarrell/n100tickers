@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'n100tickers'
+project = 'nasdaq-100-ticker-history'
 copyright = '2020, Jeff McCarrell'
 author = 'Jeff McCarrell'
 

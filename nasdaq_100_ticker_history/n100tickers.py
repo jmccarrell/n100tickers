@@ -3,27 +3,7 @@
 import datetime
 from functools import lru_cache
 import importlib.resources
-from typing import Iterable
 import yaml
-
-
-def sorted_tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> Iterable[str]:
-    """
-    Return the nasdaq 100 ticker symbols in sorted order as of the date.
-
-    :param year: the year of the date for the query
-    :param month: month
-    :param day: days
-
-    :returns: an iterator that returns the ticker symbols in sorted order.
-
-
-    >>> next(sorted_tickers_as_of(2020, 6, 1))
-    'AAPL'
-    """
-
-    tickers = list(tickers_as_of(year=year, month=month, day=day))
-    return (t for t in sorted(tickers))
 
 
 @lru_cache
@@ -32,7 +12,7 @@ def _load_tickers_from_yaml(year: int = 2020) -> dict:
     Load and return the data structure defining nasdaq constituents for the given year.
     """
 
-    module_name = "n100tickers"
+    module_name = "nasdaq_100_ticker_history"
     resource_name = f"n100-ticker-changes-{year}.yml"
     if not importlib.resources.is_resource(module_name, resource_name):
         raise NotImplementedError(
@@ -50,19 +30,19 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
     :param year: the year of the date for the query
     :param month: month
     :param day: day
-    :return: a set of ``str`` of symbol names in the index of of year, month, day.
+    :return: a frozenset of ``str`` of symbol names in the index of of year, month, day.
     :rtype: frozenset
 
-    >>> 'AMZN' in tickers_as_of(2020, 6, 1)
+    >>> 'TSLA' in tickers_as_of(2020, 9, 1)
     True
-    >>> len(tickers_as_of(2020, 6, 1)) >= 100
+    >>> len(tickers_as_of(2020, 9, 1)) == 103
     True
     """
 
     tickers = _load_tickers_from_yaml(year=year)
     dates = list(map(lambda d: datetime.date.fromisoformat(d), sorted(list(tickers["changes"].keys()))))
     query_date = datetime.date(year=year, month=month, day=day)
-    result = tickers["start_of_year_tickers"]
+    result = tickers["tickers_on_Jan_1"]
     for d in dates:
         if d <= query_date:
             ops = tickers["changes"][d.isoformat()]
