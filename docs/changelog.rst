@@ -6,7 +6,16 @@ Release History
 
 .. towncrier release notes start
 
-Nasdaq_100_Ticker_History 0.3.0-alpha.0 (2020-09-23)
+Nasdaq_100_Ticker_History 0.3.1 (2020-11-27)
+============================================
+
+Features
+--------
+
+- Western Digital Corp (WDC) is replaced in the index by Keurig Dr Pepper Inc. (KDP) as of Oct 19, 2020.  `Source<https://www.globenewswire.com/news-release/2020/10/10/2106521/0/en/Keurig-Dr-Pepper-Inc-to-Join-the-NASDAQ-100-Index-Beginning-October-19-2020.html>`
+
+
+Nasdaq_100_Ticker_History 0.3.0 (2020-09-23)
 ====================================================
 
 Features

@@ -140,4 +140,11 @@ changes: {
       !!set {'PDD'},
     ],
   },
+  '2020-10-19': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {'WDC'},
+      !!set {'KDP'},
+    ],
+  },
  }

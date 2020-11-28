@@ -66,6 +66,10 @@ def test_tickers_2020() -> None:
     # https://www.globenewswire.com/news-release/2020/08/15/2078875/0/en/Pinduoduo-Inc-to-Join-the-NASDAQ-100-Index-Beginning-August-24-2020.html
     _test_one_swap(datetime.date.fromisoformat('2020-08-24'), 'NTAP', 'PDD', 103)
 
+    # Western Digital Corp (WDC) is replaced by Keurig Dr Pepper Inc. (KDP) as of Oct 19, 2020.
+    # https://www.globenewswire.com/news-release/2020/10/10/2106521/0/en/Keurig-Dr-Pepper-Inc-to-Join-the-NASDAQ-100-Index-Beginning-October-19-2020.html
+    _test_one_swap(datetime.date.fromisoformat('2020-10-19'), 'WDC', 'KDP', 103)
+
 
 def test_tickers_2019() -> None:
     num_tickers_2019: int = 103
