@@ -77,7 +77,7 @@ def test_2020_annual_changes() -> None:
     #
     # 6 companies added; 6 removed.  However, Liberty Global PLC has 2 symbols: (Nasdaq: LBTYA/LBTYK)
     # So total tickers change from 103 to 102.
-    # Effective date: 2020-12-11
+    # Effective date: 2020-12-21
     assert len(tickers_as_of(2020, 12, 18)) == 103
     tickers_removed_12_21 = frozenset(('BMRN', 'CTXS', 'EXPE', 'LBTYA', 'LBTYK', 'TTWO', 'ULTA'))
     assert tickers_removed_12_21.issubset(tickers_as_of(2020, 12, 18))
