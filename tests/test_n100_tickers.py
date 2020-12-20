@@ -71,6 +71,24 @@ def test_tickers_2020() -> None:
     _test_one_swap(datetime.date.fromisoformat('2020-10-19'), 'WDC', 'KDP', 103)
 
 
+def test_2020_annual_changes() -> None:
+    # Annual 2020 changes
+    # https://www.nasdaq.com/press-release/annual-changes-to-the-nasdaq-100-index-2020-12-11
+    #
+    # 6 companies added; 6 removed.  However, Liberty Global PLC has 2 symbols: (Nasdaq: LBTYA/LBTYK)
+    # So total tickers change from 103 to 102.
+    # Effective date: 2020-12-11
+    assert len(tickers_as_of(2020, 12, 18)) == 103
+    tickers_removed_12_21 = frozenset(('BMRN', 'CTXS', 'EXPE', 'LBTYA', 'LBTYK', 'TTWO', 'ULTA'))
+    assert tickers_removed_12_21.issubset(tickers_as_of(2020, 12, 18))
+    tickers_added_12_21 = frozenset(('AEP', 'MRVL', 'MTCH', 'OKTA', 'PTON', 'TEAM'))
+    assert tickers_added_12_21.isdisjoint(tickers_as_of(2020, 12, 18))
+
+    assert len(tickers_as_of(2020, 12, 21)) == 102
+    assert tickers_removed_12_21.isdisjoint(tickers_as_of(2020, 12, 21))
+    assert tickers_added_12_21.issubset(tickers_as_of(2020, 12, 21))
+
+
 def test_tickers_2019() -> None:
     num_tickers_2019: int = 103
 
