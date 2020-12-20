@@ -12,6 +12,7 @@
 #
 import os
 import sys
+import subprocess
 sys.path.insert(0, os.path.abspath('..'))
 
 
@@ -22,8 +23,12 @@ copyright = '2020, Jeff McCarrell'
 author = 'Jeff McCarrell'
 
 # The full version, including alpha/beta/rc tags
-from importlib.metadata import version as pkg_version
-version = pkg_version(project)
+# from importlib.metadata import version as pkg_version
+# version = pkg_version(project)
+
+# read the version directly from poetry
+sub_result = subprocess.run(['poetry', 'version', '--short'], capture_output=True, text=True, check=True)
+version = sub_result.stdout.strip()
 release = version
 
 

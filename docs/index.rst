@@ -14,11 +14,11 @@ nasdaq-100-ticker-history: Nasdaq 100 index company symbols over time
 
 
 nasdaq-100-ticker-history provides a historical view of the member companies of the NASDAQ 100
-[#n100_overview]_.  As the members companies of this index change regularly [#n100_changes]_, the API
+[#n100_overview]_.  As the member companies of this index change regularly [#n100_changes]_, the API
 provides a date-centric view.  Ie, given a calendar date, it will return the set of ticker symbols (eg,
 ``AAPL``) that were in the index on that date.
 
-As of version |version|, accurate coverage is provided for Jan 1, 2017 through Sep 22, 2020.
+As of version |release|, accurate coverage is provided for Jan 1, 2017 through Dec 21, 2020.
 
 Example
 -------
