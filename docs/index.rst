@@ -13,20 +13,27 @@ nasdaq-100-ticker-history: Nasdaq 100 index company symbols over time
    changelog
 
 
-nasdaq-100-ticker-history provides a historical view of the member companies of the NASDAQ 100
-[#n100_overview]_.  As the member companies of this index change regularly [#n100_changes]_, the API
-provides a date-centric view.  Ie, given a calendar date, it will return the set of ticker symbols (eg,
-``AAPL``) that were in the index on that date.
+``nasdaq-100-ticker-history`` provides the current set and a limited recent history of the stock symbols of
+the member companies of the NASDAQ 100 [#n100_overview]_ index.  As the member companies of this index
+change regularly [#n100_changes]_, the API is date-centric.  Ie, given a calendar date, it will return the
+set of ticker symbols (eg, ``AAPL``) that were in the index on that date.
 
-As of version |release|, accurate coverage is provided for Jan 1, 2017 through Dec 21, 2020.
+Coverage
+--------
 
-Example
--------
+As of version |release|, accurate coverage is provided for Jan 1, 2017 through at least Dec 21, 2020.  Most
+likely, the coverage is accurate into 2021 subject to additional changes being announced by Nasdaq.  A new
+version of the API is released on each update Nasdaq announces, typically with a time lag of a few days to a
+few weeks.  It is the intent of the project maintainers to provide accurate coverage on an ongoing basis.
+
+Examples
+--------
 
 >>> from nasdaq_100_ticker_history import tickers_as_of
 >>> 'AMZN' in tickers_as_of(2020, 6, 1)
 True
-
+>>> tuple(('OKTA' in tickers_as_of(y, 1, 1) for y in [2020, 2021]))
+(False, True)
 
 API
 ---
