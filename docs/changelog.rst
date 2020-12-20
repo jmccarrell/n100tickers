@@ -6,6 +6,15 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 0.3.3 (2020-12-20)
+============================================
+
+Features
+--------
+
+- Add support for calendar year 2021.
+
+
 Nasdaq_100_Ticker_History 0.3.2 (2020-12-19)
 ============================================
 
