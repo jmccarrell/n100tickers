@@ -44,6 +44,10 @@ def _test_at_year_boundary(year: int, expected_number_of_tickers: int) -> None:
     assert previous_tickers == current_tickers
 
 
+def test_year_boundary_2020_2021() -> None:
+    _test_at_year_boundary(2021, 102)
+
+
 def test_tickers_2020() -> None:
     num_tickers_2020: int = 103
 
