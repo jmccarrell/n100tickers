@@ -50,6 +50,9 @@ def test_tickers_2021() -> None:
     # On July 21, Honeywell replaces Alexion
     _test_one_swap(datetime.date.fromisoformat('2021-07-21'), 'ALXN', 'HON', num_tickers_2021)
 
+    # On Aug 26, Crowdstrike replaced Maxim Integrated Products, who is being acquired by Analog Devices.
+    _test_one_swap(datetime.date.fromisoformat('2021-08-26'), 'MXIM', 'CRWD', num_tickers_2021)
+
 
 def test_year_boundary_2020_2021() -> None:
     _test_at_year_boundary(2021, 102)

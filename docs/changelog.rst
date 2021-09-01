@@ -6,13 +6,22 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 0.4.1 (2021-08-31)
+============================================
+
+Features
+--------
+
+- On August 26, Crowdstrike replaced Maxim Integrated Products, who is being acquired by Analog Devices.  `Reference <https://en.wikipedia.org/wiki/Nasdaq-100#cite_ref-62>`_
+
+
 Nasdaq_100_Ticker_History 0.4.0 (2021-07-31)
 ============================================
 
 Features
 --------
 
-- Honeywell International Inc. to Join the NASDAQ-100 Index Beginning July 21, 2021.  `Reference <https://en.wikipedia.org/wiki/Nasdaq-100#cite_ref-56>`_
+- Honeywell International Inc. to Join the NASDAQ-100 Index Beginning July 21, 2021.  `Reference <https://en.wikipedia.org/wiki/Nasdaq-100#cite_ref-61>`_
 
 
 Nasdaq_100_Ticker_History 0.3.3 (2020-12-20)
