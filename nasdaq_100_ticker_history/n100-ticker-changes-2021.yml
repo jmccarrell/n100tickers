@@ -111,4 +111,11 @@ changes: {
       !!set {HON},
     ],
   },
+  '2021-08-26': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {MXIM},
+      !!set {CRWD},
+    ],
+  },
 }
