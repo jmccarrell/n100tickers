@@ -30,7 +30,7 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
     :param year: the year of the date for the query
     :param month: month
     :param day: day
-    :return: a frozenset of ``str`` of symbol names in the index of of year, month, day.
+    :return: a frozenset of ``str`` of symbol names in the index as of year, month, day.
     :rtype: frozenset
 
     >>> 'TSLA' in tickers_as_of(2020, 9, 1)
