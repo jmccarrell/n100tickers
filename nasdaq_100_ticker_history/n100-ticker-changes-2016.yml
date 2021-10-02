@@ -1,0 +1,163 @@
+---
+year: 2016
+tickers_on_Jan_1: !!set
+  ? AAL
+  ? AAPL
+  ? ADBE
+  ? ADI
+  ? ADP
+  ? ADSK
+  ? AKAM
+  ? ALXN
+  ? AMAT
+  ? AMGN
+  ? AMZN
+  ? ATVI
+  ? AVGO
+  ? BBBY
+  ? BIDU
+  ? BIIB
+  ? BKNG
+  ? BMRN
+  ? CA
+  ? CELG
+  ? CERN
+  ? CHKP
+  ? CHTR
+  ? CMCSA
+  ? COST
+  ? CSCO
+  ? CTSH
+  ? CTXS
+  ? DISCA
+  ? DISCK
+  ? DISH
+  ? DLTR
+  ? EA
+  ? EBAY
+  ? ENDP
+  ? ESRX
+  ? EXPE
+  ? FAST
+  ? FB
+  ? FISV
+  ? FOX
+  ? FOXA
+  ? GILD
+  ? GOOG
+  ? GOOGL
+  ? HSIC
+  ? ILMN
+  ? INCY
+  ? INTC
+  ? INTU
+  ? ISRG
+  ? JD
+  ? KHC
+  ? KLAC
+  ? LBTYA
+  ? LBTYK
+  ? LLTC
+  ? LMCA
+  ? LMCK
+  ? LRCX
+  ? MAR
+  ? MAT
+  ? MDLZ
+  ? MNST
+  ? MSFT
+  ? MU
+  ? MXIM
+  ? MYL
+  ? NCLH
+  ? NFLX
+  ? NLOK
+  ? NTAP
+  ? NXPI
+  ? NVDA
+  ? ORLY
+  ? PAYX
+  ? PCAR
+  ? PYPL
+  ? QCOM
+  ? QRTEA
+  ? REGN
+  ? ROST
+  ? SBAC
+  ? SBUX
+  ? SIRI
+  ? SNDK
+  ? SRCL
+  ? STX
+  ? SWKS
+  ? TCOM
+  ? TMUS
+  ? TRIP
+  ? TSCO
+  ? TSLA
+  ? TXN
+  ? ULTA
+  ? VIAB
+  ? VOD
+  ? VRSK
+  ? VRTX
+  ? WBA
+  ? WDC
+  ? WFM
+  ? XLNX
+  ? YHOO
+changes: {
+  # the main source of these changes is the wikipedia page:
+  #  https://en.wikipedia.org/wiki/NASDAQ-100#Changes_in_2016
+
+  '2016-02-22': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {KLAC},
+      !!set {CSX},
+    ],
+  },
+  '2016-03-16': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {SNDK},
+      !!set {NTES},
+    ],
+  },
+  '2016-04-18': {
+    python_set_operators: [ '|' ],
+    rhs_operands: [
+      !!set {BATRA, BATRK},
+    ],
+  },
+  '2016-06-10': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {LMCA, LMCK, BATRA, BATRK},
+      !!set {XRAY},
+    ],
+  },
+  '2016-07-18': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {ENDP},
+      !!set {MCHP},
+    ],
+  },
+  '2016-10-19': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {LLTC},
+      !!set {SHPG},
+    ],
+  },
+  # annual changes for 2016
+  #  https://ir.nasdaq.com/news-releases/news-release-details/annual-changes-nasdaq-100-index-5
+  '2016-12-19': {
+    python_set_operators: [ '-', '|' ],
+    rhs_operands: [
+      !!set {BBBY, NTAP, SRCL, WFM},
+      !!set {CTAS, HAS, HOLX, KLAC}
+    ],
+  },
+}

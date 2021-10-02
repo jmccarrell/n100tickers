@@ -6,6 +6,15 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 0.5.0 (2021-10-02)
+============================================
+
+Features
+--------
+
+- Add support for calendar year 2016, using the `2016 data from the Wikipedia Nasdaq-100 page. <https://en.wikipedia.org/wiki/Nasdaq-100#Changes_in_2016>`_
+
+
 Nasdaq_100_Ticker_History 0.4.1 (2021-08-31)
 ============================================
 
