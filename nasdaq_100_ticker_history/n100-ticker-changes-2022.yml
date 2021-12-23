@@ -1,14 +1,14 @@
 ---
-year: 2021
+year: 2022
 tickers_on_Jan_1: !!set
   ? AAPL
+  ? ABNB
   ? ADBE
   ? ADI
   ? ADP
   ? ADSK
   ? AEP
   ? ALGN
-  ? ALXN
   ? AMAT
   ? AMD
   ? AMGN
@@ -21,17 +21,16 @@ tickers_on_Jan_1: !!set
   ? BIIB
   ? BKNG
   ? CDNS
-  ? CDW
-  ? CERN
-  ? CHKP
   ? CHTR
   ? CMCSA
   ? COST
   ? CPRT
+  ? CRWD
   ? CSCO
   ? CSX
   ? CTAS
   ? CTSH
+  ? DDOG
   ? DLTR
   ? DOCU
   ? DXCM
@@ -41,14 +40,13 @@ tickers_on_Jan_1: !!set
   ? FAST
   ? FB
   ? FISV
-  ? FOX
-  ? FOXA
+  ? FTNT
   ? GILD
   ? GOOG
   ? GOOGL
+  ? HON
   ? IDXX
   ? ILMN
-  ? INCY
   ? INTC
   ? INTU
   ? ISRG
@@ -56,6 +54,7 @@ tickers_on_Jan_1: !!set
   ? KDP
   ? KHC
   ? KLAC
+  ? LCID
   ? LRCX
   ? LULU
   ? MAR
@@ -68,13 +67,13 @@ tickers_on_Jan_1: !!set
   ? MSFT
   ? MTCH
   ? MU
-  ? MXIM
   ? NFLX
   ? NTES
   ? NVDA
   ? NXPI
   ? OKTA
   ? ORLY
+  ? PANW
   ? PAYX
   ? PCAR
   ? PDD
@@ -90,7 +89,6 @@ tickers_on_Jan_1: !!set
   ? SNPS
   ? SPLK
   ? SWKS
-  ? TCOM
   ? TEAM
   ? TMUS
   ? TSLA
@@ -103,19 +101,6 @@ tickers_on_Jan_1: !!set
   ? XEL
   ? XLNX
   ? ZM
+  ? ZS
 changes: {
-  '2021-07-21': {
-    python_set_operators: [ '-', '|' ],
-    rhs_operands: [
-      !!set {ALXN},
-      !!set {HON},
-    ],
-  },
-  '2021-08-26': {
-    python_set_operators: [ '-', '|' ],
-    rhs_operands: [
-      !!set {MXIM},
-      !!set {CRWD},
-    ],
-  },
 }
