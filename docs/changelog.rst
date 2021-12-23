@@ -6,6 +6,16 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2022.1.0 (2021-12-22)
+============================================
+
+Features
+--------
+
+- Provide support for the usual end-of-year Nasdaq 100 updates
+    - Using as source data the wikipedia page: `Changes in 2021 <https://en.wikipedia.org/wiki/Nasdaq-100#Changes_in_2021>`
+- Change the versioning scheme: the major version is the calendar year
+
 Nasdaq_100_Ticker_History 0.5.0 (2021-10-02)
 ============================================
 
@@ -21,7 +31,7 @@ Nasdaq_100_Ticker_History 0.4.1 (2021-08-31)
 Features
 --------
 
-- On August 26, Crowdstrike replaced Maxim Integrated Products, who is being acquired by Analog Devices.  `Reference <https://en.wikipedia.org/wiki/Nasdaq-100#cite_ref-62>`_
+- On August 26 2021, Crowdstrike replaced Maxim Integrated Products, who is being acquired by Analog Devices.  `Reference <https://en.wikipedia.org/wiki/Nasdaq-100#cite_ref-62>`_
 
 
 Nasdaq_100_Ticker_History 0.4.0 (2021-07-31)

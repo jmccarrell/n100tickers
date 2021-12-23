@@ -44,6 +44,22 @@ def _test_at_year_boundary(year: int, expected_number_of_tickers: int) -> None:
     assert previous_tickers == current_tickers
 
 
+# def test_year_boundary_2021_2022() -> None:
+#     _test_at_year_boundary(2022, 102)
+
+
+# def test_2021_annual_changes() -> None:
+#     num_tickers_2021_end_of_year = 102
+#     # Annual 2021 changes
+#     # https://www.nasdaq.com/press-release/annual-changes-to-the-nasdaq-100-indexr-2021-12-10-0
+#     #
+#     # On December 10, 2021 Nasdaq announced that six new companies would join the index prior to the market open on December 20, 2021.
+#     # They are Airbnb (ABNB), Datadog (DDOG), Fortinet (FTNT), Lucid Group (LCID), Palo Alto Networks (PANW), and Zscaler (ZS).
+#     # They will replace CDW (CDW), Cerner (CERN), Check Point (CHKP), Fox Corporation (FOXA/FOX), Incyte (INCY), and Trip.com (TCOM).
+#     # https://greenstocknews.com/news/nasdaq/lcid/annual-changes-to-the-nasdaq-100-index
+#     assert len(tickers_as_of(2021, 12, 17)) == num_tickers_2021_end_of_year
+
+
 def test_tickers_2021() -> None:
     num_tickers_2021 = 102
 

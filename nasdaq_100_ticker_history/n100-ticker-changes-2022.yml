@@ -118,11 +118,4 @@ changes: {
       !!set {CRWD},
     ],
   },
-  '2021-12-20': {
-    python_set_operators: [ '-', '|' ],
-    rhs_operands: [
-      !!set {CDW, CERN, CHKP, FOX, FOXA, INCY, TCOM},
-      !!set {ABNB, DDOG, FTNT, LCID, PANW, ZS},
-    ],
-  },
 }
