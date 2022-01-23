@@ -6,7 +6,16 @@ Release History
 
 .. towncrier release notes start
 
-Nasdaq_100_Ticker_History 2022.1.0 (2021-12-22)
+Nasdaq_100_Ticker_History 2022.1.0 (2022-01-22)
+==============================================
+
+Features
+--------
+
+- Prior to market open on Monday, January 24, 2022. Old Dominion Freight Line, Inc. (Nasdaq: ODFL) will replace Peloton Interactive, Inc. (Nasdaq: PTON) in the NASDAQ-100 Index®.
+
+
+Nasdaq_100_Ticker_History 2022.0.0 (2021-12-22)
 ============================================
 
 Features
@@ -15,6 +24,7 @@ Features
 - Provide support for the usual end-of-year Nasdaq 100 updates
     - Using as source data the wikipedia page: `Changes in 2021 <https://en.wikipedia.org/wiki/Nasdaq-100#Changes_in_2021>`
 - Change the versioning scheme: the major version is the calendar year
+
 
 Nasdaq_100_Ticker_History 0.5.0 (2021-10-02)
 ============================================

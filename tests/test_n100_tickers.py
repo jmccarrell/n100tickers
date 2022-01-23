@@ -44,6 +44,13 @@ def _test_at_year_boundary(year: int) -> None:
     assert previous_tickers == current_tickers
 
 
+def test_tickers_2022() -> None:
+    num_tickers_2022 = 101
+
+    # On Jan 24, Old Dominion replaces Peloton
+    _test_one_swap(datetime.date.fromisoformat('2022-01-24'), 'PTON', 'ODFL', num_tickers_2022)
+
+
 def test_year_boundary_2021_2022() -> None:
     _test_at_year_boundary(2022)
 
