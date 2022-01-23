@@ -105,7 +105,7 @@ tickers_on_Jan_1: !!set
 
 changes: {
   '2022-01-24': {
-    python_set_operators: [ '-', '|' ],
+    python_set_operators: ['-', '|'],
     rhs_operands: [
       !!set {PTON},
       !!set {ODFL},

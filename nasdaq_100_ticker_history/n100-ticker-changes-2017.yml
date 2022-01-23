@@ -110,35 +110,35 @@ changes: {
   #  https://en.wikipedia.org/wiki/NASDAQ-100#Changes_in_2017
 
   '2017-02-07': {
-    python_set_operators: [ '-', '|' ],
+    python_set_operators: ['-', '|'],
     rhs_operands: [
       !!set {NXPI},
       !!set {JBHT},
     ],
   },
   '2017-03-20': {
-    python_set_operators: [ '-', '|' ],
+    python_set_operators: ['-', '|'],
     rhs_operands: [
       !!set {SBAC},
       !!set {IDXX},
     ],
   },
   '2017-04-24': {
-    python_set_operators: [ '-', '|' ],
+    python_set_operators: ['-', '|'],
     rhs_operands: [
       !!set {TRIP},
       !!set {WYNN},
     ],
   },
   '2017-06-19': {
-    python_set_operators: [ '-', '|' ],
+    python_set_operators: ['-', '|'],
     rhs_operands: [
       !!set {YHOO},
       !!set {MELI},
     ],
   },
   '2017-10-23': {
-    python_set_operators: [ '-', '|' ],
+    python_set_operators: ['-', '|'],
     rhs_operands: [
       !!set {MAT},
       !!set {ALGN},
@@ -146,9 +146,10 @@ changes: {
   },
   # annual changes for 2017
   #  https://www.nasdaq.com/about/press-center/annual-changes-nasdaq-100-index-2
-  # this was a remove 6 and add 5 change due to two classes of Discovery Communications: DISCA and DISCK
+  # this was a remove 6 and add 5 change due to two classes of
+  #  Discovery Communications: DISCA and DISCK
   '2017-12-18': {
-    python_set_operators: [ '-', '|' ],
+    python_set_operators: ['-', '|'],
     rhs_operands: [
       !!set {AKAM, DISCA, DISCK, NCLH, TSCO, VIAB},
       !!set {ASML, CDNS, SNPS, TTWO, WDAY},

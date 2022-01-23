@@ -106,14 +106,14 @@ tickers_on_Jan_1: !!set
   ? XLNX
 changes: {
   '2019-12-23': {
-    python_set_operators: [ '-', '|' ],
+    python_set_operators: ['-', '|'],
     rhs_operands: [
       !!set {HAS, HSIC, JBHT, MYL, NLOK, WYNN},
       !!set {ANSS, CDW, CPRT, CSGP, SGEN, SPLK},
     ],
   },
   '2019-11-19': {
-    python_set_operators: [ '-', '|' ],
+    python_set_operators: ['-', '|'],
     rhs_operands: [
       !!set {CELG},
       !!set {EXC},
