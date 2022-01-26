@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'nasdaq-100-ticker-history'
-copyright = '2021, Jeff McCarrell'
+copyright = '2021 - 2022, Jeff McCarrell'
 author = 'Jeff McCarrell'
 
 # The full version, including alpha/beta/rc tags
