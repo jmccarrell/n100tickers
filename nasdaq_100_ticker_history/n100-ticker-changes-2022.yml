@@ -111,4 +111,17 @@ changes: {
       !!set {ODFL},
     ],
   },
+  '2022-02-02': {
+    python_set_operators: ['|'],
+    rhs_operands: [
+      !!set {CEG},
+    ],
+  },
+  '2022-02-22': {
+    python_set_operators: ['-', '|'],
+    rhs_operands: [
+      !!set {XLNX},
+      !!set {AZN},
+    ],
+  },
 }
