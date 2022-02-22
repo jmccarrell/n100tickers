@@ -6,6 +6,18 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2022.2.0 (2022-02-21)
+==============================================
+
+Features
+--------
+
+- Excelon Corp (Nasdaq: EXC) announced it completed the separation of Constellation Energy Corp. (Nasdaq: CEG).  After review, Nasdaq has determined that Constellation Energy Corp. will remain as a component of the NASDAQ-100 Index®.  Thus CEG is added as of 2 Feb 2022.  `Reference<https://finance.yahoo.com/news/constellation-energy-corp-joined-nasdaq-010000704.html>`_
+
+- Nasdaq (NDAQ) announced that AstraZeneca PLC - ADR (AZN), will become a component of the NASDAQ-100 Index (NDX) and the NASDAQ-100 Equal Weighted Index (NDXE) prior to market open on February 22, 2022. AstraZeneca PLC - ADR will replace Xilinx Inc. (XLNX) in the NASDAQ-100 Index® and the NASDAQ-100 Equal Weighted Index.  `Reference <https://www.nasdaq.com/articles/astrazeneca-to-join-nasdaq-100-index>`_
+    - Advanced Micro Devices (AMD) is acquiring Xilinx in a transaction expected to be completed on or about February 14.
+
+
 Nasdaq_100_Ticker_History 2022.1.0 (2022-01-22)
 ==============================================
 
@@ -22,7 +34,7 @@ Features
 --------
 
 - Provide support for the usual end-of-year Nasdaq 100 updates
-    - Using as source data the wikipedia page: `Changes in 2021 <https://en.wikipedia.org/wiki/Nasdaq-100#Changes_in_2021>`
+    - Using as source data the wikipedia page: `Changes in 2021 <https://en.wikipedia.org/wiki/Nasdaq-100#Changes_in_2021>`_
 - Change the versioning scheme: the major version is the calendar year
 
 
