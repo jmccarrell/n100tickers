@@ -6,16 +6,26 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2022.3.0 (2022-06-09)
+==============================================
+
+Features
+--------
+
+Meta Platforms, Inc. (Nasdaq: FB) today announced that its Class A common stock will begin trading on NASDAQ under the ticker symbol 'META' prior to market open on June 9, 2022.
+`Reference <https://www.nasdaq.com/press-release/meta-platforms-inc.-to-change-ticker-symbol-to-meta-on-june-9-2022-05-31>`_
+
+
 Nasdaq_100_Ticker_History 2022.2.0 (2022-02-21)
 ==============================================
 
 Features
 --------
 
-- Excelon Corp (Nasdaq: EXC) announced it completed the separation of Constellation Energy Corp. (Nasdaq: CEG).  After review, Nasdaq has determined that Constellation Energy Corp. will remain as a component of the NASDAQ-100 Index®.  Thus CEG is added as of 2 Feb 2022.  `Reference<https://finance.yahoo.com/news/constellation-energy-corp-joined-nasdaq-010000704.html>`_
+- Excelon Corp (Nasdaq: EXC) announced it completed the separation of Constellation Energy Corp. (Nasdaq: CEG).  After review, Nasdaq has determined that Constellation Energy Corp. will remain as a component of the NASDAQ-100 Index®.  Thus CEG is added as of 2 Feb 2022.  `Reference <https://finance.yahoo.com/news/constellation-energy-corp-joined-nasdaq-010000704.html>`_
 
 - Nasdaq (NDAQ) announced that AstraZeneca PLC - ADR (AZN), will become a component of the NASDAQ-100 Index (NDX) and the NASDAQ-100 Equal Weighted Index (NDXE) prior to market open on February 22, 2022. AstraZeneca PLC - ADR will replace Xilinx Inc. (XLNX) in the NASDAQ-100 Index® and the NASDAQ-100 Equal Weighted Index.  `Reference <https://www.nasdaq.com/articles/astrazeneca-to-join-nasdaq-100-index>`_
-    - Advanced Micro Devices (AMD) is acquiring Xilinx in a transaction expected to be completed on or about February 14.
+    - Advanced Micro Devices (AMD) is acquiring Xilinx in a transaction expected to be completed on or about February 14 2022.
 
 
 Nasdaq_100_Ticker_History 2022.1.0 (2022-01-22)

@@ -124,4 +124,11 @@ changes: {
       !!set {AZN},
     ],
   },
+  '2022-06-09': {
+    python_set_operators: ['-', '|'],
+    rhs_operands: [
+      !!set {FB},
+      !!set {META},
+    ],
+  },
 }

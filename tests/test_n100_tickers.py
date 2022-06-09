@@ -61,6 +61,9 @@ def test_tickers_2022() -> None:
     # So AstraZeneca AZN replaces XLNX as of 22 Feb 2022.
     _test_one_swap(datetime.date.fromisoformat('2022-02-22'), 'XLNX', 'AZN', num_tickers_2022)
 
+    # On Jun 9, FB became META
+    _test_one_swap(datetime.date.fromisoformat('2022-06-09'), 'FB', 'META', num_tickers_2022)
+
 
 def test_year_boundary_2021_2022() -> None:
     _test_at_year_boundary(2022)
