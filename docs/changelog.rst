@@ -12,6 +12,16 @@ Nasdaq_100_Ticker_History 2022.3.0 (2022-06-09)
 Features
 --------
 
+Update python dependencies to address a moderate severity CVE in the py module.
+`Reference <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-42969>`_
+
+
+Nasdaq_100_Ticker_History 2022.3.0 (2022-06-09)
+==============================================
+
+Features
+--------
+
 Meta Platforms, Inc. (Nasdaq: FB) today announced that its Class A common stock will begin trading on NASDAQ under the ticker symbol 'META' prior to market open on June 9, 2022.
 `Reference <https://www.nasdaq.com/press-release/meta-platforms-inc.-to-change-ticker-symbol-to-meta-on-june-9-2022-05-31>`_
 
