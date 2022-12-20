@@ -6,6 +6,22 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2023.0.0 (2022-12-19)
+==============================================
+
+Features
+--------
+
+On November 21, Enphase Energy replaced Okta.  `Reference <https://en.wikipedia.org/wiki/Nasdaq-100#Changes_in_2022>`_
+
+Update Nasdaq 100 index entries following the standard annual update, which takes effect on 2022-12-19.  `Reference <https://en.wikipedia.org/wiki/Nasdaq-100#Changes_in_2022>`_
+
+Update importlib.resources usage to follow the new interface.  `Reference <https://docs.python.org/3/library/importlib.resources.html#deprecated-functions>`_
+
+Update python dependencies to address a moderate severity CVE in the certifi module.
+`Reference <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23491>`_
+
+
 Nasdaq_100_Ticker_History 2022.3.0 (2022-06-09)
 ==============================================
 

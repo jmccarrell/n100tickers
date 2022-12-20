@@ -21,8 +21,8 @@ set of ticker symbols (eg, ``AAPL``) that were in the index on that date.
 Coverage
 --------
 
-As of version |release|, accurate coverage is provided from Jan 1, 2016 through at least Oct 25, 2022.  Most
-likely, the coverage is accurate further into 2022 subject to additional changes being announced by Nasdaq.  A new
+As of version |release|, accurate coverage is provided from Jan 1, 2016 through at least Dec 19, 2022.  Most
+likely, the coverage is accurate further into 2023 subject to additional changes being announced by Nasdaq.  A new
 version of the API is released on each update Nasdaq announces, typically with a time lag of a few days to a
 few weeks.  It is the intent of the project maintainers to provide accurate coverage on an ongoing basis.
 
@@ -32,8 +32,8 @@ Examples
 >>> from nasdaq_100_ticker_history import tickers_as_of
 >>> 'AMZN' in tickers_as_of(2020, 6, 1)
 True
->>> tuple(('OKTA' in tickers_as_of(y, 1, 1) for y in [2020, 2021]))
-(False, True)
+>>> tuple(('OKTA' in tickers_as_of(y, 1, 1) for y in [2020, 2021, 2022, 2023]))
+(False, True, True, False)
 
 API
 ---

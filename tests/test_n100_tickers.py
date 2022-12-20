@@ -44,6 +44,32 @@ def _test_at_year_boundary(year: int) -> None:
     assert previous_tickers == current_tickers
 
 
+def test_year_boundary_2022_2023() -> None:
+    _test_at_year_boundary(2023)
+
+
+def test_2022_annual_changes() -> None:
+    # Annual changes 2022:
+    # On December 19, the annual re-ranking of the index took place prior to market open.
+    # The six stocks joining the index were CoStar Group, Rivian Automotive, Warner Bros. Discovery,
+    # GlobalFoundries, Baker Hughes, and Diamondback Energy.
+    # They replaced Baidu, DocuSign, Match Group, NetEase, Skyworks Solutions, Splunk, and Verisign.
+    # Dropping seven components allowed the Nasdaq-100 index to once again have 100 companies.
+
+    # there are 100 companies, but 101 tickers becuase of GOOG and GOOGL
+    num_tickers_2022_end_of_year = 101
+
+    assert len(tickers_as_of(2022, 12, 15)) == num_tickers_2022_end_of_year + 1
+    tickers_removed_2022_12_19 = frozenset(('BIDU', 'DOCU', 'MTCH', 'NTES', 'SPLK', 'VRSN'))
+    assert tickers_removed_2022_12_19.issubset(tickers_as_of(2022, 12, 15))
+    tickers_added_2022_12_19 = frozenset(('BKR', 'CSGP', 'FANG', 'GFS', 'RVIN', 'WBD'))
+    assert tickers_added_2022_12_19.isdisjoint(tickers_as_of(2022, 12, 15))
+
+    assert len(tickers_as_of(2022, 12, 19)) == num_tickers_2022_end_of_year
+    assert tickers_removed_2022_12_19.isdisjoint(tickers_as_of(2022, 12, 19))
+    assert tickers_added_2022_12_19.issubset(tickers_as_of(2022, 12, 19))
+
+
 def test_tickers_2022() -> None:
     num_tickers_2022 = 101
 
@@ -63,6 +89,9 @@ def test_tickers_2022() -> None:
 
     # On Jun 9, FB became META
     _test_one_swap(datetime.date.fromisoformat('2022-06-09'), 'FB', 'META', num_tickers_2022)
+
+    # On Nov 21, OKTA is replaced by Enphase Energy ENPH
+    _test_one_swap(datetime.date.fromisoformat('2022-11-21'), 'OKTA', 'ENPH', num_tickers_2022)
 
 
 def test_year_boundary_2021_2022() -> None:
