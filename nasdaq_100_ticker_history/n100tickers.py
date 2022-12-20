@@ -9,17 +9,20 @@ import yaml
 @lru_cache
 def _load_tickers_from_yaml(year: int = 2020) -> dict:
     """
-    Load and return the data structure defining nasdaq constituents for the given year.
+    Load and return the dictionary defining nasdaq constituents for the given year.
     """
 
     module_name = "nasdaq_100_ticker_history"
     resource_name = f"n100-ticker-changes-{year}.yml"
-    if not importlib.resources.is_resource(module_name, resource_name):
+    resource = importlib.resources.files(module_name).joinpath(resource_name)
+
+    if not resource.exists():
         raise NotImplementedError(
-            f"no nasdaq 100 tickers defined for {year}; cant find resource {resource_name}"
+            f"no nasdaq 100 tickers defined for {year}; "
+            "cant find resource {resource_name} in package {module_name}"
         )
 
-    n100_tickers_yaml = importlib.resources.read_text(module_name, resource_name)
+    n100_tickers_yaml = resource.read_text(encoding="utf-8")
     return yaml.safe_load(n100_tickers_yaml)
 
 
