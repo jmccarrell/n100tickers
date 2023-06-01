@@ -6,6 +6,15 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2023.1.0 (2023-06-01)
+==============================================
+
+Features
+--------
+
+Update python dependencies for a Github-rated medium risk vulnerability in the requests library.  `Reference <https://nvd.nist.gov/vuln/detail/CVE-2023-32681>`_
+
+
 Nasdaq_100_Ticker_History 2023.0.0 (2022-12-19)
 ==============================================
 
