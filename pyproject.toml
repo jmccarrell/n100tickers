@@ -9,8 +9,16 @@ license = "MIT"
 python = "^3.9"
 pyyaml = "^5.3.1"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
 pytest = "^7.0"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
 sphinx = "^3.2.1"
 doc2dash = "^2.3.0"
 towncrier = "^19.2.0"
