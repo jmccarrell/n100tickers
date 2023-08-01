@@ -6,6 +6,20 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2023.2.0 (2023-08-01)
+==============================================
+
+Features
+--------
+
+Add June and July Nasdaq changes:
+  - On June 7, GE HealthCare Technologies replaced Fiserv.
+  - On June 20, Onsemi replaced Rivian.
+  - On July 17, The Trade Desk replaced Activision Blizzard.
+
+Update python dependencies for a Github-rated low risk vulnerability in the certifi library.  CVE-2023-37920.
+
+
 Nasdaq_100_Ticker_History 2023.1.0 (2023-06-01)
 ==============================================
 

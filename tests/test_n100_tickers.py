@@ -44,6 +44,18 @@ def _test_at_year_boundary(year: int) -> None:
     assert previous_tickers == current_tickers
 
 
+def test_jun_jul_2023_changes() -> None:
+    # On June 7, GE HealthCare Technologies replaced Fiserv.
+    # On June 20, Onsemi replaced Rivian.
+    # On July 17, The Trade Desk replaced Activision Blizzard.
+    num_tickers_2023 = 101
+    assert len(tickers_as_of(2023, 1, 1)) == num_tickers_2023
+
+    _test_one_swap(datetime.date.fromisoformat('2023-06-07'), 'FISV', 'GHEC', num_tickers_2023)
+    _test_one_swap(datetime.date.fromisoformat('2023-06-20'), 'RVIN', 'ON', num_tickers_2023)
+    _test_one_swap(datetime.date.fromisoformat('2023-07-17'), 'ATVI', 'TTD', num_tickers_2023)
+
+
 def test_year_boundary_2022_2023() -> None:
     _test_at_year_boundary(2023)
 
