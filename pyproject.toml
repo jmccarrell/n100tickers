@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nasdaq-100-ticker-history"
-version = "2023.2.0"
+version = "2023.3.0"
 description = "Return NASDAQ 100 ticker symbols by date."
 authors = ["Jeff McCarrell <jeff@mccarrell.org>"]
 license = "MIT"

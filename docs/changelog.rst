@@ -6,6 +6,14 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2023.3.0 (2023-10-03)
+==============================================
+
+Features
+--------
+
+Update python dependencies for a Github-rated medium risk vulnerability in the urllib3 library. `Reference <https://github.com/advisories/GHSA-v845-jxx5-vc9f>`_
+
 Nasdaq_100_Ticker_History 2023.2.0 (2023-08-01)
 ==============================================
 
