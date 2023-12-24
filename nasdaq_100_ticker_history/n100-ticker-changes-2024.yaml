@@ -1,5 +1,5 @@
 ---
-year: 2023
+year: 2024
 tickers_on_Jan_1: !!set
   ? AAPL
   ? ABNB
@@ -8,20 +8,20 @@ tickers_on_Jan_1: !!set
   ? ADP
   ? ADSK
   ? AEP
-  ? ALGN
   ? AMAT
   ? AMD
   ? AMGN
   ? AMZN
   ? ANSS
   ? ASML
-  ? ATVI
   ? AVGO
   ? AZN
   ? BIIB
   ? BKNG
   ? BKR
+  ? CCEP
   ? CDNS
+  ? CDW
   ? CEG
   ? CHTR
   ? CMCSA
@@ -33,18 +33,17 @@ tickers_on_Jan_1: !!set
   ? CSX
   ? CTAS
   ? CTSH
+  ? DASH
   ? DDOG
   ? DLTR
   ? DXCM
   ? EA
-  ? EBAY
-  ? ENPH
   ? EXC
   ? FANG
   ? FAST
-  ? FISV
   ? FTNT
   ? GFS
+  ? GHEC
   ? GILD
   ? GOOG
   ? GOOGL
@@ -54,11 +53,9 @@ tickers_on_Jan_1: !!set
   ? INTC
   ? INTU
   ? ISRG
-  ? JD
   ? KDP
   ? KHC
   ? KLAC
-  ? LCID
   ? LRCX
   ? LULU
   ? MAR
@@ -66,6 +63,7 @@ tickers_on_Jan_1: !!set
   ? MDLZ
   ? MELI
   ? META
+  ? MDB
   ? MNST
   ? MRNA
   ? MRVL
@@ -75,6 +73,7 @@ tickers_on_Jan_1: !!set
   ? NVDA
   ? NXPI
   ? ODFL
+  ? "ON"
   ? ORLY
   ? PANW
   ? PAYX
@@ -84,15 +83,17 @@ tickers_on_Jan_1: !!set
   ? PYPL
   ? QCOM
   ? REGN
+  ? ROP
   ? ROST
-  ? RVIN
   ? SBUX
-  ? SGEN
   ? SIRI
   ? SNPS
+  ? SPLK
   ? TEAM
   ? TMUS
   ? TSLA
+  ? TTD
+  ? TTWO
   ? TXN
   ? VRSK
   ? VRTX
@@ -100,29 +101,7 @@ tickers_on_Jan_1: !!set
   ? WBD
   ? WDAY
   ? XEL
-  ? ZM
   ? ZS
 
 changes: {
-  '2023-06-07': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {FISV},
-      !!set {GHEC},
-    ],
-  },
-  '2023-06-20': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {RVIN},
-      !!set {"ON"},  # bareward ON get translated to True in evaluation; so quote it.
-    ],
-  },
-  '2023-07-17': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {ATVI},
-      !!set {TTD},
-    ],
-  },
 }
