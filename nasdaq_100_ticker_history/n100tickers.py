@@ -13,7 +13,7 @@ def _load_tickers_from_yaml(year: int = 2020) -> dict:
     """
 
     module_name = "nasdaq_100_ticker_history"
-    resource_name = f"n100-ticker-changes-{year}.yml"
+    resource_name = f"n100-ticker-changes-{year}.yaml"
     resource = importlib.resources.files(module_name).joinpath(resource_name)
 
     if not resource.exists():

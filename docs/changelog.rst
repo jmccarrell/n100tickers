@@ -6,6 +6,24 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2024.0.0 (2023-12-26)
+==============================================
+
+Features
+--------
+
+Apply the annual `Nasdaq 100 index changes for 2023. <https://en.wikipedia.org/wiki/Nasdaq-100#Changes_in_2023>`_
+
+There were two distinct changes:
+
+  - On Dec 14, SeaGen (SGEN) was dropped after its merger with Pfizer, it was replaced by Take-Two Interactive (TTWO).
+
+  - On Dec 18, the annual re-ranking was applied:
+    - CDW, Coca-Cola Europacific Partners (CCEP), DoorDash (DASH), MongoDB Inc (MDB), Roper Technologies (ROP) and Splunk (SPLK) were added.
+    - Align Technology Inc (ALGN), eBay (EBAY), Enphase Energy (ENPH), JD.com (JD), Lucid Group (LCID) and Zoom Video Communications (ZOOM) were dropped.
+
+Update python dependencies for a Github-rated medium risk vulnerability in the urllib3 library.  `Reference <https://github.com/advisories/GHSA-g4mx-q9vg-27p4>`_
+
 Nasdaq_100_Ticker_History 2023.3.0 (2023-10-03)
 ==============================================
 
