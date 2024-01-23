@@ -1,0 +1,48 @@
+name: test-on-PR
+
+on: [push pull_request workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # check out repo; set up recent python
+      - name: Check out repo
+        uses: actions/checkout@v4
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v
+        with:
+          python-version: '3.12'
+
+      # install and configure poetry
+      - name: Install poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+
+      # load cached venv if it exsists
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v3
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+
+      # install dependencies when no cache
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction --no-root
+
+      # install the project
+      - name: Install n100tickers
+        run: poetry install --no-interaction
+
+      # now test
+      - name: Run test suite
+        run: |
+          source .venv/bin/activate
+          pytest
+          
