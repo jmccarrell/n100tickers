@@ -5,8 +5,8 @@ from functools import lru_cache
 import importlib.resources
 from strictyaml import load, Map, MapPattern, Optional, Str, Int, UniqueSeq
 
-changes_schema = Map({"union": UniqueSeq(Str()),
-                      "difference": UniqueSeq(Str())})
+changes_schema = Map({Optional("union"): UniqueSeq(Str()),
+                      Optional("difference"): UniqueSeq(Str())})
 
 date_schema = MapPattern(Str(),
                          changes_schema)
