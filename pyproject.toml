@@ -6,7 +6,7 @@ authors = ["Jeff McCarrell <jeff@mccarrell.org>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 strictyaml = "^1.7.3"
 
 [tool.poetry.group.test]
