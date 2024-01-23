@@ -8,7 +8,7 @@ from strictyaml import load, Map, MapPattern, Optional, Str, Int, UniqueSeq
 changes_schema = Map({Optional("union"): UniqueSeq(Str()),
                       Optional("difference"): UniqueSeq(Str())})
 
-date_schema = MapPattern(Str(),
+date_schema = MapPattern(Str(),  # date of change encoded as YYYY-MM-DD
                          changes_schema)
 
 ticker_schema = Map({"year": Int(),
@@ -55,10 +55,9 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
 
     tickers = _load_tickers_from_yaml(year=year)
     result = set(tickers["tickers_on_Jan_1"])
-    query_date = datetime.date(year=year, month=month, day=day)
-    if "changes" in tickers:  # changes are optional
-        dates = list(map(datetime.date.fromisoformat, sorted(list(tickers["changes"].keys()))))
-        for d in dates:
+    if "changes" in tickers:  # changes happen sometime later in the year.
+        query_date = datetime.date(year=year, month=month, day=day)
+        for d in list(map(datetime.date.fromisoformat, sorted(list(tickers["changes"].keys())))):
             if d <= query_date:
                 ops = tickers["changes"][d.isoformat()]
                 for k in ops.keys():
@@ -69,8 +68,7 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
                         case 'difference':
                             rhs_code = "result.difference(rhs)"
                         case _:
-                            raise NotImplementedError(
-                                f"unknown set operation: {k} in changes {d}")
+                            raise NotImplementedError(f"unknown set operation: {k} in changes {d}")
                     r = eval(rhs_code)
                     result = r
     return frozenset(result)
