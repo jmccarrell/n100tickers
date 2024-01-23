@@ -104,37 +104,44 @@ tickers_on_Jan_1:
   - WLTW
   - XEL
   - XLNX
+
 changes:
   '2020-04-20':
     difference:
       - AAL
     union:
       - DXCM
+
   '2020-04-30':
     difference:
       - WLTW
     union:
       - ZM
+
   '2020-06-22':
     difference:
       - UAL
     union:
       - DOCU
+
   '2020-07-20':
     difference:
       - CSGP
     union:
       - MRNA
+
   '2020-08-24':
     difference:
       - NTAP
     union:
       - PDD
+
   '2020-10-19':
     difference:
       - WDC
     union:
       - KDP
+
   '2020-12-21':
     difference:
       - BMRN

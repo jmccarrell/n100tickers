@@ -3,7 +3,7 @@
 import datetime
 from functools import lru_cache
 import importlib.resources
-from strictyaml import load, Map, MapPattern, Str, Int, UniqueSeq
+from strictyaml import load, Map, MapPattern, Optional, Str, Int, UniqueSeq
 
 changes_schema = Map({"union": UniqueSeq(Str()),
                       "difference": UniqueSeq(Str())})
@@ -13,7 +13,7 @@ date_schema = MapPattern(Str(),
 
 ticker_schema = Map({"year": Int(),
                      "tickers_on_Jan_1": UniqueSeq(Str()),
-                     "changes": date_schema,
+                     Optional("changes"): date_schema,
                      })
 
 
@@ -54,22 +54,23 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
     """
 
     tickers = _load_tickers_from_yaml(year=year)
-    dates = list(map(datetime.date.fromisoformat, sorted(list(tickers["changes"].keys()))))
-    query_date = datetime.date(year=year, month=month, day=day)
     result = set(tickers["tickers_on_Jan_1"])
-    for d in dates:
-        if d <= query_date:
-            ops = tickers["changes"][d.isoformat()]
-            for k in ops.keys():
-                rhs = set(ops[k])
-                match k:
-                    case 'union':
-                        rhs_code = "result.union(rhs)"
-                    case 'difference':
-                        rhs_code = "result.difference(rhs)"
-                    case _:
-                        raise NotImplementedError(
-                            f"unknown set operation: {k} in changes {d}")
-                r = eval(rhs_code)
-                result = r
+    query_date = datetime.date(year=year, month=month, day=day)
+    if "changes" in tickers:  # changes are optional
+        dates = list(map(datetime.date.fromisoformat, sorted(list(tickers["changes"].keys()))))
+        for d in dates:
+            if d <= query_date:
+                ops = tickers["changes"][d.isoformat()]
+                for k in ops.keys():
+                    rhs = set(ops[k])
+                    match k:
+                        case 'union':
+                            rhs_code = "result.union(rhs)"
+                        case 'difference':
+                            rhs_code = "result.difference(rhs)"
+                        case _:
+                            raise NotImplementedError(
+                                f"unknown set operation: {k} in changes {d}")
+                    r = eval(rhs_code)
+                    result = r
     return frozenset(result)
