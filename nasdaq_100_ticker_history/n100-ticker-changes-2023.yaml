@@ -1,142 +1,145 @@
 ---
 year: 2023
-tickers_on_Jan_1: !!set
-  ? AAPL
-  ? ABNB
-  ? ADBE
-  ? ADI
-  ? ADP
-  ? ADSK
-  ? AEP
-  ? ALGN
-  ? AMAT
-  ? AMD
-  ? AMGN
-  ? AMZN
-  ? ANSS
-  ? ASML
-  ? ATVI
-  ? AVGO
-  ? AZN
-  ? BIIB
-  ? BKNG
-  ? BKR
-  ? CDNS
-  ? CEG
-  ? CHTR
-  ? CMCSA
-  ? COST
-  ? CPRT
-  ? CRWD
-  ? CSCO
-  ? CSGP
-  ? CSX
-  ? CTAS
-  ? CTSH
-  ? DDOG
-  ? DLTR
-  ? DXCM
-  ? EA
-  ? EBAY
-  ? ENPH
-  ? EXC
-  ? FANG
-  ? FAST
-  ? FISV
-  ? FTNT
-  ? GFS
-  ? GILD
-  ? GOOG
-  ? GOOGL
-  ? HON
-  ? IDXX
-  ? ILMN
-  ? INTC
-  ? INTU
-  ? ISRG
-  ? JD
-  ? KDP
-  ? KHC
-  ? KLAC
-  ? LCID
-  ? LRCX
-  ? LULU
-  ? MAR
-  ? MCHP
-  ? MDLZ
-  ? MELI
-  ? META
-  ? MNST
-  ? MRNA
-  ? MRVL
-  ? MSFT
-  ? MU
-  ? NFLX
-  ? NVDA
-  ? NXPI
-  ? ODFL
-  ? ORLY
-  ? PANW
-  ? PAYX
-  ? PCAR
-  ? PDD
-  ? PEP
-  ? PYPL
-  ? QCOM
-  ? REGN
-  ? ROST
-  ? RVIN
-  ? SBUX
-  ? SGEN
-  ? SIRI
-  ? SNPS
-  ? TEAM
-  ? TMUS
-  ? TSLA
-  ? TXN
-  ? VRSK
-  ? VRTX
-  ? WBA
-  ? WBD
-  ? WDAY
-  ? XEL
-  ? ZM
-  ? ZS
+tickers_on_Jan_1:
+  - AAPL
+  - ABNB
+  - ADBE
+  - ADI
+  - ADP
+  - ADSK
+  - AEP
+  - ALGN
+  - AMAT
+  - AMD
+  - AMGN
+  - AMZN
+  - ANSS
+  - ASML
+  - ATVI
+  - AVGO
+  - AZN
+  - BIIB
+  - BKNG
+  - BKR
+  - CDNS
+  - CEG
+  - CHTR
+  - CMCSA
+  - COST
+  - CPRT
+  - CRWD
+  - CSCO
+  - CSGP
+  - CSX
+  - CTAS
+  - CTSH
+  - DDOG
+  - DLTR
+  - DXCM
+  - EA
+  - EBAY
+  - ENPH
+  - EXC
+  - FANG
+  - FAST
+  - FISV
+  - FTNT
+  - GFS
+  - GILD
+  - GOOG
+  - GOOGL
+  - HON
+  - IDXX
+  - ILMN
+  - INTC
+  - INTU
+  - ISRG
+  - JD
+  - KDP
+  - KHC
+  - KLAC
+  - LCID
+  - LRCX
+  - LULU
+  - MAR
+  - MCHP
+  - MDLZ
+  - MELI
+  - META
+  - MNST
+  - MRNA
+  - MRVL
+  - MSFT
+  - MU
+  - NFLX
+  - NVDA
+  - NXPI
+  - ODFL
+  - ORLY
+  - PANW
+  - PAYX
+  - PCAR
+  - PDD
+  - PEP
+  - PYPL
+  - QCOM
+  - REGN
+  - ROST
+  - RVIN
+  - SBUX
+  - SGEN
+  - SIRI
+  - SNPS
+  - TEAM
+  - TMUS
+  - TSLA
+  - TXN
+  - VRSK
+  - VRTX
+  - WBA
+  - WBD
+  - WDAY
+  - XEL
+  - ZM
+  - ZS
 
-changes: {
-  '2023-06-07': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {FISV},
-      !!set {GHEC},
-    ],
-  },
-  '2023-06-20': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {RVIN},
-      !!set {"ON"},  # bareward ON get translated to True in evaluation; so quote it.
-    ],
-  },
-  '2023-07-17': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {ATVI},
-      !!set {TTD},
-    ],
-  },
-  '2023-12-14': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {SGEN},
-      !!set {TTWO},
-    ],
-  },
-  '2023-12-18': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {ALGN, EBAY, ENPH, JD, LCID, ZM},
-      !!set {CDW, CCEP, DASH, MDB, ROP, SPLK},
-    ],
-  },
-}
+changes:
+  '2023-06-07':
+    difference:
+      - FISV
+    union:
+      - GHEC
+
+  '2023-06-20':
+    difference:
+      - RVIN
+    union:
+      - ON
+
+  '2023-07-17':
+    difference:
+      - ATVI
+    union:
+      - TTD
+
+  '2023-12-14':
+    difference:
+      - SGEN
+    union:
+      - TTWO
+
+  '2023-12-18':
+    difference:
+      - ALGN
+      - EBAY
+      - ENPH
+      - JD
+      - LCID
+      - ZM
+    union:
+      - CDW
+      - CCEP
+      - DASH
+      - MDB
+      - ROP
+      - SPLK

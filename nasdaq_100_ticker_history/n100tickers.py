@@ -3,7 +3,18 @@
 import datetime
 from functools import lru_cache
 import importlib.resources
-import yaml
+from strictyaml import load, Map, MapPattern, Optional, Str, Int, UniqueSeq
+
+changes_schema = Map({Optional("union"): UniqueSeq(Str()),
+                      Optional("difference"): UniqueSeq(Str())})
+
+date_schema = MapPattern(Str(),  # date of change encoded as YYYY-MM-DD
+                         changes_schema)
+
+ticker_schema = Map({"year": Int(),
+                     "tickers_on_Jan_1": UniqueSeq(Str()),
+                     Optional("changes"): date_schema,
+                     })
 
 
 @lru_cache
@@ -23,7 +34,7 @@ def _load_tickers_from_yaml(year: int = 2020) -> dict:
         )
 
     n100_tickers_yaml = resource.read_text(encoding="utf-8")
-    return yaml.safe_load(n100_tickers_yaml)
+    return load(n100_tickers_yaml, ticker_schema).data
 
 
 def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
@@ -43,14 +54,21 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
     """
 
     tickers = _load_tickers_from_yaml(year=year)
-    dates = list(map(lambda d: datetime.date.fromisoformat(d), sorted(list(tickers["changes"].keys()))))
-    query_date = datetime.date(year=year, month=month, day=day)
-    result = tickers["tickers_on_Jan_1"]
-    for d in dates:
-        if d <= query_date:
-            ops = tickers["changes"][d.isoformat()]
-            assert len(ops["python_set_operators"]) == len(ops["rhs_operands"])
-            for (op, rhs) in zip(ops["python_set_operators"], ops["rhs_operands"]):
-                r = eval(f"result {op} {rhs}")
-                result = r
+    result = set(tickers["tickers_on_Jan_1"])
+    if "changes" in tickers:  # changes happen sometime later in the year.
+        query_date = datetime.date(year=year, month=month, day=day)
+        for d in list(map(datetime.date.fromisoformat, sorted(list(tickers["changes"].keys())))):
+            if d <= query_date:
+                ops = tickers["changes"][d.isoformat()]
+                for k in ops.keys():
+                    rhs = set(ops[k])
+                    match k:
+                        case 'union':
+                            rhs_code = "result.union(rhs)"
+                        case 'difference':
+                            rhs_code = "result.difference(rhs)"
+                        case _:
+                            raise NotImplementedError(f"unknown set operation: {k} in changes {d}")
+                    r = eval(rhs_code)
+                    result = r
     return frozenset(result)

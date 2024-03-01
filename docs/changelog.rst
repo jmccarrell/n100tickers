@@ -6,6 +6,15 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2024.1.0 (2023-02-29)
+==============================================
+
+Features
+--------
+
+Replace the problematic PyYaml with strictyaml.  No functionality change, just replacing a library that has caused build issues for many.
+
+
 Nasdaq_100_Ticker_History 2024.0.0 (2023-12-26)
 ==============================================
 

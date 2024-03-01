@@ -1,148 +1,150 @@
 ---
 year: 2022
-tickers_on_Jan_1: !!set
-  ? AAPL
-  ? ABNB
-  ? ADBE
-  ? ADI
-  ? ADP
-  ? ADSK
-  ? AEP
-  ? ALGN
-  ? AMAT
-  ? AMD
-  ? AMGN
-  ? AMZN
-  ? ANSS
-  ? ASML
-  ? ATVI
-  ? AVGO
-  ? BIDU
-  ? BIIB
-  ? BKNG
-  ? CDNS
-  ? CHTR
-  ? CMCSA
-  ? COST
-  ? CPRT
-  ? CRWD
-  ? CSCO
-  ? CSX
-  ? CTAS
-  ? CTSH
-  ? DDOG
-  ? DLTR
-  ? DOCU
-  ? DXCM
-  ? EA
-  ? EBAY
-  ? EXC
-  ? FAST
-  ? FB
-  ? FISV
-  ? FTNT
-  ? GILD
-  ? GOOG
-  ? GOOGL
-  ? HON
-  ? IDXX
-  ? ILMN
-  ? INTC
-  ? INTU
-  ? ISRG
-  ? JD
-  ? KDP
-  ? KHC
-  ? KLAC
-  ? LCID
-  ? LRCX
-  ? LULU
-  ? MAR
-  ? MCHP
-  ? MDLZ
-  ? MELI
-  ? MNST
-  ? MRNA
-  ? MRVL
-  ? MSFT
-  ? MTCH
-  ? MU
-  ? NFLX
-  ? NTES
-  ? NVDA
-  ? NXPI
-  ? OKTA
-  ? ORLY
-  ? PANW
-  ? PAYX
-  ? PCAR
-  ? PDD
-  ? PEP
-  ? PTON
-  ? PYPL
-  ? QCOM
-  ? REGN
-  ? ROST
-  ? SBUX
-  ? SGEN
-  ? SIRI
-  ? SNPS
-  ? SPLK
-  ? SWKS
-  ? TEAM
-  ? TMUS
-  ? TSLA
-  ? TXN
-  ? VRSK
-  ? VRSN
-  ? VRTX
-  ? WBA
-  ? WDAY
-  ? XEL
-  ? XLNX
-  ? ZM
-  ? ZS
+tickers_on_Jan_1:
+  - AAPL
+  - ABNB
+  - ADBE
+  - ADI
+  - ADP
+  - ADSK
+  - AEP
+  - ALGN
+  - AMAT
+  - AMD
+  - AMGN
+  - AMZN
+  - ANSS
+  - ASML
+  - ATVI
+  - AVGO
+  - BIDU
+  - BIIB
+  - BKNG
+  - CDNS
+  - CHTR
+  - CMCSA
+  - COST
+  - CPRT
+  - CRWD
+  - CSCO
+  - CSX
+  - CTAS
+  - CTSH
+  - DDOG
+  - DLTR
+  - DOCU
+  - DXCM
+  - EA
+  - EBAY
+  - EXC
+  - FAST
+  - FB
+  - FISV
+  - FTNT
+  - GILD
+  - GOOG
+  - GOOGL
+  - HON
+  - IDXX
+  - ILMN
+  - INTC
+  - INTU
+  - ISRG
+  - JD
+  - KDP
+  - KHC
+  - KLAC
+  - LCID
+  - LRCX
+  - LULU
+  - MAR
+  - MCHP
+  - MDLZ
+  - MELI
+  - MNST
+  - MRNA
+  - MRVL
+  - MSFT
+  - MTCH
+  - MU
+  - NFLX
+  - NTES
+  - NVDA
+  - NXPI
+  - OKTA
+  - ORLY
+  - PANW
+  - PAYX
+  - PCAR
+  - PDD
+  - PEP
+  - PTON
+  - PYPL
+  - QCOM
+  - REGN
+  - ROST
+  - SBUX
+  - SGEN
+  - SIRI
+  - SNPS
+  - SPLK
+  - SWKS
+  - TEAM
+  - TMUS
+  - TSLA
+  - TXN
+  - VRSK
+  - VRSN
+  - VRTX
+  - WBA
+  - WDAY
+  - XEL
+  - XLNX
+  - ZM
+  - ZS
 
-changes: {
-  '2022-01-24': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {PTON},
-      !!set {ODFL},
-    ],
-  },
-  '2022-02-02': {
-    python_set_operators: ['|'],
-    rhs_operands: [
-      !!set {CEG},
-    ],
-  },
-  '2022-02-22': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {XLNX},
-      !!set {AZN},
-    ],
-  },
-  '2022-06-09': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {FB},
-      !!set {META},
-    ],
-  },
-  '2022-11-21': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {OKTA},
-      !!set {ENPH},
-    ],
-  },
-  '2022-12-19': {
-    python_set_operators: ['-', '|'],
-    rhs_operands: [
-      !!set {BIDU, DOCU, MTCH, NTES, SPLK, SWKS, VRSN},
-      !!set {BKR, CSGP, FANG, GFS, RVIN, WBD},
-    ],
-  },
-}
+changes:
+  '2022-01-24':
+    difference:
+      - PTON
+    union:
+      - ODFL
+
+  '2022-02-02':
+    union:
+      - CEG
+
+  '2022-02-22':
+    difference:
+      - XLNX
+    union:
+      - AZN
+
+  '2022-06-09':
+    difference:
+      - FB
+    union:
+      - META
+
+  '2022-11-21':
+    difference:
+      - OKTA
+    union:
+      - ENPH
+
+  '2022-12-19':
+    difference:
+      - BIDU
+      - DOCU
+      - MTCH
+      - NTES
+      - SPLK
+      - SWKS
+      - VRSN
+    union:
+      - BKR
+      - CSGP
+      - FANG
+      - GFS
+      - RVIN
+      - WBD
