@@ -73,7 +73,7 @@ tickers_on_Jan_1:
   - NVDA
   - NXPI
   - ODFL
-  - "ON"
+  - ON
   - ORLY
   - PANW
   - PAYX
@@ -103,4 +103,9 @@ tickers_on_Jan_1:
   - XEL
   - ZS
 
-
+changes:
+  '2024-03-18':
+    difference:
+      - SPLK
+    union:
+      - LIN

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nasdaq-100-ticker-history"
-version = "2024.1.0"
+version = "2024.2.0"
 description = "Return NASDAQ 100 ticker symbols by date."
 authors = ["Jeff McCarrell <jeff@mccarrell.org>"]
 license = "MIT"
@@ -26,6 +26,9 @@ towncrier = "^19.2.0"
 [tool.towncrier]
 package = "nasdaq_100_ticker_history"
 filename = "docs/changelog.rst"
+
+[tool.ruff]
+line-length = 108
 
 [build-system]
 requires = ["poetry>=0.12"]

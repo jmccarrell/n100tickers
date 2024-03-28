@@ -6,7 +6,17 @@ Release History
 
 .. towncrier release notes start
 
-Nasdaq_100_Ticker_History 2024.1.0 (2023-02-29)
+Nasdaq_100_Ticker_History 2024.2.0 (2024-03-27)
+==============================================
+
+Features
+--------
+
+Add Mar index update:
+  - Linde PLC replaces Splunk after Cisco completed the Splunk acquisition.
+
+
+Nasdaq_100_Ticker_History 2024.1.0 (2024-02-29)
 ==============================================
 
 Features
