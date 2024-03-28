@@ -44,6 +44,12 @@ def _test_at_year_boundary(year: int) -> None:
     assert previous_tickers == current_tickers
 
 
+def test_2024_linde_splunk_swap() -> None:
+    # On March 18, Linde plc replaced Splunk after Cisco Systems completed Splunk acquisition.
+    # https://en.wikipedia.org/wiki/Nasdaq-100#cite_ref-80
+    _test_one_swap(datetime.date.fromisoformat('2024-03-18'), 'SPLK', 'LIN', 101)
+
+
 def test_year_boundary_2023_2024() -> None:
     _test_at_year_boundary(2024)
 
