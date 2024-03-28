@@ -5,16 +5,20 @@ from functools import lru_cache
 import importlib.resources
 from strictyaml import load, Map, MapPattern, Optional, Str, Int, UniqueSeq
 
-changes_schema = Map({Optional("union"): UniqueSeq(Str()),
-                      Optional("difference"): UniqueSeq(Str())})
+changes_schema = Map({Optional("union"): UniqueSeq(Str()), Optional("difference"): UniqueSeq(Str())})
 
-date_schema = MapPattern(Str(),  # date of change encoded as YYYY-MM-DD
-                         changes_schema)
+date_schema = MapPattern(
+    Str(),  # date of change encoded as YYYY-MM-DD
+    changes_schema,
+)
 
-ticker_schema = Map({"year": Int(),
-                     "tickers_on_Jan_1": UniqueSeq(Str()),
-                     Optional("changes"): date_schema,
-                     })
+ticker_schema = Map(
+    {
+        "year": Int(),
+        "tickers_on_Jan_1": UniqueSeq(Str()),
+        Optional("changes"): date_schema,
+    }
+)
 
 
 @lru_cache
@@ -30,7 +34,7 @@ def _load_tickers_from_yaml(year: int = 2020) -> dict:
     if not resource.exists():
         raise NotImplementedError(
             f"no nasdaq 100 tickers defined for {year}; "
-            "cant find resource {resource_name} in package {module_name}"
+            f"cant find resource {resource_name} in package {module_name}"
         )
 
     n100_tickers_yaml = resource.read_text(encoding="utf-8")
@@ -61,11 +65,11 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
             if d <= query_date:
                 ops = tickers["changes"][d.isoformat()]
                 for k in ops.keys():
-                    rhs = set(ops[k])
+                    rhs = set(ops[k])  # noqa F841
                     match k:
-                        case 'union':
+                        case "union":
                             rhs_code = "result.union(rhs)"
-                        case 'difference':
+                        case "difference":
                             rhs_code = "result.difference(rhs)"
                         case _:
                             raise NotImplementedError(f"unknown set operation: {k} in changes {d}")

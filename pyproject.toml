@@ -27,6 +27,9 @@ towncrier = "^19.2.0"
 package = "nasdaq_100_ticker_history"
 filename = "docs/changelog.rst"
 
+[tool.ruff]
+line-length = 108
+
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
