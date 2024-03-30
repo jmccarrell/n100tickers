@@ -3,6 +3,7 @@
 import datetime
 from functools import lru_cache
 import importlib.resources
+
 # circa Mar 2024, I cannot find any type stubs for strictyaml.
 from strictyaml import load, Map, MapPattern, Optional, Str, Int, UniqueSeq  # type: ignore
 
@@ -30,7 +31,9 @@ def _load_tickers_from_yaml(year: int = 2020) -> dict:
 
     module_name = "nasdaq_100_ticker_history"
     resource_name = f"n100-ticker-changes-{year}.yaml"
-    resource: importlib.resources.abc.Traversable = importlib.resources.files(module_name).joinpath(resource_name)
+    resource: importlib.resources.abc.Traversable = importlib.resources.files(module_name).joinpath(
+        resource_name
+    )
 
     if not resource.is_file():
         raise NotImplementedError(
