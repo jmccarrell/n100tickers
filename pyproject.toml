@@ -23,6 +23,10 @@ sphinx = "^3.2.1"
 doc2dash = "^2.3.0"
 towncrier = "^19.2.0"
 
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.9.0"
+
 [tool.towncrier]
 package = "nasdaq_100_ticker_history"
 filename = "docs/changelog.rst"
