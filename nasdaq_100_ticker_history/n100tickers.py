@@ -3,7 +3,9 @@
 import datetime
 from functools import lru_cache
 import importlib.resources
-from strictyaml import load, Map, MapPattern, Optional, Str, Int, UniqueSeq
+
+# circa Mar 2024, I cannot find any type stubs for strictyaml.
+from strictyaml import load, Map, MapPattern, Optional, Str, Int, UniqueSeq  # type: ignore
 
 changes_schema = Map({Optional("union"): UniqueSeq(Str()), Optional("difference"): UniqueSeq(Str())})
 
@@ -29,9 +31,11 @@ def _load_tickers_from_yaml(year: int = 2020) -> dict:
 
     module_name = "nasdaq_100_ticker_history"
     resource_name = f"n100-ticker-changes-{year}.yaml"
-    resource = importlib.resources.files(module_name).joinpath(resource_name)
+    resource: importlib.resources.abc.Traversable = importlib.resources.files(module_name).joinpath(
+        resource_name
+    )
 
-    if not resource.exists():
+    if not resource.is_file():
         raise NotImplementedError(
             f"no nasdaq 100 tickers defined for {year}; "
             f"cant find resource {resource_name} in package {module_name}"
