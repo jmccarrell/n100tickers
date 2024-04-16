@@ -5,6 +5,7 @@ from functools import lru_cache
 import importlib.resources
 
 # circa Mar 2024, I cannot find any type stubs for strictyaml.
+# so ignore type issues
 from strictyaml import load, Map, MapPattern, Optional, Str, Int, UniqueSeq  # type: ignore
 
 changes_schema = Map({Optional("union"): UniqueSeq(Str()), Optional("difference"): UniqueSeq(Str())})

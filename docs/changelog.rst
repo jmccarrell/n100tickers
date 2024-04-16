@@ -6,6 +6,16 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2024.2.1 (2024-04-16)
+==============================================
+
+Features
+--------
+
+Update dependencies for IDNA CVE-2024-3651
+By side effect, this publishes the mypy type checking work as well.
+
+
 Nasdaq_100_Ticker_History 2024.2.0 (2024-03-27)
 ==============================================
 
