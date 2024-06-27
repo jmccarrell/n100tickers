@@ -41,6 +41,11 @@ def _test_at_year_boundary(year: int) -> None:
     assert previous_tickers == current_tickers
 
 
+def test_2024_arm_siri_swap() -> None:
+    # On June 24, ARM Holdings (ARM) replaced SiriusXM Radio as SiriusXM failed to meet minimum standards
+    _test_one_swap(datetime.date.fromisoformat("2024-06-24"), "SIRI", "ARM", 101)
+
+
 def test_2024_linde_splunk_swap() -> None:
     # On March 18, Linde plc replaced Splunk after Cisco Systems completed Splunk acquisition.
     # https://en.wikipedia.org/wiki/Nasdaq-100#cite_ref-80
