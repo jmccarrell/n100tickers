@@ -6,6 +6,16 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2024.3.0 (2024-06-24)
+==============================================
+
+Features
+--------
+
+Update Nasdaq 100 constituents:
+  - ARM Holdings (ARM) replaced Sirius XM Radio (SIRI) on 24 June.
+
+
 Nasdaq_100_Ticker_History 2024.2.1 (2024-04-16)
 ==============================================
 
