@@ -88,7 +88,7 @@ def test_jun_jul_2023_changes() -> None:
     num_tickers_2023 = 101
     assert len(tickers_as_of(2023, 1, 1)) == num_tickers_2023
 
-    _test_one_swap(datetime.date.fromisoformat("2023-06-07"), "FISV", "GHEC", num_tickers_2023)
+    _test_one_swap(datetime.date.fromisoformat("2023-06-07"), "FISV", "GEHC", num_tickers_2023)
     _test_one_swap(datetime.date.fromisoformat("2023-06-20"), "RVIN", "ON", num_tickers_2023)
     _test_one_swap(datetime.date.fromisoformat("2023-07-17"), "ATVI", "TTD", num_tickers_2023)
 
