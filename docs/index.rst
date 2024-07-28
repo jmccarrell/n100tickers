@@ -21,7 +21,7 @@ set of ticker symbols (eg, ``AAPL``) that were in the index on that date.
 Coverage
 --------
 
-As of version |release|, accurate coverage is provided from Jan 1, 2016 through at least Jun 24, 2024.  Most
+As of version |release|, accurate coverage is provided from Jan 1, 2016 through at least Jul 22, 2024.  Most
 likely, the coverage is accurate further into 2024 subject to additional changes being announced by Nasdaq.  A new
 version of the API is released on each update Nasdaq announces, typically with a time lag of a few days to a
 few weeks.  It is the intent of the project maintainers to provide accurate coverage on an ongoing basis.

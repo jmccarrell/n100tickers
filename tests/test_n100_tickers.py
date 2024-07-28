@@ -41,6 +41,10 @@ def _test_at_year_boundary(year: int) -> None:
     assert previous_tickers == current_tickers
 
 
+def test_2024_wba_smci_swap() -> None:
+    # On July 22, Supermicro replaced Walgreens Boots Alliance as WBA no longer met minimum weighting standards.
+    _test_one_swap(datetime.date.fromisoformat("2024-07-22"), "WBA", "SMCI", 101)
+
 def test_2024_arm_siri_swap() -> None:
     # On June 24, ARM Holdings (ARM) replaced SiriusXM Radio as SiriusXM failed to meet minimum standards
     _test_one_swap(datetime.date.fromisoformat("2024-06-24"), "SIRI", "ARM", 101)

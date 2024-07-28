@@ -6,6 +6,16 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2024.5.0 (2024-07-28)
+==============================================
+
+Features
+--------
+
+Update Nasdaq 100 constituents:
+  - Super Micro Computer Inc. (Nasdaq: SMCI) replaced Walgreens Boots Alliance Inc. (Nasdaq: WBA) on 22 July.
+
+
 Nasdaq_100_Ticker_History 2024.3.0 (2024-06-24)
 ==============================================
 

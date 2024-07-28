@@ -114,3 +114,8 @@ changes:
       - SIRI
     union:
       - ARM
+  '2024-07-22':
+    difference:
+      - WBA
+    union:
+      - SMCI
