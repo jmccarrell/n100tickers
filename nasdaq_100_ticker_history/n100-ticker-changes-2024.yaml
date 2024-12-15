@@ -119,3 +119,12 @@ changes:
       - WBA
     union:
       - SMCI
+  '2024-12-23':
+    difference:
+      - ILMN
+      - MRNA
+      - SMCI
+    union:
+      - AXON
+      - MSTR
+      - PLTR
