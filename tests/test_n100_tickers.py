@@ -121,7 +121,7 @@ def test_jun_jul_2023_changes() -> None:
     assert len(tickers_as_of(2023, 1, 1)) == num_tickers_2023
 
     _test_one_swap(datetime.date.fromisoformat("2023-06-07"), "FISV", "GEHC", num_tickers_2023)
-    _test_one_swap(datetime.date.fromisoformat("2023-06-20"), "RVIN", "ON", num_tickers_2023)
+    _test_one_swap(datetime.date.fromisoformat("2023-06-20"), "RIVN", "ON", num_tickers_2023)
     _test_one_swap(datetime.date.fromisoformat("2023-07-17"), "ATVI", "TTD", num_tickers_2023)
 
 
@@ -143,7 +143,7 @@ def test_2022_annual_changes() -> None:
     assert len(tickers_as_of(2022, 12, 15)) == num_tickers_2022_end_of_year + 1
     tickers_removed_2022_12_19 = frozenset(("BIDU", "DOCU", "MTCH", "NTES", "SPLK", "VRSN"))
     assert tickers_removed_2022_12_19.issubset(tickers_as_of(2022, 12, 15))
-    tickers_added_2022_12_19 = frozenset(("BKR", "CSGP", "FANG", "GFS", "RVIN", "WBD"))
+    tickers_added_2022_12_19 = frozenset(("BKR", "CSGP", "FANG", "GFS", "RIVN", "WBD"))
     assert tickers_added_2022_12_19.isdisjoint(tickers_as_of(2022, 12, 15))
 
     assert len(tickers_as_of(2022, 12, 19)) == num_tickers_2022_end_of_year

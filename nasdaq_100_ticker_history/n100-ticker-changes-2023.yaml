@@ -85,7 +85,7 @@ tickers_on_Jan_1:
   - QCOM
   - REGN
   - ROST
-  - RVIN
+  - RIVN
   - SBUX
   - SGEN
   - SIRI
@@ -112,7 +112,7 @@ changes:
 
   '2023-06-20':
     difference:
-      - RVIN
+      - RIVN
     union:
       - ON
 
