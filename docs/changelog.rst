@@ -6,6 +6,17 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2025.0.0 (2024-12-14)
+==============================================
+
+Features
+--------
+
+Apply the annual `Nasdaq 100 index changes for 2024. <https://en.wikipedia.org/wiki/Nasdaq-100#Changes_in_2024>`_
+
+On December 13, as part of the annual reconstitution of the index, Nasdaq announced that three new companies would join the index prior to the market open on December 23, 2024. They are Palantir Technologies, MicroStrategy and Axon Enterprise. They will replace Illumina, Moderna, and Supermicro.
+
+
 Nasdaq_100_Ticker_History 2024.5.0 (2024-07-28)
 ==============================================
 
