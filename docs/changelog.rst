@@ -6,6 +6,15 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2025.1.0 (2024-12-15)
+===============================================
+
+Bug Fix
+-------
+
+The ticker symbol for Rivian Automotive Inc was incorrectly listed as RVIN instead of the correct RIVN during the period in 2022 - 2023 when it was in the index.  Thanks to DRAirey1 for catching this.
+
+
 Nasdaq_100_Ticker_History 2025.0.0 (2024-12-14)
 ==============================================
 
