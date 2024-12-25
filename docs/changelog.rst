@@ -6,6 +6,15 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2025.2.0 (2024-12-25)
+===============================================
+
+Features
+--------
+
+Update dependencies for two moderate severity Jinja CVEs: CVE-2024-56201, CVE-2024-56326.
+
+
 Nasdaq_100_Ticker_History 2025.1.0 (2024-12-15)
 ===============================================
 
