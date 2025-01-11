@@ -119,6 +119,11 @@ changes:
       - WBA
     union:
       - SMCI
+  '2024-11-18':
+    difference:
+      - DLTR
+    union:
+      - APP
   '2024-12-23':
     difference:
       - ILMN
@@ -128,3 +133,4 @@ changes:
       - AXON
       - MSTR
       - PLTR
+      

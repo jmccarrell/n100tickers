@@ -13,6 +13,7 @@ tickers_on_Jan_1:
   - AMGN
   - AMZN
   - ANSS
+  - APP
   - ARM
   - ASML
   - AVGO
@@ -37,7 +38,6 @@ tickers_on_Jan_1:
   - CTSH
   - DASH
   - DDOG
-  - DLTR
   - DXCM
   - EA
   - EXC
