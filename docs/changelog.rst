@@ -6,6 +6,16 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2025.4.0 (2025-05-19)
+===============================================
+
+Features
+--------
+
+Update Nasdaq 100 constituents:
+  - Shopify (SHOP) replaced MongoDB (MDB) on 19 May.
+
+
 Nasdaq_100_Ticker_History 2025.2.0 (2024-12-25)
 ===============================================
 

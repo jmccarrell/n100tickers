@@ -45,6 +45,11 @@ def test_year_boundary_2024_2025() -> None:
     _test_at_year_boundary(2025)
 
 
+def test_may_2025_shop_mdb_swap() -> None:
+    # On May 19, Shopify (SHOP) replaced MongoDB (MDB) in the index
+    _test_one_swap(datetime.date.fromisoformat("2025-05-19"), "MDB", "SHOP", 101)
+
+
 def test_dec_2024_changes() -> None:
     """test the expected annual changes at end of 2024."""
 

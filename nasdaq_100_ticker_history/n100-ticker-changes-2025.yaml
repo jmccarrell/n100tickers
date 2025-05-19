@@ -103,4 +103,9 @@ tickers_on_Jan_1:
   - XEL
   - ZS
 
-# changes:
+changes:
+  '2025-05-19':
+    difference:
+      - MDB
+    union:
+      - SHOP
