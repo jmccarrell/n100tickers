@@ -2,6 +2,9 @@ import datetime
 from nasdaq_100_ticker_history import tickers_as_of
 from .helpers import _test_one_swap, _test_at_year_boundary
 
+num_tickers_2016_boy = 105  # num tickers at the start of 2016
+num_tickers_2016_eoy = 104  # number of tickers at the end of 2016
+
 
 def test_year_boundary_2016_2017() -> None:
     _test_at_year_boundary(2017)
@@ -24,9 +27,6 @@ def test_2016_annual_changes() -> None:
 
 
 def test_tickers_2016() -> None:
-    num_tickers_2016_boy = 105  # num tickers at the start of 2016
-    num_tickers_2016_eoy = 104  # number of tickers at the end of 2016
-
     assert len(tickers_as_of(2016, 1, 1)) == num_tickers_2016_boy
     assert len(tickers_as_of(2016, 12, 31)) == num_tickers_2016_eoy
 

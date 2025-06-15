@@ -2,13 +2,14 @@ import datetime
 from nasdaq_100_ticker_history import tickers_as_of
 from .helpers import _test_one_swap, _test_at_year_boundary
 
+num_tickers_2023 = 101
+
 
 def test_year_boundary_2022_2023() -> None:
     _test_at_year_boundary(2023)
 
 
 def test_dec_2023_changes() -> None:
-    num_tickers_2023 = 101
     assert len(tickers_as_of(2023, 1, 1)) == num_tickers_2023
     assert len(tickers_as_of(2023, 10, 1)) == num_tickers_2023
 
@@ -36,7 +37,6 @@ def test_jun_jul_2023_changes() -> None:
     # On June 7, GE HealthCare Technologies replaced Fiserv.
     # On June 20, Onsemi replaced Rivian.
     # On July 17, The Trade Desk replaced Activision Blizzard.
-    num_tickers_2023 = 101
     assert len(tickers_as_of(2023, 1, 1)) == num_tickers_2023
 
     _test_one_swap(datetime.date.fromisoformat("2023-06-07"), "FISV", "GEHC", num_tickers_2023)

@@ -2,9 +2,10 @@ import datetime
 from nasdaq_100_ticker_history import tickers_as_of
 from .helpers import _test_one_swap, _test_at_year_boundary
 
+num_tickers_2017 = 104
+
 
 def test_tickers_2017() -> None:
-    num_tickers_2017: int = 104
 
     # 2/7/2017 JBHT replaced NXPI
     _test_one_swap(datetime.date.fromisoformat("2017-02-07"), "NXPI", "JBHT", num_tickers_2017)

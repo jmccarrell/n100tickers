@@ -2,6 +2,8 @@ import datetime
 from nasdaq_100_ticker_history import tickers_as_of
 from .helpers import _test_one_swap, _test_at_year_boundary
 
+num_tickers_2024 = 101
+
 
 def test_year_boundary_2023_2024() -> None:
     _test_at_year_boundary(2024)
@@ -9,8 +11,6 @@ def test_year_boundary_2023_2024() -> None:
 
 def test_dec_2024_changes() -> None:
     """test the expected annual changes at end of 2024."""
-
-    num_tickers_2024 = 101
 
     # On December 13, as part of the annual reconstitution of the index, Nasdaq
     # announced that three new companies would join the index prior to the
@@ -33,15 +33,15 @@ def test_dec_2024_changes() -> None:
 
 def test_2024_wba_smci_swap() -> None:
     # On July 22, Supermicro replaced Walgreens Boots Alliance as WBA no longer met minimum weighting standards.
-    _test_one_swap(datetime.date.fromisoformat("2024-07-22"), "WBA", "SMCI", 101)
+    _test_one_swap(datetime.date.fromisoformat("2024-07-22"), "WBA", "SMCI", num_tickers_2024)
 
 
 def test_2024_arm_siri_swap() -> None:
     # On June 24, ARM Holdings (ARM) replaced SiriusXM Radio as SiriusXM failed to meet minimum standards
-    _test_one_swap(datetime.date.fromisoformat("2024-06-24"), "SIRI", "ARM", 101)
+    _test_one_swap(datetime.date.fromisoformat("2024-06-24"), "SIRI", "ARM", num_tickers_2024)
 
 
 def test_2024_linde_splunk_swap() -> None:
     # On March 18, Linde plc replaced Splunk after Cisco Systems completed Splunk acquisition.
     # https://en.wikipedia.org/wiki/Nasdaq-100#cite_ref-80
-    _test_one_swap(datetime.date.fromisoformat("2024-03-18"), "SPLK", "LIN", 101)
+    _test_one_swap(datetime.date.fromisoformat("2024-03-18"), "SPLK", "LIN", num_tickers_2024)

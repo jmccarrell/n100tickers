@@ -2,9 +2,10 @@ import datetime
 from nasdaq_100_ticker_history import tickers_as_of
 from .helpers import _test_one_swap, _test_at_year_boundary
 
+num_tickers_2020 = 103
+
 
 def test_tickers_2020() -> None:
-    num_tickers_2020: int = 103
 
     _test_at_year_boundary(2020)
 
