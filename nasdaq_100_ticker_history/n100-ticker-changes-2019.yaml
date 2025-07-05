@@ -30,6 +30,7 @@ tickers_on_Jan_1:
   - CSCO
   - CSX
   - CTAS
+  - CTRP
   - CTSH
   - CTXS
   - DLTR
@@ -87,7 +88,6 @@ tickers_on_Jan_1:
   - SIRI
   - SNPS
   - SWKS
-  - TCOM
   - TMUS
   - TSLA
   - TTWO
@@ -106,6 +106,12 @@ tickers_on_Jan_1:
   - XLNX
 
 changes:
+  '2019-11-05':
+    difference:
+      - CTRP
+    union:
+      - TCOM
+
   '2019-11-19':
     difference:
       - CELG
