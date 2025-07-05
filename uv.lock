@@ -342,7 +342,7 @@ wheels = [
 
 [[package]]
 name = "nasdaq-100-ticker-history"
-version = "2025.4.0"
+version = "2025.5.0"
 source = { editable = "." }
 dependencies = [
     { name = "strictyaml" },
