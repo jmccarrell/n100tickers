@@ -6,6 +6,23 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2025.5.0 (2025-07-05)
+===============================================
+
+Internal Changes
+----------------
+
+- Refactor tests into per-year files for better organization.
+- Add a GitHub workflow to validate pull requests.
+- Update python dependencies.
+
+Bug Fixes
+---------
+
+- Correctly handle the ticker symbol rename of Trip.com (formerly CTRP) in 2019.
+
+
+
 Nasdaq_100_Ticker_History 2025.4.0 (2025-05-19)
 ===============================================
 
