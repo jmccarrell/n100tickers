@@ -76,6 +76,7 @@ tickers_on_Jan_1:
   - NFLX
   - NLOK
   - NVDA
+  - NXPI
   - ORLY
   - PAYX
   - PCAR
@@ -108,7 +109,7 @@ tickers_on_Jan_1:
 
 changes:
   # the main source of these changes is the wikipedia page:
-  #  https://en.wikipedia.org/wiki/NASDAQ-100#Changes_in_2015
+  #  https://en.wikipedia.org/wiki/Nasdaq-100#Regular_changes
 
   '2015-03-23':
     difference:
@@ -163,8 +164,8 @@ changes:
       - GMCR
       - GRMN
       - SPLS
-      - WYNN
       - VIP
+      - WYNN
       - LILA
       - LILAK
     union:
