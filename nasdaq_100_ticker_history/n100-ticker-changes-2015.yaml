@@ -1,0 +1,178 @@
+---
+year: 2015
+tickers_on_Jan_1:
+  - AAL
+  - AAPL
+  - ADBE
+  - ADI
+  - ADP
+  - ADSK
+  - AKAM
+  - ALTR
+  - ALXN
+  - AMAT
+  - AMGN
+  - AMZN
+  - ATVI
+  - AVGO
+  - BBBY
+  - BIDU
+  - BIIB
+  - BKNG
+  - BRCM
+  - CA
+  - CELG
+  - CERN
+  - CHKP
+  - CHRW
+  - CHTR
+  - CMCSA
+  - COST
+  - CSCO
+  - CTSH
+  - CTXS
+  - CTRX
+  - DISCA
+  - DISCK
+  - DISH
+  - DLTR
+  - DTV
+  - EA
+  - EBAY
+  - EQIX
+  - ESRX
+  - EXPD
+  - FAST
+  - FB
+  - FISV
+  - FOX
+  - FOXA
+  - GILD
+  - GMCR
+  - GOOG
+  - GOOGL
+  - GRMN
+  - HSIC
+  - ILMN
+  - INTC
+  - INTU
+  - ISRG
+  - KLAC
+  - KRFT
+  - LBTYA
+  - LBTYK
+  - LLTC
+  - LMCA
+  - LMCK
+  - LRCX
+  - MAR
+  - MAT
+  - MDLZ
+  - MNST
+  - MSFT
+  - MU
+  - MYL
+  - NTAP
+  - NFLX
+  - NLOK
+  - NVDA
+  - NXPI
+  - ORLY
+  - PAYX
+  - PCAR
+  - QCOM
+  - QRTEA
+  - REGN
+  - ROST
+  - SBAC
+  - SBUX
+  - SIAL
+  - SIRI
+  - SNDK
+  - SPLS
+  - SRCL
+  - STX
+  - TRIP
+  - TSCO
+  - TSLA
+  - TXN
+  - VIAB
+  - VIP
+  - VOD
+  - VRSK
+  - VRTX
+  - WDC
+  - WFM
+  - WYNN
+  - XLNX
+  - YHOO
+
+changes:
+  # the main source of these changes is the wikipedia page:
+  #  https://en.wikipedia.org/wiki/Nasdaq-100#Regular_changes
+
+  '2015-03-23':
+    difference:
+      - EQIX
+    union:
+      - WBA
+
+  '2015-07-02':
+    difference:
+      - KRFT
+    union:
+      - KHC
+      - LILA
+      - LILAK
+
+  '2015-07-27':
+    difference:
+      - DTV
+    union:
+      - BMRN
+
+  '2015-07-29':
+    difference:
+      - CTRX
+    union:
+      - JD
+
+  '2015-08-03':
+    difference:
+      - SIAL
+    union:
+      - SWKS
+
+  '2015-10-07':
+    difference:
+      - ALTR
+    union:
+      - INCY
+
+  '2015-11-11':
+    difference:
+      - BRCM
+    union:
+      - PYPL
+
+  # annual changes for 2015
+  #  https://ir.nasdaq.com/news-releases/news-release-details/annual-changes-nasdaq-100-index-4
+  '2015-12-21':
+    difference:
+      - CHRW
+      - EXPD
+      - GMCR
+      - GRMN
+      - SPLS
+      - VIP
+      - WYNN
+      - LILA
+      - LILAK
+    union:
+      - CTRP
+      - ENDP
+      - EXPE
+      - MXIM
+      - NCLH
+      - TMUS
+      - ULTA
