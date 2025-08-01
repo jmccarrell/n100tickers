@@ -15,3 +15,11 @@ def test_may_2025_shop_mdb_swap() -> None:
     _test_one_swap(
         datetime.date.fromisoformat("2025-05-19"), "MDB", "SHOP", num_tickers_2025
     )
+
+
+def test_jul_2025_anss_tri_swap() -> None:
+    # Jul 28 Thompson Reuters TRI replaces Ansys ANSS, which had been
+    # acquired by Synopsys on Jul 17.
+    _test_one_swap(
+        datetime.date.fromisoformat("2025-07-28"), "ANSS", "TRI", num_tickers_2025
+    )
