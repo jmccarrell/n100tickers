@@ -109,3 +109,9 @@ changes:
       - MDB
     union:
       - SHOP
+
+  '2025-07-28':
+    difference:
+      - ANSS
+    union:
+      - TRI

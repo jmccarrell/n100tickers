@@ -6,6 +6,16 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2025.7.0 (2025-07-31)
+===============================================
+
+Features
+--------
+
+- Thompson Reuters TRI replaces Ansys ANSS after Ansys was acquired by Synopsys.
+
+
+
 Nasdaq_100_Ticker_History 2025.6.0 (2025-07-06)
 ===============================================
 
