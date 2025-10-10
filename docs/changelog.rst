@@ -6,6 +6,21 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2025.8.0 (2025-10-10)
+===============================================
+
+Internal Changes
+----------------
+- Move to uv-build and src layout for the project
+- Update python dependencies
+
+
+Features
+--------
+
+- Thompson Reuters TRI replaces Ansys ANSS after Ansys was acquired by Synopsys.
+
+
 Nasdaq_100_Ticker_History 2025.7.0 (2025-07-31)
 ===============================================
 
@@ -15,7 +30,6 @@ Features
 - Thompson Reuters TRI replaces Ansys ANSS after Ansys was acquired by Synopsys.
 
 
-
 Nasdaq_100_Ticker_History 2025.6.0 (2025-07-06)
 ===============================================
 
@@ -23,7 +37,6 @@ Features
 --------
 
 - Add support for calendar year 2015.
-
 
 
 Nasdaq_100_Ticker_History 2025.5.0 (2025-07-05)
@@ -40,7 +53,6 @@ Bug Fixes
 ---------
 
 - Correctly handle the ticker symbol rename of Trip.com (formerly CTRP) in 2019.
-
 
 
 Nasdaq_100_Ticker_History 2025.4.0 (2025-05-19)
