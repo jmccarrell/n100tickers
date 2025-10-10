@@ -1,27 +1,27 @@
 [project]
 name = "nasdaq-100-ticker-history"
 version = "2025.8.0"
-description = "Return NASDAQ 100 ticker symbols by date."
+description = "Sets of NASDAQ 100 ticker symbols by date."
 authors = [{ name = "Jeff McCarrell", email = "jeff@mccarrell.org" }]
 requires-python = ">=3.10, <4"
 license = "MIT"
 dependencies = ["strictyaml>=1.7.3,<2"]
 
 [dependency-groups]
-test = ["pytest~=7.0"]
 docs = [
     "sphinx>=3.2.1,<4",
     "doc2dash>=2.3.0,<3",
     "towncrier>=19.2.0,<20",
 ]
 dev = [
+    "coverage",
     "mypy>=1.9.0,<2",
+    "pytest",
     "ruff>=0.12.2",
 ]
 
 [tool.uv]
 default-groups = [
-    "test",
     "docs",
     "dev",
 ]

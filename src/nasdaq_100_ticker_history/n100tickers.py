@@ -76,7 +76,7 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
                             rhs_code = "result.union(rhs)"
                         case "difference":
                             rhs_code = "result.difference(rhs)"
-                        case _:
+                        case _:  # pragma: no cover
                             raise NotImplementedError(f"unknown set operation: {k} in changes {d}")
                     r = eval(rhs_code)
                     result = r
