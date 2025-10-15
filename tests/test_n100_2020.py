@@ -6,7 +6,6 @@ num_tickers_2020 = 103
 
 
 def test_tickers_2020() -> None:
-
     _test_at_year_boundary(2020)
 
     # On April 20, Dexcom replaced American Airlines Group in the index

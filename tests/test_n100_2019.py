@@ -6,7 +6,6 @@ num_tickers_2019 = 103
 
 
 def test_tickers_2019() -> None:
-
     _test_at_year_boundary(2019)
 
     # https://www.nasdaq.com/press-release/exelon-corporation-to-join-the-nasdaq-100-index-beginning-november-21-2019-2019-11-18
@@ -30,7 +29,6 @@ def test_tickers_2019() -> None:
     assert len(tickers_2019_dec_20) == num_tickers_2019
     assert dec_23_removals.issubset(tickers_2019_dec_20)
     assert tickers_2019_dec_20.isdisjoint(dec_23_additions)
-
 
     # there was a record of 21st Century Fox changing to Fox Corp.  But as near as I can tell, the ticker
     # symbols were the same.

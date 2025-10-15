@@ -2,6 +2,7 @@ import datetime
 
 from nasdaq_100_ticker_history import tickers_as_of
 
+
 def _test_one_swap(
     as_of_date: datetime.date, removed_ticker: str, added_ticker: str, expected_number_of_tickers: int
 ) -> None:

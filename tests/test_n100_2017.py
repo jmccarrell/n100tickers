@@ -6,7 +6,6 @@ num_tickers_2017 = 104
 
 
 def test_tickers_2017() -> None:
-
     # 2/7/2017 JBHT replaced NXPI
     _test_one_swap(datetime.date.fromisoformat("2017-02-07"), "NXPI", "JBHT", num_tickers_2017)
 

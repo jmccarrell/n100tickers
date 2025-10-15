@@ -13,21 +13,22 @@
 import os
 import sys
 import subprocess
-sys.path.insert(0, os.path.abspath('..'))
+
+sys.path.insert(0, os.path.abspath(".."))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'nasdaq-100-ticker-history'
-copyright = '2021 - 2025, Jeff McCarrell'
-author = 'Jeff McCarrell'
+project = "nasdaq-100-ticker-history"
+copyright = "2021 - 2025, Jeff McCarrell"
+author = "Jeff McCarrell"
 
 # The full version, including alpha/beta/rc tags
 # from importlib.metadata import version as pkg_version
 # version = pkg_version(project)
 
 # read the version directly from poetry
-sub_result = subprocess.run(['poetry', 'version', '--short'], capture_output=True, text=True, check=True)
+sub_result = subprocess.run(["poetry", "version", "--short"], capture_output=True, text=True, check=True)
 version = sub_result.stdout.strip()
 release = version
 
@@ -38,17 +39,17 @@ release = version
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.doctest',
+    "sphinx.ext.autodoc",
+    "sphinx.ext.doctest",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -56,12 +57,12 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = "alabaster"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
 
 # -- Extension configuration -------------------------------------------------

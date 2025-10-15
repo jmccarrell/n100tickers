@@ -47,7 +47,6 @@ def test_tickers_2015() -> None:
     assert "LILA" in jul_2_tickers
     assert "LILAK" in jul_2_tickers
 
-
     _test_one_swap(datetime.date.fromisoformat("2015-07-27"), "DTV", "BMRN", 107)
     _test_one_swap(datetime.date.fromisoformat("2015-07-29"), "CTRX", "JD", 107)
     _test_one_swap(datetime.date.fromisoformat("2015-08-03"), "SIAL", "SWKS", 107)
