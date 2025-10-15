@@ -34,7 +34,6 @@ def test_2021_annual_changes() -> None:
 
 
 def test_tickers_2021() -> None:
-
     # On July 21, Honeywell replaces Alexion
     _test_one_swap(datetime.date.fromisoformat("2021-07-21"), "ALXN", "HON", num_tickers_2021)
 

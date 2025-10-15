@@ -6,7 +6,6 @@ num_tickers_2018 = 103
 
 
 def test_tickers_2018() -> None:
-
     _test_at_year_boundary(2018)
 
     # 6 tickers added and removed on 12/24/2018
