@@ -22,11 +22,12 @@ jobs:
         run: |
           pipx install uv
           uv sync --group dev
-      - name: Run ruff
-        run: uv run ruff check .
-      - name: Run mypy
-        run: uv run mypy .
+          pipx install rust-just
+      - name: Run linters
+        run: just lint
+      - name: Check types
+        run: just typing
       - name: Run pytest
-        run: uv run pytest
+        run: just test
       - name: Generate test coverage
-        run: uv run coverage run -m pytest && uv run coverage report -m
+        run: just cov
