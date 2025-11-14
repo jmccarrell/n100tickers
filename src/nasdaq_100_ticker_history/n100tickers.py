@@ -55,7 +55,7 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
     :return: a frozenset of ``str`` of symbol names in the index as of year, month, day.
     :rtype: frozenset
 
-    >>> 'TSLA' in tickers_as_of(2020, 9, 1)
+    >>> "TSLA" in tickers_as_of(2020, 9, 1)
     True
     >>> len(tickers_as_of(2020, 9, 1)) == 103
     True
