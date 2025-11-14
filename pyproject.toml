@@ -30,8 +30,6 @@ default-groups = [
 package = "nasdaq_100_ticker_history"
 filename = "docs/changelog.rst"
 
-[tool.ruff]
-line-length = 108
 
 [build-system]
 requires = ["uv_build>=0.8.0"]
