@@ -1,6 +1,8 @@
 import datetime
+
 from nasdaq_100_ticker_history import tickers_as_of
-from .helpers import _test_one_swap, _test_at_year_boundary
+
+from .helpers import _test_at_year_boundary, _test_one_swap
 
 num_tickers_2015_boy = 105  # num tickers at the start of 2015
 num_tickers_2015_eoy = 105  # number of tickers at the end of 2015
