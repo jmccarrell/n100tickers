@@ -61,23 +61,20 @@ def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
     True
     """
 
-    tickers = _load_tickers_from_yaml(year=year)
-    result = set(tickers["tickers_on_Jan_1"])
-    if "changes" in tickers:  # pragma: no branch.  Needed as every year has changes.
+    tickers_year = _load_tickers_from_yaml(year=year)
+    result = set(tickers_year["tickers_on_Jan_1"])
+    if "changes" in tickers_year:  # pragma: no branch.  Needed as every year has changes.
         # changes happen sometime later in the year.
         query_date = datetime.date(year=year, month=month, day=day)
-        for d in list(map(datetime.date.fromisoformat, sorted(list(tickers["changes"].keys())))):
+        for d in list(map(datetime.date.fromisoformat, sorted(list(tickers_year["changes"].keys())))):
             if d <= query_date:
-                ops = tickers["changes"][d.isoformat()]
-                for k in ops.keys():
-                    rhs = set(ops[k])  # noqa F841
-                    match k:
-                        case "union":
-                            rhs_code = "result.union(rhs)"
-                        case "difference":
-                            rhs_code = "result.difference(rhs)"
-                        case _:  # pragma: no cover
-                            raise NotImplementedError(f"unknown set operation: {k} in changes {d}")
-                    r = eval(rhs_code)
-                    result = r
+                ops = tickers_year["changes"][d.isoformat()]
+                for operation, operands in ops.items():
+                    tickers = set(operands)
+                    if operation == "union":
+                        result = result.union(tickers)
+                    elif operation == "difference":
+                        result = result.difference(tickers)
+                    else:  # pragma: no cover
+                        raise NotImplementedError(f"unknown set operation: {operation} in changes {d}")
     return frozenset(result)
