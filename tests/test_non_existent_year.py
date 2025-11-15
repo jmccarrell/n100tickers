@@ -1,4 +1,5 @@
 import pytest
+
 from nasdaq_100_ticker_history import tickers_as_of
 
 

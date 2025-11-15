@@ -32,3 +32,7 @@ line-length = 108
 [format]
 # enable reformatting of code snippets in docstrings.
 docstring-code-format = true
+
+
+[lint]
+select = ["I"]  # Enables isort import sorting
