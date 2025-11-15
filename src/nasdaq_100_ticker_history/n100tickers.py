@@ -1,13 +1,12 @@
 """Return the member companies of the NASDAQ 100 index as it has changed over time."""
 
 import datetime
-from functools import lru_cache
 import importlib.resources
+from functools import lru_cache
 from importlib.resources.abc import Traversable
+from typing import cast
 
-# circa Mar 2024, I cannot find any type stubs for strictyaml.
-# so ignore type issues
-from strictyaml import load, Map, MapPattern, Optional, Str, Int, UniqueSeq  # type: ignore
+from strictyaml import Int, Map, MapPattern, Optional, Str, UniqueSeq, load
 
 changes_schema = Map({Optional("union"): UniqueSeq(Str()), Optional("difference"): UniqueSeq(Str())})
 
@@ -42,7 +41,7 @@ def _load_tickers_from_yaml(year: int = 2020) -> dict:
         )
 
     n100_tickers_yaml = resource.read_text(encoding="utf-8")
-    return load(n100_tickers_yaml, ticker_schema).data
+    return cast(dict, load(n100_tickers_yaml, ticker_schema).data)
 
 
 def tickers_as_of(year: int = 2020, month: int = 1, day: int = 1) -> frozenset:
