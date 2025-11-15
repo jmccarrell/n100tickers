@@ -21,7 +21,7 @@ def test_jul_2025_anss_tri_swap() -> None:
     _test_one_swap(datetime.date.fromisoformat("2025-07-28"), "ANSS", "TRI", num_tickers_2025)
 
 
-def test_nov_2025_sols_added() -> None:
+def test_oct_2025_sols_added() -> None:
     # On Oct 30, 2025, Solstice Advanced Materials SOLS was spun off from Honeywell HON
     # bringing the total number of tickers to 102.
     tickers_before = tickers_as_of(2025, 10, 29)
