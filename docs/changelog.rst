@@ -6,6 +6,18 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2025.9.0 (2025-11-15)
+===============================================
+
+User-Visible Changes
+--------------------
+- On Oct 30, HON spun off SOLS, which was added to the n100 index.
+
+Internal Changes
+----------------
+- Various internal improvements, including updating dependencies, improving type checking, and refactoring for clarity.
+
+
 Nasdaq_100_Ticker_History 2025.8.0 (2025-10-10)
 ===============================================
 

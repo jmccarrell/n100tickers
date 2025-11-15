@@ -1,6 +1,6 @@
 [project]
 name = "nasdaq-100-ticker-history"
-version = "2025.8.0"
+version = "2025.9.0"
 description = "Sets of NASDAQ 100 ticker symbols by date."
 authors = [{ name = "Jeff McCarrell", email = "jeff@mccarrell.org" }]
 requires-python = ">=3.11, <4"
