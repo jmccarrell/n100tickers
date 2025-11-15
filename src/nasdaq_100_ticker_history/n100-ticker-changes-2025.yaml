@@ -115,3 +115,7 @@ changes:
       - ANSS
     union:
       - TRI
+
+  '2025-10-30':
+    union:
+      - SOLS
