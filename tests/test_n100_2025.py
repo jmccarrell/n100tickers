@@ -31,3 +31,27 @@ def test_oct_2025_sols_added() -> None:
     assert len(tickers_after) == num_tickers_2025 + 1
     assert "SOLS" not in tickers_before
     assert "SOLS" in tickers_after
+
+
+def test_dec_2025_annual_reconstitution() -> None:
+    # On Dec 22, 2025, annual reconstitution:
+    # Removed: BIIB, CDW, GFS, LULU, ON, TTD
+    # Added: ALNY, FER, INSM, MPWR, STX, WDC
+    tickers_before = tickers_as_of(2025, 12, 21)
+    tickers_after = tickers_as_of(2025, 12, 22)
+
+    # Total should remain 102 (6 removed, 6 added)
+    assert len(tickers_before) == num_tickers_2025 + 1
+    assert len(tickers_after) == num_tickers_2025 + 1
+
+    # Verify removals
+    removed = {"BIIB", "CDW", "GFS", "LULU", "ON", "TTD"}
+    for ticker in removed:
+        assert ticker in tickers_before
+        assert ticker not in tickers_after
+
+    # Verify additions
+    added = {"ALNY", "FER", "INSM", "MPWR", "STX", "WDC"}
+    for ticker in added:
+        assert ticker not in tickers_before
+        assert ticker in tickers_after
