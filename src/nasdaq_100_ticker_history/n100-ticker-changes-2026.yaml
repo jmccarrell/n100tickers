@@ -1,5 +1,5 @@
 ---
-year: 2025
+year: 2026
 tickers_on_Jan_1:
   - AAPL
   - ABNB
@@ -8,23 +8,21 @@ tickers_on_Jan_1:
   - ADP
   - ADSK
   - AEP
+  - ALNY
   - AMAT
   - AMD
   - AMGN
   - AMZN
-  - ANSS
   - APP
   - ARM
   - ASML
   - AVGO
   - AXON
   - AZN
-  - BIIB
   - BKNG
   - BKR
   - CCEP
   - CDNS
-  - CDW
   - CEG
   - CHTR
   - CMCSA
@@ -43,14 +41,15 @@ tickers_on_Jan_1:
   - EXC
   - FANG
   - FAST
+  - FER
   - FTNT
   - GEHC
-  - GFS
   - GILD
   - GOOG
   - GOOGL
   - HON
   - IDXX
+  - INSM
   - INTC
   - INTU
   - ISRG
@@ -59,14 +58,13 @@ tickers_on_Jan_1:
   - KLAC
   - LIN
   - LRCX
-  - LULU
   - MAR
   - MCHP
-  - MDB
   - MDLZ
   - MELI
   - META
   - MNST
+  - MPWR
   - MRVL
   - MSFT
   - MSTR
@@ -75,7 +73,6 @@ tickers_on_Jan_1:
   - NVDA
   - NXPI
   - ODFL
-  - ON
   - ORLY
   - PANW
   - PAYX
@@ -89,49 +86,20 @@ tickers_on_Jan_1:
   - ROP
   - ROST
   - SBUX
+  - SHOP
   - SNPS
+  - SOLS
+  - STX
   - TEAM
   - TMUS
+  - TRI
   - TSLA
-  - TTD
   - TTWO
   - TXN
   - VRSK
   - VRTX
   - WBD
   - WDAY
+  - WDC
   - XEL
   - ZS
-
-changes:
-  '2025-05-19':
-    difference:
-      - MDB
-    union:
-      - SHOP
-
-  '2025-07-28':
-    difference:
-      - ANSS
-    union:
-      - TRI
-
-  '2025-10-30':
-    union:
-      - SOLS
-
-  '2025-12-22':
-    difference:
-      - BIIB
-      - CDW
-      - GFS
-      - LULU
-      - ON
-      - TTD
-    union:
-      - ALNY
-      - FER
-      - INSM
-      - MPWR
-      - STX
-      - WDC
