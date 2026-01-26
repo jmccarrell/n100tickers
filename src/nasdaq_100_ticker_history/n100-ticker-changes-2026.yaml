@@ -88,7 +88,6 @@ tickers_on_Jan_1:
   - SBUX
   - SHOP
   - SNPS
-  - SOLS
   - STX
   - TEAM
   - TMUS
@@ -103,3 +102,16 @@ tickers_on_Jan_1:
   - WDC
   - XEL
   - ZS
+
+changes:
+  "2026-01-05":
+    union:
+      - VSNT
+  "2026-01-09":
+    difference:
+      - VSNT
+  "2026-01-20":
+    difference:
+      - AZN
+    union:
+      - WMT

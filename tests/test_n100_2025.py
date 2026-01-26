@@ -33,6 +33,17 @@ def test_oct_2025_sols_added() -> None:
     assert "SOLS" in tickers_after
 
 
+def test_nov_2025_sols_removed() -> None:
+    # On Nov 6, 2025, SOLS was removed for not meeting weight requirements,
+    # returning the total to 101.
+    tickers_before = tickers_as_of(2025, 11, 5)
+    tickers_after = tickers_as_of(2025, 11, 6)
+    assert len(tickers_before) == num_tickers_2025 + 1
+    assert len(tickers_after) == num_tickers_2025
+    assert "SOLS" in tickers_before
+    assert "SOLS" not in tickers_after
+
+
 def test_dec_2025_annual_reconstitution() -> None:
     # On Dec 22, 2025, annual reconstitution:
     # Removed: BIIB, CDW, GFS, LULU, ON, TTD
@@ -40,9 +51,9 @@ def test_dec_2025_annual_reconstitution() -> None:
     tickers_before = tickers_as_of(2025, 12, 21)
     tickers_after = tickers_as_of(2025, 12, 22)
 
-    # Total should remain 102 (6 removed, 6 added)
-    assert len(tickers_before) == num_tickers_2025 + 1
-    assert len(tickers_after) == num_tickers_2025 + 1
+    # Total should remain 101 (6 removed, 6 added)
+    assert len(tickers_before) == num_tickers_2025
+    assert len(tickers_after) == num_tickers_2025
 
     # Verify removals
     removed = {"BIIB", "CDW", "GFS", "LULU", "ON", "TTD"}

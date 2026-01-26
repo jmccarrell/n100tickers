@@ -6,6 +6,15 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2026.2.0 (2026-01-25)
+===============================================
+
+User-Visible Changes
+--------------------
+- Added Walmart (WMT) to the index, replacing AstraZeneca (AZN) effective January 20, 2026.
+- Corrected the short-term addition and removal of Versant (VSNT) in early January 2026.
+- Fixed the historical removal date for Solstice Advanced Materials (SOLS) to November 6, 2025.
+
 Nasdaq_100_Ticker_History 2026.0.0 (2025-12-21)
 ===============================================
 
