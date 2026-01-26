@@ -10,6 +10,9 @@ This project provides date-centric access to NASDAQ 100 index membership over ti
 
 This project uses `just` for task automation and `uv` for Python dependency management.
 
+### Run python code
+- use `uv run pythyon` to execute python
+
 ### Testing
 - Run all tests: `just test`
 - Run specific test: `just test tests/test_n100_2023.py`
@@ -78,6 +81,11 @@ When NASDAQ announces index changes:
 3. Tests should verify the swap occurred on the correct date
 4. Run `just check-all` before committing
 5. Version follows CalVer format: `YYYY.minor.patch`
+
+## Add a new release
+1. Get the release tag from the user
+2. Update `pyproject.toml`
+3. Update `index.rst` to the current date
 
 ## Notes
 
