@@ -59,3 +59,23 @@ clean:
 # Recreate project virtualenv from nothing
 [group('lifecycle')]
 fresh: clean install
+
+# Cut a release: just release 2026.2.1
+[group('lifecycle')]
+release VERSION:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if ! echo "{{ VERSION }}" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+        echo "error: VERSION must be CalVer (e.g. 2026.2.0), got '{{ VERSION }}'"
+        exit 1
+    fi
+    if [ -n "$(git status --porcelain)" ]; then
+        echo "error: uncommitted changes — commit or stash first"
+        exit 1
+    fi
+    sed -i.bak 's/^version = ".*"/version = "{{ VERSION }}"/' pyproject.toml && rm pyproject.toml.bak
+    git add pyproject.toml
+    git commit -m "release v{{ VERSION }}"
+    git tag -a "v{{ VERSION }}" -m "v{{ VERSION }}"
+    git push
+    git push origin "v{{ VERSION }}"
