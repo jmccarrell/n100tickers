@@ -10,6 +10,9 @@ This project provides date-centric access to NASDAQ 100 index membership over ti
 
 This project uses `just` for task automation and `uv` for Python dependency management.
 
+### Run python code
+- use `uv run pythyon` to execute python
+
 ### Testing
 - Run all tests: `just test`
 - Run specific test: `just test tests/test_n100_2023.py`
@@ -78,6 +81,30 @@ When NASDAQ announces index changes:
 3. Tests should verify the swap occurred on the correct date
 4. Run `just check-all` before committing
 5. Version follows CalVer format: `YYYY.minor.patch`
+
+## Releasing
+
+Version follows CalVer format: `YYYY.minor.patch`
+
+### Cutting a release
+1. Get the release version from the user
+2. Update `pyproject.toml` with the new version
+3. Update `index.rst` to the current date
+4. Commit all changes
+5. Run `just release VERSION` (e.g. `just release 2026.2.1`)
+
+The `just release` recipe:
+- Validates the version format
+- Checks for uncommitted changes
+- Updates the version in `pyproject.toml`, commits, and creates an annotated `vVERSION` tag
+- Pushes the commit and tag to origin
+
+### Automated GitHub Release
+Pushing a `v*` tag triggers the `.github/workflows/release.yml` workflow, which:
+1. Verifies the tag version matches `pyproject.toml`
+2. Runs the test suite
+3. Builds the distribution with `uv build`
+4. Creates a GitHub Release with auto-generated notes and build artifacts
 
 ## Notes
 
