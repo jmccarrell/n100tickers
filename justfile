@@ -54,7 +54,9 @@ install:
 [group('lifecycle')]
 clean:
     rm -rf .venv .pytest_cache .mypy_cache .ruff_cache .coverage htmlcov
+    rm -rf docs/_build
     find . -type d -name "__pycache__" -exec rm -r {} +
+    find . -type d -name ".pytest_cache" -exec rm -r {} +
 
 # Recreate project virtualenv from nothing
 [group('lifecycle')]
