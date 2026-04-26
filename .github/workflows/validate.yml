@@ -14,20 +14,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+
+      - uses: astral-sh/setup-uv@v8.0.0
+
       - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.14'
+        run: uv python install 3.14
+
+      - name: Install just
+        run: uv tool install rust-just
+
       - name: Install dependencies
-        run: |
-          pipx install uv
-          uv sync --group dev
-          pipx install rust-just
+        run: uv sync
+
       - name: Run linters
         run: just lint
+
       - name: Check types
         run: just typing
+
       - name: Run pytest
         run: just test
+
       - name: Generate test coverage
         run: just cov
