@@ -11,7 +11,7 @@ This project provides date-centric access to NASDAQ 100 index membership over ti
 This project uses `just` for task automation and `uv` for Python dependency management.
 
 ### Run python code
-- use `uv run pythyon` to execute python
+- use `uv run python` to execute python (never bare `python`/`python3`; package ops via `uv add`/`uv sync` — repo-wide rule, see top-level CLAUDE.md)
 
 ### Testing
 - Run all tests: `just test`
