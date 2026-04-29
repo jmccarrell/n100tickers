@@ -6,6 +6,18 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2026.3.0 (2026-04-29)
+===============================================
+
+User-Visible Changes
+--------------------
+- Added Sandisk (SNDK) to the index, replacing Atlassian (TEAM) effective April 20, 2026.
+
+Internal Changes
+----------------
+- ``just release`` now also stages and commits ``uv.lock`` so the lockfile stays in sync with the version bump.
+- Refreshed Python development dependencies (``just update``).
+
 Nasdaq_100_Ticker_History 2026.2.0 (2026-01-25)
 ===============================================
 
