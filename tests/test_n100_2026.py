@@ -31,3 +31,8 @@ def test_jan_2026_vsnt_spinoff_and_removal() -> None:
 def test_jan_2026_wmt_azn_swap() -> None:
     # On Jan 20, Walmart (WMT) replaced AstraZeneca (AZN)
     _test_one_swap(datetime.date.fromisoformat("2026-01-20"), "AZN", "WMT", num_tickers_2026)
+
+
+def test_apr_2026_sndk_team_swap() -> None:
+    # On Apr 20, Sandisk (SNDK) replaced Atlassian (TEAM)
+    _test_one_swap(datetime.date.fromisoformat("2026-04-20"), "TEAM", "SNDK", num_tickers_2026)
