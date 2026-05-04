@@ -29,11 +29,29 @@ few weeks.  It is the intent of the project maintainers to provide accurate cove
 Examples
 --------
 
+Point-in-time membership via :func:`tickers_as_of`:
+
 >>> from nasdaq_100_ticker_history import tickers_as_of
 >>> 'AMZN' in tickers_as_of(2020, 6, 1)
 True
 >>> tuple(('OKTA' in tickers_as_of(y, 1, 1) for y in [2020, 2021, 2022, 2023]))
 (False, True, True, False)
+
+The membership-changes API exposes the index history as bidirectional streams
+of additions and removals, anchored at a fixed ``BASELINE_DATE`` (January 1,
+2020) so coverage expansion in either direction does not shift any previously
+emitted event:
+
+>>> from nasdaq_100_ticker_history import (
+...     BASELINE_DATE, BASELINE_MEMBERSHIP, changes_since, changes_before,
+... )
+>>> first_post_baseline = next(iter(changes_since()))
+>>> first_post_baseline.effective_date.isoformat()
+'2020-04-20'
+>>> 'DXCM' in first_post_baseline.additions
+True
+>>> 'AAL' in first_post_baseline.removals
+True
 
 API
 ---

@@ -1,7 +1,7 @@
 set dotenv-load
 
-# Shared worktree recipes — see CLAUDE.md > Worktree Workflow
-mod wt '~/.config/just/worktree.just'
+# Shared worktree recipes (optional; see CLAUDE.md > Worktree Workflow).
+mod? wt '~/.config/just/worktree.just'
 
 ARGS_TEST := env("_UV_RUN_ARGS_TEST", "")
 
