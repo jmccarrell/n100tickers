@@ -1,5 +1,8 @@
 set dotenv-load
 
+# Shared worktree recipes — see CLAUDE.md > Worktree Workflow
+mod wt '~/.config/just/worktree.just'
+
 ARGS_TEST := env("_UV_RUN_ARGS_TEST", "")
 
 
@@ -82,3 +85,14 @@ release VERSION:
     git tag -a "v{{ VERSION }}" -m "v{{ VERSION }}"
     git push
     git push origin "v{{ VERSION }}"
+
+
+# Install the pre-push fixup-warning hook into .bare/hooks/ (per-machine).
+[group('worktree')]
+install-fixup-hook:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    bare="$(git rev-parse --git-common-dir)"
+    cp hooks/pre-push "$bare/hooks/pre-push"
+    chmod +x "$bare/hooks/pre-push"
+    echo "install-fixup-hook: installed to $bare/hooks/pre-push"

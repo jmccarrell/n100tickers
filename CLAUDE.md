@@ -6,6 +6,26 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This project provides date-centric access to NASDAQ 100 index membership over time. The primary API is `tickers_as_of(year, month, day)` which returns a frozenset of ticker symbols that were in the index on the specified date. Coverage spans from January 1, 2015 through at least November 15, 2025.
 
+## Worktree Workflow
+
+This project uses the **bare-root + worktrees** layout. The detailed flow
+is documented in the `git-worktree-flow` skill (`~/.claude/skills/git-worktree-flow/SKILL.md`)
+and its operational counterpart `~/.config/just/worktree.just`, wired into
+this project's justfile as `mod wt`.
+
+- **Verify gate before fixup or close:** `just check-all` (lint + cov + typing).
+  The `wt::*` recipes do not call back into project recipes; run verification yourself.
+- **Recipes available** (full list: `just wt`):
+  - `just wt::new <feature>` — create sibling worktree on a new branch
+  - `just wt::track <feature>` — track an existing remote branch on this machine
+  - `just wt::status` — read-only drift report against origin
+  - `just wt::fixup` — fixup staged changes against the first commit on this branch
+  - `just wt::squash` / `just wt::close` — autosquash; `close` also drops `TASK.md`
+  - `just wt::clean <feature>` — remove a merged worktree and delete its branch
+- **Pre-push warning hook** — install per-machine with `just install-fixup-hook`.
+  Canonical source: `hooks/pre-push` (tracked). Warns (does not block) when
+  pushing a branch with unsquashed `fixup!` commits.
+
 ## Common Commands
 
 This project uses `just` for task automation and `uv` for Python dependency management.
@@ -112,3 +132,17 @@ Pushing a `v*` tag triggers the `.github/workflows/release.yml` workflow, which:
 - Line length: 108 characters (configured in `ruff.toml`)
 - Import sorting enabled via ruff (isort rules)
 - Coverage settings: branch coverage enabled, shows missing lines, skips covered lines
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues for `jmccarrell/n100tickers`, accessed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Five canonical triage roles use their default label names (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.

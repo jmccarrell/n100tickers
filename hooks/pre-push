@@ -1,0 +1,51 @@
+#!/bin/sh
+#
+# pre-push: warn (don't block) on unsquashed fixup commits.
+#
+# WHY THIS EXISTS
+# ---------------
+# When using `just wt::fixup` to checkpoint in-flight work during a
+# sub-goal, it's easy to forget to run `just wt::squash` (autosquash
+# rebase) before pushing. Pushing unsquashed fixups to origin is rarely
+# intended: the branch history ends up cluttered with `fixup! <msg>`
+# commits that should have been collapsed into their target.
+#
+# WHY SOFT WARN, NOT HARD BLOCK
+# -----------------------------
+# Occasionally an in-flight fixup chain needs to travel via push/pull
+# (paused on one machine, resumed on another) before squashing. A hard
+# block would force `--no-verify` ceremony in that case. Soft warn keeps
+# the reminder without the friction.
+#
+# HOW TO BYPASS
+# -------------
+# Either run `git push --no-verify`, or remove this hook file
+# (`rm .bare/hooks/pre-push`). The hook is per-machine setup;
+# reinstall via `just install-fixup-hook` from the worktree root.
+#
+# CANONICAL SOURCE
+# ----------------
+# Source of truth: hooks/pre-push at the worktree root. This installed
+# copy in .bare/hooks/ may drift if the canonical source is updated;
+# rerun `just install-fixup-hook` after pulls that touch the source.
+
+# Skip check if not on a regular branch (e.g. detached HEAD).
+current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+if [ -z "$current_branch" ] || [ "$current_branch" = "HEAD" ]; then
+    exit 0
+fi
+
+# Look for fixup commits between upstream and HEAD. If no upstream is
+# configured for this branch, @{u} fails — silently skip in that case.
+fixups=$(git log --oneline @{u}..HEAD 2>/dev/null | grep ' fixup!' || true)
+if [ -n "$fixups" ]; then
+    echo ""
+    echo "WARNING: branch '$current_branch' contains unsquashed fixup commits:"
+    echo "$fixups" | sed 's/^/  /'
+    echo ""
+    echo "Consider 'just wt::squash' (or 'just wt::close' at sub-goal end) before pushing."
+    echo "Push with 'git push --no-verify' to bypass this warning intentionally."
+    echo ""
+fi
+
+exit 0
