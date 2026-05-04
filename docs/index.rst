@@ -42,9 +42,9 @@ of additions and removals, anchored at a fixed ``BASELINE_DATE`` (January 1,
 2020) so coverage expansion in either direction does not shift any previously
 emitted event:
 
->>> from nasdaq_100_ticker_history import (
-...     BASELINE_DATE, BASELINE_MEMBERSHIP, changes_since, changes_before,
-... )
+>>> from nasdaq_100_ticker_history.changes import (
+       BASELINE_DATE, BASELINE_MEMBERSHIP, changes_since, changes_before,
+    )
 >>> first_post_baseline = next(iter(changes_since()))
 >>> first_post_baseline.effective_date.isoformat()
 '2020-04-20'
