@@ -31,6 +31,12 @@ _cov *args:
 [group('qa')]
 lint:
     uvx ruff check
+    uvx ruff format --check
+
+# Fix ruff issues + format
+[group('qa')]
+fmt:
+    uvx ruff check --fix
     uvx ruff format
 
 # Check types
