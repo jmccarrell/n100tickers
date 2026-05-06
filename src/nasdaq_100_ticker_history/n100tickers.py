@@ -15,13 +15,7 @@ date_schema = MapPattern(
     changes_schema,
 )
 
-ticker_schema = Map(
-    {
-        "year": Int(),
-        "tickers_on_Jan_1": UniqueSeq(Str()),
-        Optional("changes"): date_schema,
-    }
-)
+ticker_schema = Map({"year": Int(), "tickers_on_Jan_1": UniqueSeq(Str()), Optional("changes"): date_schema})
 
 
 @lru_cache

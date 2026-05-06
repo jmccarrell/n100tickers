@@ -87,9 +87,7 @@ def test_changes_before_reproduces_tickers_as_of_predecessor() -> None:
 
 def test_membership_change_is_frozen() -> None:
     chg = MembershipChange(
-        effective_date=datetime.date(2020, 1, 1),
-        additions=frozenset({"AAA"}),
-        removals=frozenset({"BBB"}),
+        effective_date=datetime.date(2020, 1, 1), additions=frozenset({"AAA"}), removals=frozenset({"BBB"})
     )
     with pytest.raises(Exception):
         chg.effective_date = datetime.date(2021, 1, 1)  # type: ignore[misc]

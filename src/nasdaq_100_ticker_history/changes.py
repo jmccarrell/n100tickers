@@ -237,8 +237,4 @@ def changes_before() -> Iterator[MembershipChange]:
                 pre.append((d, additions, removals))
     pre.sort(key=lambda x: x[0], reverse=True)
     for d, forward_additions, forward_removals in pre:
-        yield MembershipChange(
-            effective_date=d,
-            additions=forward_removals,
-            removals=forward_additions,
-        )
+        yield MembershipChange(effective_date=d, additions=forward_removals, removals=forward_additions)
