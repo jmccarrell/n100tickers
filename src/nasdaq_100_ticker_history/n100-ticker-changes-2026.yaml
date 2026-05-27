@@ -120,3 +120,8 @@ changes:
       - TEAM
     union:
       - SNDK
+  "2026-05-18":
+    difference:
+      - CSGP
+    union:
+      - LITE
