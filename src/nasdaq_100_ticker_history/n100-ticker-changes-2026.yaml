@@ -125,3 +125,16 @@ changes:
       - CSGP
     union:
       - LITE
+  "2026-06-22":
+    difference:
+      - CHTR
+      - CTSH
+      - INSM
+      - VRSK
+      - ZS
+    union:
+      - ALAB
+      - CRWV
+      - NBIS
+      - RKLB
+      - TER
