@@ -6,6 +6,35 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2026.6.0 (2026-05-27)
+===============================================
+
+User-Visible Changes
+--------------------
+- Added Lumentum (LITE) to the index, replacing CoStar Group (CSGP) effective May 18, 2026.
+
+Internal Changes
+----------------
+- ``just lint`` no longer runs ``ruff format`` destructively, and ruff is configured to skip magic trailing commas when formatting.
+
+Nasdaq_100_Ticker_History 2026.5.0 (2026-05-04)
+===============================================
+
+User-Visible Changes
+--------------------
+- Restored the long-standing public surface so that only ``tickers_as_of`` is exported at the package top level. The membership-changes API is now imported from ``nasdaq_100_ticker_history.changes``.
+
+Nasdaq_100_Ticker_History 2026.4.0 (2026-05-03)
+===============================================
+
+User-Visible Changes
+--------------------
+- Added a bidirectional membership-changes API that exposes the index history as forward and backward streams (see ``docs/api/changes.rst``).
+
+Internal Changes
+----------------
+- Scaffolded agent skills and wired the shared worktree workflow into the justfile.
+
 Nasdaq_100_Ticker_History 2026.3.0 (2026-04-29)
 ===============================================
 
