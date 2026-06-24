@@ -6,6 +6,13 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2026.7.0 (2026-06-24)
+===============================================
+
+User-Visible Changes
+--------------------
+- Applied the June 2026 quarterly Nasdaq-100 reconstitution effective June 22, 2026: added Astera Labs (ALAB), CoreWeave (CRWV), Nebius Group (NBIS), Rocket Lab (RKLB), and Teradyne (TER); removed Charter Communications (CHTR), Cognizant (CTSH), Insmed (INSM), Verisk Analytics (VRSK), and Zscaler (ZS).  Source: https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-100-indexr-june-2026-quarterly-changes
+
 Nasdaq_100_Ticker_History 2026.6.0 (2026-05-27)
 ===============================================
 

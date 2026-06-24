@@ -41,3 +41,28 @@ def test_apr_2026_sndk_team_swap() -> None:
 def test_may_2026_lite_csgp_swap() -> None:
     # On May 18, Lumentum (LITE) replaced CoStar Group (CSGP)
     _test_one_swap(datetime.date.fromisoformat("2026-05-18"), "CSGP", "LITE", num_tickers_2026)
+
+
+def test_jun_2026_quarterly_reconstitution() -> None:
+    # On Jun 22, 2026, quarterly reconstitution:
+    # Removed: CHTR, CTSH, INSM, VRSK, ZS
+    # Added: ALAB, CRWV, NBIS, RKLB, TER
+    # Source: https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-100-indexr-june-2026-quarterly-changes
+    tickers_before = tickers_as_of(2026, 6, 21)
+    tickers_after = tickers_as_of(2026, 6, 22)
+
+    # Total should remain 101 (5 removed, 5 added)
+    assert len(tickers_before) == num_tickers_2026
+    assert len(tickers_after) == num_tickers_2026
+
+    # Verify removals
+    removed = {"CHTR", "CTSH", "INSM", "VRSK", "ZS"}
+    for ticker in removed:
+        assert ticker in tickers_before
+        assert ticker not in tickers_after
+
+    # Verify additions
+    added = {"ALAB", "CRWV", "NBIS", "RKLB", "TER"}
+    for ticker in added:
+        assert ticker not in tickers_before
+        assert ticker in tickers_after
