@@ -6,6 +6,19 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2026.8.0 (2026-08-04)
+===============================================
+
+User-Visible Changes
+--------------------
+- Added Honeywell Aerospace (HONA) effective June 29, 2026, when it spun off from Honeywell International; the parent renamed itself Honeywell Technologies and retains HON, so both are members.  Nothing was removed and the index grew to 102.
+- Added SpaceX (SPCX) effective July 7, 2026, admitted under the fast-track rule for newly public megacap companies.  Nothing was removed and the index grew to 103.  Source: https://ir.nasdaq.com/news-releases/news-release-details/space-exploration-technologies-corporation-join-nasdaq-100
+
+Internal Changes
+----------------
+- Bumped ``action-gh-release`` from v2 to v3 for the Node 24 runtime.
+- Refreshed pinned dependencies.
+
 Nasdaq_100_Ticker_History 2026.7.0 (2026-06-24)
 ===============================================
 

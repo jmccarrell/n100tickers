@@ -138,3 +138,9 @@ changes:
       - NBIS
       - RKLB
       - TER
+  "2026-06-29":
+    union:
+      - HONA
+  "2026-07-07":
+    union:
+      - SPCX
