@@ -68,13 +68,20 @@ clean:
 [group('lifecycle')]
 fresh: clean install
 
-# Cut a release: just release 2026.2.1
+# Cut a release from main: just release 2026.2.1
 [group('lifecycle')]
 release VERSION:
     #!/usr/bin/env bash
     set -euo pipefail
     if ! echo "{{ VERSION }}" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
         echo "error: VERSION must be CalVer (e.g. 2026.2.0), got '{{ VERSION }}'"
+        exit 1
+    fi
+    # Worktrees share the tag namespace, so releasing from one tags a commit that
+    # never reaches main — and the tag push still publishes a GitHub Release.
+    branch="$(git rev-parse --abbrev-ref HEAD)"
+    if [ "$branch" != "main" ]; then
+        echo "error: releases are cut from main, but HEAD is '$branch'"
         exit 1
     fi
     if [ -n "$(git status --porcelain)" ]; then

@@ -113,6 +113,7 @@ Version follows CalVer format: `YYYY.minor.patch`
 
 The `just release` recipe:
 - Validates the version format
+- Refuses to run outside `main`, so a release cut from a worktree cannot tag a commit that never reaches `main`
 - Checks for uncommitted changes
 - Updates the version in `pyproject.toml`, commits, and creates an annotated `vVERSION` tag
 - Pushes the commit and tag to origin
