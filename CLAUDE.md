@@ -104,26 +104,35 @@ When NASDAQ announces index changes:
 
 Version follows CalVer format: `YYYY.minor.patch`
 
+Tagging happens in CI, never locally. The version bump rides in on the ordinary
+PR, and the Release workflow tags whatever `main` already says — so a tag can
+never point at a commit that missed `main`.
+
 ### Cutting a release
 1. Get the release version from the user
 2. Update `pyproject.toml` with the new version
 3. Update `index.rst` to the current date
-4. Commit all changes
-5. Run `just release VERSION` (e.g. `just release 2026.2.1`)
+4. Add the release section to `docs/changelog.rst`
+5. Open a PR with those changes and merge it
+6. Run `just release VERSION` (e.g. `just release 2026.2.1`)
 
-The `just release` recipe:
-- Validates the version format
-- Refuses to run outside `main`, so a release cut from a worktree cannot tag a commit that never reaches `main`
-- Checks for uncommitted changes
-- Updates the version in `pyproject.toml`, commits, and creates an annotated `vVERSION` tag
-- Pushes the commit and tag to origin
+`just release` only validates the CalVer format and dispatches the workflow
+against `main`; it makes no commits and creates no tags. The equivalent by hand
+is `gh workflow run release.yml --ref main -f version=VERSION`.
 
-### Automated GitHub Release
-Pushing a `v*` tag triggers the `.github/workflows/release.yml` workflow, which:
-1. Verifies the tag version matches `pyproject.toml`
-2. Runs the test suite
-3. Builds the distribution with `uv build`
-4. Creates a GitHub Release with auto-generated notes and build artifacts
+### The Release workflow
+`.github/workflows/release.yml` runs on `workflow_dispatch` only — a pushed `v*`
+tag no longer publishes anything. It:
+1. Refuses to run unless dispatched against `main`
+2. Validates the CalVer format
+3. Verifies `pyproject.toml` already declares that version — merge the bump first
+4. Verifies the tag does not already exist
+5. Runs the test suite and builds with `uv build`
+6. Creates and pushes the annotated `vVERSION` tag, only once the build is good
+7. Creates a GitHub Release with auto-generated notes and build artifacts
+
+It never commits, which is what keeps it clear of `main`'s branch protection —
+`GITHUB_TOKEN` is not an admin and cannot push commits to `main`.
 
 ## Notes
 
