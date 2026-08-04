@@ -77,11 +77,13 @@ release VERSION:
         echo "error: VERSION must be CalVer (e.g. 2026.2.0), got '{{ VERSION }}'"
         exit 1
     fi
-    # Worktrees share the tag namespace, so releasing from one tags a commit that
-    # never reaches main — and the tag push still publishes a GitHub Release.
+    # The `git push` below targets the current branch, so a release cut anywhere
+    # but main tags a commit that reaches main only if the branch is later merged
+    # without squashing — and this repo squash-merges. v2026.8.0 orphaned that way.
     branch="$(git rev-parse --abbrev-ref HEAD)"
     if [ "$branch" != "main" ]; then
-        echo "error: releases are cut from main, but HEAD is '$branch'"
+        echo "error: on '$branch', but the release commit and tag must land on main."
+        echo "       Merge this branch first, then cut the release from main."
         exit 1
     fi
     if [ -n "$(git status --porcelain)" ]; then
