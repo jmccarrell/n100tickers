@@ -22,10 +22,7 @@ If `wt` is not on PATH, fall back to the raw equivalents — `git worktree add
 ../n100tickers.worktrees/<slug> -b <slug>`, `git worktree remove <path>`,
 `git worktree list`.
 
-- **Verify gate before opening a PR:** `just check-all` (lint + cov + typing).
-- **Pre-push warning hook** — install per-machine with `just install-fixup-hook`.
-  Canonical source: `hooks/pre-push` (tracked). Warns (does not block) when
-  pushing a branch with unsquashed `fixup!` commits.
+**Verify gate before opening a PR:** `just check-all` (lint + cov + typing).
 
 ## Common Commands
 

@@ -88,14 +88,3 @@ release VERSION:
     git tag -a "v{{ VERSION }}" -m "v{{ VERSION }}"
     git push
     git push origin "v{{ VERSION }}"
-
-
-# Install the pre-push fixup-warning hook into the shared git dir (per-machine).
-[group('worktree')]
-install-fixup-hook:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    gitdir="$(git rev-parse --git-common-dir)"
-    cp hooks/pre-push "$gitdir/hooks/pre-push"
-    chmod +x "$gitdir/hooks/pre-push"
-    echo "install-fixup-hook: installed to $gitdir/hooks/pre-push"
