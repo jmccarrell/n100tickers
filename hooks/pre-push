@@ -4,11 +4,11 @@
 #
 # WHY THIS EXISTS
 # ---------------
-# When using `just wt::fixup` to checkpoint in-flight work during a
-# sub-goal, it's easy to forget to run `just wt::squash` (autosquash
-# rebase) before pushing. Pushing unsquashed fixups to origin is rarely
-# intended: the branch history ends up cluttered with `fixup! <msg>`
-# commits that should have been collapsed into their target.
+# When using `git commit --fixup` to checkpoint in-flight work, it's easy
+# to forget the autosquash rebase before pushing. Pushing unsquashed
+# fixups to origin is rarely intended: the branch history ends up
+# cluttered with `fixup! <msg>` commits that should have been collapsed
+# into their target.
 #
 # WHY SOFT WARN, NOT HARD BLOCK
 # -----------------------------
@@ -19,15 +19,15 @@
 #
 # HOW TO BYPASS
 # -------------
-# Either run `git push --no-verify`, or remove this hook file
-# (`rm .bare/hooks/pre-push`). The hook is per-machine setup;
-# reinstall via `just install-fixup-hook` from the worktree root.
+# Either run `git push --no-verify`, or remove the installed hook file
+# (`rm "$(git rev-parse --git-common-dir)/hooks/pre-push"`). The hook is
+# per-machine setup; reinstall via `just install-fixup-hook`.
 #
 # CANONICAL SOURCE
 # ----------------
-# Source of truth: hooks/pre-push at the worktree root. This installed
-# copy in .bare/hooks/ may drift if the canonical source is updated;
-# rerun `just install-fixup-hook` after pulls that touch the source.
+# Source of truth: hooks/pre-push at the repo root. The installed copy in
+# the shared git dir may drift if the canonical source is updated; rerun
+# `just install-fixup-hook` after pulls that touch the source.
 
 # Skip check if not on a regular branch (e.g. detached HEAD).
 current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
@@ -43,7 +43,7 @@ if [ -n "$fixups" ]; then
     echo "WARNING: branch '$current_branch' contains unsquashed fixup commits:"
     echo "$fixups" | sed 's/^/  /'
     echo ""
-    echo "Consider 'just wt::squash' (or 'just wt::close' at sub-goal end) before pushing."
+    echo "Consider 'git rebase --autosquash' before pushing."
     echo "Push with 'git push --no-verify' to bypass this warning intentionally."
     echo ""
 fi

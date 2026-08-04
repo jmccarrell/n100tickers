@@ -8,20 +8,21 @@ This project provides date-centric access to NASDAQ 100 index membership over ti
 
 ## Worktree Workflow
 
-This project uses the **bare-root + worktrees** layout. The detailed flow
-is documented in the `git-worktree-flow` skill (`~/.claude/skills/git-worktree-flow/SKILL.md`)
-and its operational counterpart `~/.config/just/worktree.just`, wired into
-this project's justfile as `mod wt`.
+This project is a **plain clone** with sibling worktrees under
+`n100tickers.worktrees/`. Worktree operations go through
+[worktrunk](https://worktrunk.dev) (`wt`); see `~/.claude/CLAUDE.md` for the
+full convention.
 
-- **Verify gate before fixup or close:** `just check-all` (lint + cov + typing).
-  The `wt::*` recipes do not call back into project recipes; run verification yourself.
-- **Recipes available** (full list: `just wt`):
-  - `just wt::new <feature>` — create sibling worktree on a new branch
-  - `just wt::track <feature>` — track an existing remote branch on this machine
-  - `just wt::status` — read-only drift report against origin
-  - `just wt::fixup` — fixup staged changes against the first commit on this branch
-  - `just wt::squash` / `just wt::close` — autosquash; `close` also drops `TASK.md`
-  - `just wt::clean <feature>` — remove a merged worktree and delete its branch
+- `wt switch --create <slug>` — create branch + worktree, based on the default branch
+- `wt switch <slug>` — move to an existing worktree
+- `wt list` — all worktrees, with dirty/ahead/behind status
+- `wt remove <slug>` — remove the worktree; delete the branch if merged
+
+If `wt` is not on PATH, fall back to the raw equivalents — `git worktree add
+../n100tickers.worktrees/<slug> -b <slug>`, `git worktree remove <path>`,
+`git worktree list`.
+
+- **Verify gate before opening a PR:** `just check-all` (lint + cov + typing).
 - **Pre-push warning hook** — install per-machine with `just install-fixup-hook`.
   Canonical source: `hooks/pre-push` (tracked). Warns (does not block) when
   pushing a branch with unsquashed `fixup!` commits.
