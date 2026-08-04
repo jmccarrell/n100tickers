@@ -68,7 +68,7 @@ clean:
 [group('lifecycle')]
 fresh: clean install
 
-# Cut a release: just release 2026.2.1
+# Dispatch the Release workflow against main: just release 2026.2.1
 [group('lifecycle')]
 release VERSION:
     #!/usr/bin/env bash
@@ -77,14 +77,5 @@ release VERSION:
         echo "error: VERSION must be CalVer (e.g. 2026.2.0), got '{{ VERSION }}'"
         exit 1
     fi
-    if [ -n "$(git status --porcelain)" ]; then
-        echo "error: uncommitted changes — commit or stash first"
-        exit 1
-    fi
-    sed -i.bak 's/^version = ".*"/version = "{{ VERSION }}"/' pyproject.toml && rm pyproject.toml.bak
-    uv sync
-    git add pyproject.toml uv.lock
-    git commit -m "release v{{ VERSION }}"
-    git tag -a "v{{ VERSION }}" -m "v{{ VERSION }}"
-    git push
-    git push origin "v{{ VERSION }}"
+    gh workflow run release.yml --ref main -f version={{ VERSION }}
+    echo "dispatched; follow it with: gh run watch \$(gh run list -w Release -L1 --json databaseId --jq '.[0].databaseId')"

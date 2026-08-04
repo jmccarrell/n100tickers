@@ -1,9 +1,15 @@
 name: Release
 
+# Dispatch-only: the tag is created here, on main, so it cannot point at a commit
+# that never reaches main.  Nothing is committed — the version bump lands through
+# the normal PR flow, and this workflow only tags what main already says.
 on:
-  push:
-    tags:
-      - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "CalVer version to release, without the leading v (e.g. 2026.9.0)"
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -12,6 +18,12 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Refuse to release outside main
+        if: github.ref_name != 'main'
+        run: |
+          echo "::error::releases must be dispatched against main, got '${{ github.ref_name }}'"
+          exit 1
+
       - uses: actions/checkout@v6
 
       - uses: astral-sh/setup-uv@v8.0.0
@@ -19,12 +31,32 @@ jobs:
       - name: Set up Python
         run: uv python install 3.14
 
-      - name: Verify tag matches pyproject.toml version
+      - name: Validate version format
+        env:
+          VERSION: ${{ inputs.version }}
         run: |
-          TAG_VERSION="${GITHUB_REF_NAME#v}"
-          PKG_VERSION="$(uv run python -c "import importlib.metadata; print(importlib.metadata.version('nasdaq-100-ticker-history'))")"
-          if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
-            echo "::error::Tag version ($TAG_VERSION) does not match pyproject.toml version ($PKG_VERSION)"
+          if ! echo "$VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::version must be CalVer (e.g. 2026.9.0), got '$VERSION'"
+            exit 1
+          fi
+
+      - name: Verify pyproject.toml already declares this version
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          PKG_VERSION="$(uv run --no-project python -c \
+            "import pathlib, tomllib; print(tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']['version'])")"
+          if [ "$VERSION" != "$PKG_VERSION" ]; then
+            echo "::error::pyproject.toml says $PKG_VERSION, not $VERSION — merge the version bump first"
+            exit 1
+          fi
+
+      - name: Verify the tag does not already exist
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if [ -n "$(git ls-remote --tags origin "refs/tags/v$VERSION")" ]; then
+            echo "::error::tag v$VERSION already exists"
             exit 1
           fi
 
@@ -37,8 +69,19 @@ jobs:
       - name: Build
         run: uv build
 
+      # Tag only after the build is known good, so a failed release leaves no tag behind.
+      - name: Tag main
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "v$VERSION" -m "v$VERSION"
+          git push origin "v$VERSION"
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
         with:
+          tag_name: v${{ inputs.version }}
           files: dist/*
           generate_release_notes: true
