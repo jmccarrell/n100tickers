@@ -17,7 +17,6 @@ tickers_on_Jan_1:
   - BBBY
   - BIDU
   - BIIB
-  - BKNG
   - BMRN
   - CA
   - CELG
@@ -72,16 +71,16 @@ tickers_on_Jan_1:
   - MYL
   - NCLH
   - NFLX
-  - NLOK
   - NTAP
-  - NXPI
   - NVDA
+  - NXPI
   - ORLY
   - PAYX
   - PCAR
+  - PCLN
   - PYPL
   - QCOM
-  - QRTEA
+  - QVCA
   - REGN
   - ROST
   - SBAC
@@ -91,6 +90,7 @@ tickers_on_Jan_1:
   - SRCL
   - STX
   - SWKS
+  - SYMC
   - TMUS
   - TRIP
   - TSCO

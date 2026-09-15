@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This project provides date-centric access to NASDAQ 100 index membership over time. The primary API is `tickers_as_of(year, month, day)` which returns a frozenset of ticker symbols that were in the index on the specified date. Coverage spans from January 1, 2015 through at least November 15, 2025.
+This project provides date-centric access to NASDAQ 100 index membership over time. The primary API is `tickers_as_of(year, month, day)` which returns a frozenset of ticker symbols that were in the index on the specified date. Coverage spans from February 1, 2007 through at least September 15, 2026.  Ticker symbols are point-in-time: a rename is recorded as a change event on its effective date, so a query returns the symbol that traded that day.
 
 ## Worktree Workflow
 

@@ -21,10 +21,17 @@ set of ticker symbols (eg, ``AAPL``) that were in the index on that date.
 Coverage
 --------
 
-As of version |release|, accurate coverage is provided from Jan 1, 2015 through at least September 15, 2026.  Most
+As of version |release|, accurate coverage is provided from Feb 1, 2007 through at least September 15, 2026.  Most
 likely, the coverage is accurate further into 2026 subject to additional changes being announced by Nasdaq.  A new
 version of the API is released on each update Nasdaq announces, typically with a time lag of a few days to a
 few weeks.  It is the intent of the project maintainers to provide accurate coverage on an ongoing basis.
+
+Coverage starts at Feb 1, 2007 because that is where the source record of index changes begins.  ``tickers_as_of``
+will answer for January 1-31, 2007 with the membership implied by undoing the Feb 1 change, but a change within
+that month would not be visible to the source and so would not be reflected.
+
+Ticker symbols are the ones that actually traded on the date queried, so a company that later renamed appears
+under its contemporaneous symbol: ``tickers_as_of(2010, 1, 1)`` returns ``PCLN``, not ``BKNG``.
 
 Examples
 --------

@@ -71,7 +71,6 @@ tickers_on_Jan_1:
   - MXIM
   - MYL
   - NFLX
-  - NLOK
   - NTAP
   - NTES
   - NVDA
@@ -88,6 +87,7 @@ tickers_on_Jan_1:
   - SIRI
   - SNPS
   - SWKS
+  - SYMC
   - TMUS
   - TSLA
   - TTWO
@@ -106,10 +106,14 @@ tickers_on_Jan_1:
   - XLNX
 
 changes:
+  # two ticker changes landed the same day: Ctrip became Trip.com Group and
+  # Symantec became NortonLifeLock.
   '2019-11-05':
     difference:
       - CTRP
+      - SYMC
     union:
+      - NLOK
       - TCOM
 
   '2019-11-19':

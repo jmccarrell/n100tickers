@@ -1,0 +1,184 @@
+---
+year: 2007
+tickers_on_Jan_1:
+  - AAPL
+  - ADBE
+  - ADSK
+  - AEOS
+  - AKAM
+  - ALTR
+  - AMAT
+  - AMGN
+  - AMLN
+  - AMZN
+  - APCC
+  - APOL
+  - ATVI
+  - BBBY
+  - BEAS
+  - BIIB
+  - BMET
+  - BRCM
+  - CDNS
+  - CDWC
+  - CELG
+  - CHKP
+  - CHRW
+  - CKFR
+  - CMCSA
+  - CMVT
+  - COST
+  - CSCO
+  - CTAS
+  - CTSH
+  - CTXS
+  - DELL
+  - DISCA
+  - DISH
+  - EBAY
+  - ERIC
+  - ERTS
+  - ESRX
+  - EXPD
+  - EXPE
+  - FAST
+  - FISV
+  - FLEX
+  - GENZ
+  - GILD
+  - GOOG
+  - GRMN
+  - IACI
+  - INFY
+  - INTC
+  - INTU
+  - ISRG
+  - JNPR
+  - JOYG
+  - KLAC
+  - LAMR
+  - LBTYA
+  - LINTA
+  - LLTC
+  - LRCX
+  - LVLT
+  - MCHP
+  - MEDI
+  - MICC
+  - MNST
+  - MRVL
+  - MSFT
+  - MXIM
+  - NIHD
+  - NTAP
+  - NTLI
+  - NVDA
+  - ORCL
+  - PAYX
+  - PCAR
+  - PDCO
+  - PETM
+  - PTEN
+  - QCOM
+  - RIMM
+  - ROST
+  - SBUX
+  - SEPR
+  - SHLD
+  - SIAL
+  - SIRI
+  - SNDK
+  - SPLS
+  - SUNW
+  - SYMC
+  - TEVA
+  - TLAB
+  - VRSN
+  - VRTX
+  - WFMI
+  - WYNN
+  - XLNX
+  - XMSR
+  - XRAY
+  - YHOO
+
+changes:
+  # the main source of these changes is the wikipedia page:
+  #  https://en.wikipedia.org/wiki/Historical_components_of_the_Nasdaq-100
+
+  # Sourced coverage starts Feb 1, 2007, where the source table begins. tickers_on_Jan_1 is what
+  # undoing the Feb 1 change implies, so a January 2007 change would be invisible here.
+
+  '2007-02-01':
+    difference:
+      - CMVT
+    union:
+      - LOGI
+
+  '2007-02-14':
+    difference:
+      - APCC
+    union:
+      - RYAAY
+
+  '2007-03-08':
+    difference:
+      - AEOS
+    union:
+      - UAUA
+
+  '2007-06-01':
+    difference:
+      - MEDI
+    union:
+      - CEPH
+
+  '2007-07-12':
+    difference:
+      - BMET
+    union:
+      - FWLT
+
+  # Both pairs are ticker changes, not index changes: NTL Incorporated became Virgin Media and Sun
+  # Microsystems became JAVA. The source table records only the first, and misspells NTLI as NLTI.
+  '2007-08-27':
+    difference:
+      - NTLI
+      - SUNW
+    union:
+      - JAVA
+      - VMED
+
+  # Missing from the source table. Maxim was suspended from Nasdaq over delinquent filings and
+  # rejoined the index in December 2008.
+  '2007-10-02':
+    difference:
+      - MXIM
+    union:
+      - HSIC
+
+  '2007-10-08':
+    difference:
+      - CDWC
+    union:
+      - LEAP
+
+  '2007-12-04':
+    difference:
+      - CKFR
+    union:
+      - BIDU
+
+  '2007-12-24':
+    difference:
+      - ERIC
+      - PTEN
+      - ROST
+      - SEPR
+      - XMSR
+    union:
+      - FMCN
+      - HANS
+      - HOLX
+      - SRCL
+      - STLD

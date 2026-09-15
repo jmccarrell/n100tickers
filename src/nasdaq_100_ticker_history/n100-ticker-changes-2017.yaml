@@ -16,7 +16,6 @@ tickers_on_Jan_1:
   - AVGO
   - BIDU
   - BIIB
-  - BKNG
   - BMRN
   - CA
   - CELG
@@ -72,16 +71,16 @@ tickers_on_Jan_1:
   - MYL
   - NCLH
   - NFLX
-  - NLOK
   - NTES
-  - NXPI
   - NVDA
+  - NXPI
   - ORLY
   - PAYX
   - PCAR
+  - PCLN
   - PYPL
   - QCOM
-  - QRTEA
+  - QVCA
   - REGN
   - ROST
   - SBAC
@@ -90,6 +89,7 @@ tickers_on_Jan_1:
   - SIRI
   - STX
   - SWKS
+  - SYMC
   - TMUS
   - TRIP
   - TSCO

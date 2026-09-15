@@ -1,7 +1,6 @@
 ---
-year: 2015
+year: 2014
 tickers_on_Jan_1:
-  - AAL
   - AAPL
   - ADBE
   - ADI
@@ -32,24 +31,22 @@ tickers_on_Jan_1:
   - CTSH
   - CTXS
   - DISCA
-  - DISCK
   - DISH
   - DLTR
   - DTV
-  - EA
   - EBAY
   - EQIX
   - ESRX
   - EXPD
+  - EXPE
   - FAST
   - FB
+  - FFIV
   - FISV
-  - FOX
   - FOXA
   - GILD
   - GMCR
   - GOOG
-  - GOOGL
   - GRMN
   - HSIC
   - ILMN
@@ -59,17 +56,16 @@ tickers_on_Jan_1:
   - KLAC
   - KRFT
   - LBTYA
-  - LBTYK
+  - LINTA
   - LLTC
   - LMCA
-  - LMCK
-  - LRCX
   - MAR
   - MAT
   - MDLZ
   - MNST
   - MSFT
   - MU
+  - MXIM
   - MYL
   - NFLX
   - NTAP
@@ -80,7 +76,6 @@ tickers_on_Jan_1:
   - PCAR
   - PCLN
   - QCOM
-  - QVCA
   - REGN
   - ROST
   - SBAC
@@ -109,70 +104,41 @@ tickers_on_Jan_1:
 
 changes:
   # the main source of these changes is the wikipedia page:
-  #  https://en.wikipedia.org/wiki/Nasdaq-100#Regular_changes
+  #  https://en.wikipedia.org/wiki/Historical_components_of_the_Nasdaq-100
 
-  '2015-03-23':
-    difference:
-      - EQIX
+  # Google's Class C distribution renamed the Class A line to GOOGL and gave the new Class C the
+  # vacated GOOG, so the only net change is GOOGL arriving.
+  '2014-04-03':
     union:
-      - WBA
+      - GOOGL
 
-  '2015-07-02':
-    difference:
-      - KRFT
+  # Missing from the source table; Series C began regular-way trading.
+  '2014-07-24':
     union:
-      - KHC
-      - LILA
-      - LILAK
+      - LMCK
 
-  '2015-07-27':
-    difference:
-      - DTV
+  # Missing from the source table; Series C began regular-way trading.
+  '2014-08-07':
     union:
-      - BMRN
+      - DISCK
 
-  '2015-07-29':
+  # The Interactive Group tracking stock became the QVC Group tracking stock.
+  '2014-10-07':
     difference:
-      - CTRX
+      - LINTA
     union:
-      - JD
+      - QVCA
 
-  '2015-08-03':
+  # The source table also lists CMCSA as an addition here. It was already a member; the security that
+  # joined was Comcast's Class A Special (CMCSK), which this package does not carry.
+  '2014-12-22':
     difference:
-      - SIAL
-    union:
-      - SWKS
-
-  '2015-10-07':
-    difference:
-      - ALTR
-    union:
-      - INCY
-
-  '2015-11-11':
-    difference:
-      - BRCM
-    union:
-      - PYPL
-
-  # annual changes for 2015
-  #  https://ir.nasdaq.com/news-releases/news-release-details/annual-changes-nasdaq-100-index-4
-  '2015-12-21':
-    difference:
-      - CHRW
-      - EXPD
-      - GMCR
-      - GRMN
-      - SPLS
-      - VIP
-      - WYNN
-      - LILA
-      - LILAK
-    union:
-      - CTRP
-      - ENDP
       - EXPE
+      - FFIV
       - MXIM
-      - NCLH
-      - TMUS
-      - ULTA
+    union:
+      - AAL
+      - EA
+      - FOX
+      - LBTYK
+      - LRCX
