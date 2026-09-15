@@ -1,0 +1,170 @@
+---
+year: 2012
+tickers_on_Jan_1:
+  - AAPL
+  - ADBE
+  - ADP
+  - ADSK
+  - AKAM
+  - ALTR
+  - ALXN
+  - AMAT
+  - AMGN
+  - AMZN
+  - APOL
+  - ATVI
+  - AVGO
+  - BBBY
+  - BIDU
+  - BIIB
+  - BMC
+  - BRCM
+  - CA
+  - CELG
+  - CERN
+  - CHKP
+  - CHRW
+  - CMCSA
+  - COST
+  - CSCO
+  - CTRP
+  - CTSH
+  - CTXS
+  - DELL
+  - DLTR
+  - DTV
+  - EA
+  - EBAY
+  - ESRX
+  - EXPD
+  - EXPE
+  - FAST
+  - FFIV
+  - FISV
+  - FLEX
+  - FOSL
+  - FSLR
+  - GILD
+  - GMCR
+  - GOLD
+  - GOOG
+  - GRMN
+  - HANS
+  - HSIC
+  - INFY
+  - INTC
+  - INTU
+  - ISRG
+  - KLAC
+  - LIFE
+  - LINTA
+  - LLTC
+  - LRCX
+  - MAT
+  - MCHP
+  - MRVL
+  - MSFT
+  - MU
+  - MXIM
+  - MYL
+  - NFLX
+  - NTAP
+  - NUAN
+  - NVDA
+  - NWSA
+  - ORCL
+  - ORLY
+  - PAYX
+  - PCAR
+  - PCLN
+  - PRGO
+  - QCOM
+  - RIMM
+  - ROST
+  - SBUX
+  - SHLD
+  - SIAL
+  - SIRI
+  - SNDK
+  - SPLS
+  - SRCL
+  - STX
+  - SYMC
+  - TEVA
+  - VMED
+  - VOD
+  - VRSN
+  - VRTX
+  - WCRX
+  - WFM
+  - WYNN
+  - XLNX
+  - XRAY
+  - YHOO
+
+changes:
+  # the main source of these changes is the wikipedia page:
+  #  https://en.wikipedia.org/wiki/Historical_components_of_the_Nasdaq-100
+
+  # Hansen Natural became Monster Beverage.
+  '2012-01-09':
+    difference:
+      - HANS
+    union:
+      - MNST
+
+  '2012-04-23':
+    difference:
+      - FSLR
+    union:
+      - TXN
+
+  '2012-05-30':
+    difference:
+      - TEVA
+    union:
+      - VIAB
+
+  '2012-07-23':
+    difference:
+      - CTRP
+    union:
+      - KFT
+
+  # Kraft Foods Inc. became Mondelez; the Kraft Foods Group spinoff (KRFT) joined separately in March
+  # 2013.
+  '2012-10-02':
+    difference:
+      - KFT
+    union:
+      - MDLZ
+
+  '2012-12-12':
+    difference:
+      - INFY
+    union:
+      - FB
+
+  '2012-12-24':
+    difference:
+      - APOL
+      - EA
+      - FLEX
+      - GMCR
+      - LRCX
+      - MRVL
+      - NFLX
+      - RIMM
+      - VRSN
+      - WCRX
+    union:
+      - ADI
+      - CTRX
+      - DISCA
+      - EQIX
+      - LBTYA
+      - LMCA
+      - REGN
+      - SBAC
+      - VRSK
+      - WDC

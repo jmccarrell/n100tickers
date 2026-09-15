@@ -1,0 +1,143 @@
+---
+year: 2009
+tickers_on_Jan_1:
+  - AAPL
+  - ADBE
+  - ADP
+  - ADSK
+  - AKAM
+  - ALTR
+  - AMAT
+  - AMGN
+  - AMZN
+  - APOL
+  - ATVI
+  - BBBY
+  - BIDU
+  - BIIB
+  - BRCM
+  - CA
+  - CELG
+  - CEPH
+  - CHKP
+  - CHRW
+  - CMCSA
+  - COST
+  - CSCO
+  - CTAS
+  - CTSH
+  - CTXS
+  - DELL
+  - DISH
+  - DTV
+  - EBAY
+  - ERTS
+  - ESRX
+  - EXPD
+  - EXPE
+  - FAST
+  - FISV
+  - FLEX
+  - FLIR
+  - FMCN
+  - FSLR
+  - FWLT
+  - GENZ
+  - GILD
+  - GOOG
+  - GRMN
+  - HANS
+  - HOLX
+  - HSIC
+  - IACI
+  - ILMN
+  - INFY
+  - INTC
+  - INTU
+  - ISRG
+  - JAVA
+  - JBHT
+  - JNPR
+  - JOYG
+  - KLAC
+  - LBTYA
+  - LIFE
+  - LINTA
+  - LLTC
+  - LOGI
+  - LRCX
+  - MCHP
+  - MICC
+  - MRVL
+  - MSFT
+  - MXIM
+  - NIHD
+  - NTAP
+  - NVDA
+  - ORCL
+  - ORLY
+  - PAYX
+  - PCAR
+  - PDCO
+  - PPDI
+  - QCOM
+  - RIMM
+  - ROST
+  - RYAAY
+  - SBUX
+  - SHLD
+  - SIAL
+  - SPLS
+  - SRCL
+  - STLD
+  - STX
+  - SYMC
+  - TEVA
+  - URBN
+  - VRSN
+  - VRTX
+  - WCRX
+  - WYNN
+  - XLNX
+  - XRAY
+  - YHOO
+
+changes:
+  # the main source of these changes is the wikipedia page:
+  #  https://en.wikipedia.org/wiki/Historical_components_of_the_Nasdaq-100
+
+  '2009-01-20':
+    difference:
+      - FMCN
+    union:
+      - NWSA
+
+  '2009-07-17':
+    difference:
+      - JAVA
+    union:
+      - CERN
+
+  '2009-10-29':
+    difference:
+      - JNPR
+    union:
+      - PCLN
+
+  '2009-12-21':
+    difference:
+      - AKAM
+      - HANS
+      - IACI
+      - LBTYA
+      - PPDI
+      - RYAAY
+      - STLD
+    union:
+      - BMC
+      - MAT
+      - MYL
+      - QGEN
+      - SNDK
+      - VMED
+      - VOD

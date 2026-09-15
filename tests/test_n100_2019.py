@@ -18,6 +18,10 @@ def test_tickers_2019() -> None:
     # https://www.miaxglobal.com/sites/default/files/alert-files/CTRP_Symbol_Name___45919.pdf
     _test_one_swap(datetime.date.fromisoformat("2019-11-05"), "CTRP", "TCOM", num_tickers_2019)
 
+    # Symantec became NortonLifeLock the same day
+    # https://www.sec.gov/Archives/edgar/data/849399/000110465919059239/tm1921662d1_ex99-01.htm
+    _test_one_swap(datetime.date.fromisoformat("2019-11-05"), "SYMC", "NLOK", num_tickers_2019)
+
     # 6 tickers added and removed on 12/23/2019
     # https://finance.yahoo.com/news/annual-changes-nasdaq-100-index-010510822.html
     tickers_2019_dec_23 = tickers_as_of(2019, 12, 23)

@@ -12,6 +12,9 @@ Nasdaq_100_Ticker_History 2026.9.0 (2026-09-15)
 User-Visible Changes
 --------------------
 - Removed Electronic Arts (EA) effective August 4, 2026, with no replacement; the index shrank to 102.  EA was taken private by a consortium led by the Public Investment Fund of Saudi Arabia.  Source: https://en.wikipedia.org/wiki/Historical_components_of_the_Nasdaq-100
+- Extended coverage back to February 1, 2007, adding the years 2007 through 2014.  The index held 100 securities at every year boundary in that span; each of those boundaries was checked against the contemporaneous component list in the Nasdaq-100 article, and they agree exactly.  Source: https://en.wikipedia.org/wiki/Historical_components_of_the_Nasdaq-100
+- Ticker symbols are now point-in-time throughout.  A company that renamed is recorded under the symbol that traded on the date queried, and the rename itself is a change event on its effective date.  This changes existing answers: 2015-2017 return ``PCLN`` rather than ``BKNG``, ``SYMC`` rather than ``NLOK``, and ``QVCA`` rather than ``QRTEA``; 2018 returns ``PCLN`` and ``QVCA`` until February 27 and April 9 respectively; and 2019 returns ``SYMC`` until November 5.  Later years are unaffected.
+- Filled five gaps in the source change table for the newly covered years: Henry Schein (HSIC) replacing Maxim Integrated (MXIM) on October 2, 2007, when Maxim was suspended from Nasdaq over delinquent filings; Liberty Media Series C (LMCK) on July 24, 2014; Discovery Communications Series C (DISCK) on August 7, 2014; the Sun Microsystems ticker change to JAVA on August 27, 2007; and the correct spelling ``NTLI`` for NTL Incorporated.  The table's Comcast (CMCSA) addition on December 22, 2014 is not applied - Comcast was already a member and the security that joined was its Class A Special line (CMCSK), which this package does not carry.
 
 Nasdaq_100_Ticker_History 2026.8.0 (2026-08-04)
 ===============================================

@@ -17,7 +17,6 @@ tickers_on_Jan_1:
   - AVGO
   - BIDU
   - BIIB
-  - BKNG
   - BMRN
   - CA
   - CDNS
@@ -73,15 +72,15 @@ tickers_on_Jan_1:
   - MXIM
   - MYL
   - NFLX
-  - NLOK
   - NTES
   - NVDA
   - ORLY
   - PAYX
   - PCAR
+  - PCLN
   - PYPL
   - QCOM
-  - QRTEA
+  - QVCA
   - REGN
   - ROST
   - SBUX
@@ -90,6 +89,7 @@ tickers_on_Jan_1:
   - SNPS
   - STX
   - SWKS
+  - SYMC
   - TMUS
   - TSLA
   - TTWO
@@ -106,6 +106,20 @@ tickers_on_Jan_1:
   - XRAY
 
 changes:
+  # ticker change: The Priceline Group became Booking Holdings.
+  '2018-02-27':
+    difference:
+      - PCLN
+    union:
+      - BKNG
+
+  # ticker change: Liberty Interactive became Qurate Retail.
+  '2018-04-09':
+    difference:
+      - QVCA
+    union:
+      - QRTEA
+
   '2018-07-23':
     difference:
       - DISH

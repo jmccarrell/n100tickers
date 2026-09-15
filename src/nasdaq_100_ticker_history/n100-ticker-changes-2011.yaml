@@ -1,0 +1,159 @@
+---
+year: 2011
+tickers_on_Jan_1:
+  - AAPL
+  - ADBE
+  - ADP
+  - ADSK
+  - AKAM
+  - ALTR
+  - AMAT
+  - AMGN
+  - AMZN
+  - APOL
+  - ATVI
+  - BBBY
+  - BIDU
+  - BIIB
+  - BMC
+  - BRCM
+  - CA
+  - CELG
+  - CEPH
+  - CERN
+  - CHKP
+  - CHRW
+  - CMCSA
+  - COST
+  - CSCO
+  - CTRP
+  - CTSH
+  - CTXS
+  - DELL
+  - DLTR
+  - DTV
+  - EBAY
+  - ERTS
+  - ESRX
+  - EXPD
+  - EXPE
+  - FAST
+  - FFIV
+  - FISV
+  - FLEX
+  - FLIR
+  - FSLR
+  - GENZ
+  - GILD
+  - GOOG
+  - GRMN
+  - HSIC
+  - ILMN
+  - INFY
+  - INTC
+  - INTU
+  - ISRG
+  - JOYG
+  - KLAC
+  - LIFE
+  - LINTA
+  - LLTC
+  - LRCX
+  - MAT
+  - MCHP
+  - MICC
+  - MRVL
+  - MSFT
+  - MU
+  - MXIM
+  - MYL
+  - NFLX
+  - NIHD
+  - NTAP
+  - NVDA
+  - NWSA
+  - ORCL
+  - ORLY
+  - PAYX
+  - PCAR
+  - PCLN
+  - QCOM
+  - QGEN
+  - RIMM
+  - ROST
+  - SBUX
+  - SHLD
+  - SIAL
+  - SNDK
+  - SPLS
+  - SRCL
+  - STX
+  - SYMC
+  - TEVA
+  - URBN
+  - VMED
+  - VOD
+  - VRSN
+  - VRTX
+  - WCRX
+  - WFMI
+  - WYNN
+  - XLNX
+  - XRAY
+  - YHOO
+
+changes:
+  # the main source of these changes is the wikipedia page:
+  #  https://en.wikipedia.org/wiki/Historical_components_of_the_Nasdaq-100
+
+  '2011-04-04':
+    difference:
+      - GENZ
+    union:
+      - ALXN
+
+  # Ticker change.
+  '2011-05-06':
+    difference:
+      - WFMI
+    union:
+      - WFM
+
+  '2011-05-27':
+    difference:
+      - MICC
+    union:
+      - GMCR
+
+  '2011-07-15':
+    difference:
+      - CEPH
+    union:
+      - SIRI
+
+  '2011-12-06':
+    difference:
+      - JOYG
+    union:
+      - PRGO
+
+  '2011-12-19':
+    difference:
+      - FLIR
+      - ILMN
+      - NIHD
+      - QGEN
+      - URBN
+    union:
+      - AVGO
+      - FOSL
+      - GOLD
+      - HANS
+      - NUAN
+
+  # Ticker change.
+  '2011-12-20':
+    difference:
+      - ERTS
+    union:
+      - EA

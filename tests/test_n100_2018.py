@@ -35,3 +35,14 @@ def test_tickers_2018() -> None:
 
     # 7/23/2018 PEP replaces DISH
     _test_one_swap(datetime.date.fromisoformat("2018-07-23"), "DISH", "PEP", num_tickers_2018)
+
+
+def test_2018_ticker_changes() -> None:
+    """Two members changed ticker in 2018. They are index members throughout, so
+    the count is unchanged and only the symbol moves."""
+
+    # https://ir.bookingholdings.com/news/news-details/2018/The-Priceline-Group-Inc.-NASDAQ-PCLN-Announces-Name-Change-to-Booking-Holdings-Inc.-02-21-2018/default.aspx
+    _test_one_swap(datetime.date.fromisoformat("2018-02-27"), "PCLN", "BKNG", num_tickers_2018)
+
+    # Liberty Interactive became Qurate Retail
+    _test_one_swap(datetime.date.fromisoformat("2018-04-09"), "QVCA", "QRTEA", num_tickers_2018)
