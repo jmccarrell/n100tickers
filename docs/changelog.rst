@@ -6,6 +6,13 @@ Release History
 
 .. towncrier release notes start
 
+Nasdaq_100_Ticker_History 2026.9.0 (2026-09-15)
+===============================================
+
+User-Visible Changes
+--------------------
+- Removed Electronic Arts (EA) effective August 4, 2026, with no replacement; the index shrank to 102.  EA was taken private by a consortium led by the Public Investment Fund of Saudi Arabia.  Source: https://en.wikipedia.org/wiki/Historical_components_of_the_Nasdaq-100
+
 Nasdaq_100_Ticker_History 2026.8.0 (2026-08-04)
 ===============================================
 

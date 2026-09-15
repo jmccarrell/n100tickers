@@ -91,3 +91,14 @@ def test_jul_2026_spcx_addition() -> None:
     assert len(tickers_after) == num_tickers_2026 + 2
     assert "SPCX" not in tickers_before
     assert "SPCX" in tickers_after
+
+
+def test_aug_2026_ea_removal() -> None:
+    # Electronic Arts (EA) left the index on Aug 4 with no replacement, taking it
+    # from 103 to 102.
+    tickers_before = tickers_as_of(2026, 8, 3)
+    tickers_after = tickers_as_of(2026, 8, 4)
+    assert len(tickers_before) == num_tickers_2026 + 2
+    assert len(tickers_after) == num_tickers_2026 + 1
+    assert "EA" in tickers_before
+    assert "EA" not in tickers_after
