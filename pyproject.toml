@@ -11,7 +11,6 @@ dependencies = ["strictyaml>=1.7.3,<2"]
 docs = [
     "sphinx>=3.2.1,<4",
     "doc2dash>=2.3.0,<3",
-    "towncrier>=19.2.0,<20",
 ]
 dev = [
     "coverage",
@@ -26,15 +25,9 @@ default-groups = [
     "dev",
 ]
 
-[tool.towncrier]
-package = "nasdaq_100_ticker_history"
-filename = "docs/changelog.rst"
-
-
 [build-system]
 requires = ["uv_build>=0.8.0,<0.12"]
 build-backend = "uv_build"
-
 
 [tool.coverage.run]
 branch = true

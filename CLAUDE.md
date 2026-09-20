@@ -102,37 +102,66 @@ When NASDAQ announces index changes:
 
 ## Releasing
 
-Version follows CalVer format: `YYYY.minor.patch`
+Version follows CalVer format: `YYYY.minor.patch`.
 
-Tagging happens in CI, never locally. The version bump rides in on the ordinary
-PR, and the Release workflow tags whatever `main` already says — so a tag can
-never point at a commit that missed `main`.
+Releases are driven by [Release Please](https://github.com/googleapis/release-please).
+Nothing is released by hand: every commit that reaches `main` is read as a
+Conventional Commit, and Release Please keeps an open release PR that carries the
+next version bump and the changelog entry.  Merging that PR is the release.
+
+### Conventional Commits
+
+The squash-merge title of every PR must be a Conventional Commit, because that
+title is the only commit Release Please sees:
+
+- `feat: ...` bumps the minor version — use this for index membership changes,
+  which are the user-visible change this package exists to ship
+- `fix: ...` bumps the patch version
+- `feat!: ...` or a `BREAKING CHANGE:` footer bumps the major version, which here
+  is the year — do not use it for ordinary work
+- `docs:`, `deps:`, `ci:`, `refactor:`, `test:`, `chore:` bump the patch version
+
+Every parseable Conventional Commit moves the version, including the types
+hidden from the changelog — verified by dry run, where two `ci:` commits alone
+proposed 2026.10.1.  What a type controls is the size of the bump and whether it
+shows up in `CHANGELOG.md`, not whether a release happens.  A commit whose
+subject is not a Conventional Commit at all is invisible and moves nothing.
 
 ### Cutting a release
-1. Get the release version from the user
-2. Update `pyproject.toml` with the new version
-3. Update `index.rst` to the current date
-4. Add the release section to `docs/changelog.rst`
-5. Open a PR with those changes and merge it
-6. Run `just release VERSION` (e.g. `just release 2026.2.1`)
 
-`just release` only validates the CalVer format and dispatches the workflow
-against `main`; it makes no commits and creates no tags. The equivalent by hand
-is `gh workflow run release.yml --ref main -f version=VERSION`.
+1. Merge work to `main` with Conventional Commit titles
+2. Release Please opens or updates the release PR ("chore: release 2026.11.0")
+3. Review it — it edits `pyproject.toml`, `CHANGELOG.md`, and
+   `.release-please-manifest.json`
+4. Merge it.  The tag `v2026.11.0`, the GitHub Release, and the attached
+   `uv build` artifacts follow automatically
 
-### The Release workflow
-`.github/workflows/release.yml` runs on `workflow_dispatch` only — a pushed `v*`
-tag no longer publishes anything. It:
-1. Refuses to run unless dispatched against `main`
-2. Validates the CalVer format
-3. Verifies `pyproject.toml` already declares that version — merge the bump first
-4. Verifies the tag does not already exist
-5. Runs the test suite and builds with `uv build`
-6. Creates and pushes the annotated `vVERSION` tag, only once the build is good
-7. Creates a GitHub Release with auto-generated notes and build artifacts
+### The year rollover
 
-It never commits, which is what keeps it clear of `main`'s branch protection —
-`GITHUB_TOKEN` is not an admin and cannot push commits to `main`.
+Release Please treats the year as the semver major, so it will never roll
+`2026.x` to `2027.0.0` on its own — a `feat:` in January 2027 would produce
+`2026.12.0`.  Force the first release of a new year by putting
+`Release-As: 2027.0.0` in the commit body, or by setting `release-as` in
+`release-please-config.json` for that one release.
+
+### The release token
+
+The `release-please` job authenticates with `secrets.RELEASE_PLEASE_TOKEN`, a
+fine-grained PAT scoped to this repository with Contents and Pull requests set
+to read and write.  The built-in `GITHUB_TOKEN` cannot be used: GitHub does not
+run workflows from events that token creates, so the release PR would never run
+Validate and would never satisfy the required `build` check.
+
+### The workflow
+
+`.github/workflows/release-please.yml` runs on every push to `main`:
+
+1. `verify` runs the test suite.  Release Please tags at merge time, so this job
+   is the last gate that can stop a bad release
+2. `release-please` opens/updates the release PR, or — when the merged commit was
+   the release PR — creates the tag and the GitHub Release
+3. `publish` runs only on an actual release: it checks out the new tag, runs
+   `uv build`, and uploads `dist/*` to the release
 
 ## Notes
 
