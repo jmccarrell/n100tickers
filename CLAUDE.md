@@ -160,8 +160,14 @@ Validate and would never satisfy the required `build` check.
    is the last gate that can stop a bad release
 2. `release-please` opens/updates the release PR, or — when the merged commit was
    the release PR — creates the tag and the GitHub Release
-3. `publish` runs only on an actual release: it checks out the new tag, runs
-   `uv build`, and uploads `dist/*` to the release
+3. `publish` runs only on an actual release: it checks out the release sha, runs
+   `uv build`, uploads `dist/*`, and only then publishes the draft
+
+Releases are created as drafts on purpose.  This repository has immutable
+releases enabled, so a published release rejects new assets with HTTP 422 — the
+build has to be attached while the release is still a draft.  Publishing the
+draft is also what creates the tag, which is why `publish` checks out the sha
+rather than the tag.
 
 ## Notes
 

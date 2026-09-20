@@ -4,19 +4,46 @@
   "include-v-in-tag": true,
   "pull-request-title-pattern": "chore: release ${version}",
   "changelog-sections": [
-    { "type": "feat", "section": "User-Visible Changes" },
-    { "type": "fix", "section": "Fixes" },
-    { "type": "docs", "section": "Documentation" },
-    { "type": "deps", "section": "Dependencies" },
-    { "type": "ci", "section": "Internal Changes" },
-    { "type": "refactor", "section": "Internal Changes" },
-    { "type": "test", "section": "Internal Changes", "hidden": true },
-    { "type": "chore", "section": "Internal Changes", "hidden": true }
+    {
+      "type": "feat",
+      "section": "User-Visible Changes"
+    },
+    {
+      "type": "fix",
+      "section": "Fixes"
+    },
+    {
+      "type": "docs",
+      "section": "Documentation"
+    },
+    {
+      "type": "deps",
+      "section": "Dependencies"
+    },
+    {
+      "type": "ci",
+      "section": "Internal Changes"
+    },
+    {
+      "type": "refactor",
+      "section": "Internal Changes"
+    },
+    {
+      "type": "test",
+      "section": "Internal Changes",
+      "hidden": true
+    },
+    {
+      "type": "chore",
+      "section": "Internal Changes",
+      "hidden": true
+    }
   ],
   "packages": {
     ".": {
       "include-component-in-tag": false,
       "changelog-path": "CHANGELOG.md"
     }
-  }
+  },
+  "draft": true
 }
