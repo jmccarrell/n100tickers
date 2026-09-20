@@ -2,6 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
   "release-type": "python",
   "include-v-in-tag": true,
+  "pull-request-title-pattern": "chore: release ${version}",
   "changelog-sections": [
     { "type": "feat", "section": "User-Visible Changes" },
     { "type": "fix", "section": "Fixes" },
@@ -14,7 +15,7 @@
   ],
   "packages": {
     ".": {
-      "package-name": "nasdaq-100-ticker-history",
+      "include-component-in-tag": false,
       "changelog-path": "CHANGELOG.md"
     }
   }
