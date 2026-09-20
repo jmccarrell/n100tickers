@@ -3,6 +3,7 @@
   "release-type": "python",
   "include-v-in-tag": true,
   "pull-request-title-pattern": "chore: release ${version}",
+  "draft": true,
   "changelog-sections": [
     { "type": "feat", "section": "User-Visible Changes" },
     { "type": "fix", "section": "Fixes" },
