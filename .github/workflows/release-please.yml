@@ -31,9 +31,13 @@ jobs:
       release_created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
+      # Not GITHUB_TOKEN: GitHub refuses to run workflows from events that token
+      # creates, so the release PR would never run Validate and could never
+      # satisfy the required `build` check.
       - uses: googleapis/release-please-action@v5
         id: release
         with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 

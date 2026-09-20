@@ -144,6 +144,14 @@ Release Please treats the year as the semver major, so it will never roll
 `Release-As: 2027.0.0` in the commit body, or by setting `release-as` in
 `release-please-config.json` for that one release.
 
+### The release token
+
+The `release-please` job authenticates with `secrets.RELEASE_PLEASE_TOKEN`, a
+fine-grained PAT scoped to this repository with Contents and Pull requests set
+to read and write.  The built-in `GITHUB_TOKEN` cannot be used: GitHub does not
+run workflows from events that token creates, so the release PR would never run
+Validate and would never satisfy the required `build` check.
+
 ### The workflow
 
 `.github/workflows/release-please.yml` runs on every push to `main`:
