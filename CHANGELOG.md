@@ -1,5 +1,12 @@
 # Changelog
 
+## [2026.10.2](https://github.com/jmccarrell/n100tickers/compare/v2026.10.1...v2026.10.2) (2026-09-20)
+
+
+### Internal Changes
+
+* create the release as a draft so the build can be attached ([#87](https://github.com/jmccarrell/n100tickers/issues/87)) ([e017b86](https://github.com/jmccarrell/n100tickers/commit/e017b8655451e29bf6c0b2f78f7154ca3c16da21))
+
 ## [2026.10.1](https://github.com/jmccarrell/n100tickers/compare/v2026.10.0...v2026.10.1) (2026-09-20)
 
 
