@@ -119,10 +119,13 @@ title is the only commit Release Please sees:
 - `fix: ...` bumps the patch version
 - `feat!: ...` or a `BREAKING CHANGE:` footer bumps the major version, which here
   is the year — do not use it for ordinary work
-- `docs:`, `deps:`, `ci:`, `refactor:`, `test:`, `chore:` bump nothing
+- `docs:`, `deps:`, `ci:`, `refactor:`, `test:`, `chore:` bump the patch version
 
-A commit whose type bumps nothing produces no release PR on its own.  Only
-`feat`, `fix`, and breaking changes move the version.
+Every parseable Conventional Commit moves the version, including the types
+hidden from the changelog — verified by dry run, where two `ci:` commits alone
+proposed 2026.10.1.  What a type controls is the size of the bump and whether it
+shows up in `CHANGELOG.md`, not whether a release happens.  A commit whose
+subject is not a Conventional Commit at all is invisible and moves nothing.
 
 ### Cutting a release
 
