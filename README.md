@@ -1,0 +1,60 @@
+# nasdaq-100-ticker-history: Nasdaq 100 index company symbols over time
+
+`nasdaq-100-ticker-history` provides the current set and a limited recent history of the stock symbols of
+the member companies of the [NASDAQ 100][overview] index.  As the member companies of this index
+change [regularly][changes], the API is date-centric.  Ie, given a calendar date, it will return the
+set of ticker symbols (eg, `AAPL`) that were in the index on that date.
+
+## Coverage
+
+Accurate coverage is provided from Feb 1, 2007 through at least September 15, 2026.  Most
+likely, the coverage is accurate further into 2026 subject to additional changes being announced by Nasdaq.  A new
+version of the API is released on each update Nasdaq announces, typically with a time lag of a few days to a
+few weeks.  It is the intent of the project maintainers to provide accurate coverage on an ongoing basis.
+
+Coverage starts at Feb 1, 2007 because that is where the source record of index changes begins.  `tickers_as_of`
+will answer for January 1-31, 2007 with the membership implied by undoing the Feb 1 change, but a change within
+that month would not be visible to the source and so would not be reflected.
+
+Ticker symbols are the ones that actually traded on the date queried, so a company that later renamed appears
+under its contemporaneous symbol: `tickers_as_of(2010, 1, 1)` returns `PCLN`, not `BKNG`.
+
+## Examples
+
+Point-in-time membership via `tickers_as_of`:
+
+```python
+>>> from nasdaq_100_ticker_history import tickers_as_of
+>>> 'AMZN' in tickers_as_of(2020, 6, 1)
+True
+>>> tuple(('OKTA' in tickers_as_of(y, 1, 1) for y in [2020, 2021, 2022, 2023]))
+(False, True, True, False)
+
+```
+
+The membership-changes API exposes the index history as bidirectional streams
+of additions and removals, anchored at a fixed `BASELINE_DATE` (January 1,
+2020) so coverage expansion in either direction does not shift any previously
+emitted event:
+
+```python
+>>> from nasdaq_100_ticker_history.changes import (
+...     BASELINE_DATE, BASELINE_MEMBERSHIP, changes_since, changes_before,
+... )
+>>> first_post_baseline = next(iter(changes_since()))
+>>> first_post_baseline.effective_date.isoformat()
+'2020-04-20'
+>>> 'DXCM' in first_post_baseline.additions
+True
+>>> 'AAL' in first_post_baseline.removals
+True
+
+```
+
+## Release history
+
+Releases from 2026.10.1 onward are recorded in [CHANGELOG.md](CHANGELOG.md).  The history through
+2026.10.0 is archived in [docs/changelog.md](docs/changelog.md).
+
+[overview]: https://en.wikipedia.org/wiki/NASDAQ-100
+[changes]: https://en.wikipedia.org/wiki/NASDAQ-100#Yearly_changes

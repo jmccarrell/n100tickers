@@ -5,13 +5,10 @@ description = "Sets of NASDAQ 100 ticker symbols by date."
 authors = [{ name = "Jeff McCarrell", email = "jeff@mccarrell.org" }]
 requires-python = ">=3.11, <4"
 license = "MIT"
+readme = "README.md"
 dependencies = ["strictyaml>=1.7.3,<2"]
 
 [dependency-groups]
-docs = [
-    "sphinx>=3.2.1,<4",
-    "doc2dash>=2.3.0,<3",
-]
 dev = [
     "coverage",
     "mypy>=1.9.0,<2",
@@ -21,13 +18,15 @@ dev = [
 
 [tool.uv]
 default-groups = [
-    "docs",
     "dev",
 ]
 
 [build-system]
 requires = ["uv_build>=0.8.0,<0.12"]
 build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+addopts = "--doctest-glob=README.md"
 
 [tool.coverage.run]
 branch = true
