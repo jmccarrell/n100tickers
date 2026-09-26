@@ -24,6 +24,19 @@ If `wt` is not on PATH, fall back to the raw equivalents — `git worktree add
 
 **Verify gate before opening a PR:** `just check-all` (lint + cov + typing).
 
+**Open the PR as the agent bot, not as `jmccarrell`.** A PR authored by the repo
+owner cannot be approved by him, so a PR opened under Jeff's own login has to be
+closed and reopened:
+
+```sh
+GH_TOKEN=$(lab-gh-token) gh pr create ...
+```
+
+Bare `gh pr create` uses Jeff's keyring login. `lab-gh-token` is on `~/mcc-lab-bin`
+and mints a token for the `mcc-lab-agent` GitHub App, which is installed on this
+repo. Only the PR author is constrained — issue and PR comments are fine under
+either identity.
+
 ## Common Commands
 
 This project uses `just` for task automation and `uv` for Python dependency management.
