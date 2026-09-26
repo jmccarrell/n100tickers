@@ -102,3 +102,14 @@ def test_aug_2026_ea_removal() -> None:
     assert len(tickers_after) == num_tickers_2026 + 1
     assert "EA" in tickers_before
     assert "EA" not in tickers_after
+
+
+def test_sep_2026_khc_removal() -> None:
+    # Kraft Heinz (KHC) left the index on Sep 14 with no replacement, taking it
+    # from 102 to 101, when it moved its listing to the NYSE.
+    tickers_before = tickers_as_of(2026, 9, 13)
+    tickers_after = tickers_as_of(2026, 9, 14)
+    assert len(tickers_before) == num_tickers_2026 + 1
+    assert len(tickers_after) == num_tickers_2026
+    assert "KHC" in tickers_before
+    assert "KHC" not in tickers_after
