@@ -18,3 +18,8 @@
 ### Internal Changes
 
 * adopt Release Please for version bumps and releases ([#83](https://github.com/jmccarrell/n100tickers/issues/83)) ([e10f71f](https://github.com/jmccarrell/n100tickers/commit/e10f71fc315517df905e7e477c34f0af6cb3a441))
+
+---
+
+Releases through 2026.10.0 predate Release Please and are archived in
+[docs/changelog.md](docs/changelog.md).

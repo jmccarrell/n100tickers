@@ -48,8 +48,8 @@ This project uses `just` for task automation and `uv` for Python dependency mana
 - Clean and reinstall: `just fresh`
 
 ### Documentation
-- Sphinx docs are in `docs/`
-- README is a symlink to `docs/index.rst`
+- `README.md` is the front page; its examples run as doctests under `just test`
+- `docs/` holds the ADRs, the agent conventions, and the archived pre-Release-Please changelog
 
 ## Architecture
 

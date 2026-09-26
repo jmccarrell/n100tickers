@@ -1,19 +1,11 @@
-We are going to publish a new version of this project
+We are going to publish a new version of this project.
 
-the current version is: 2025.8.0
+Release Please owns the version bump, `CHANGELOG.md`, the tag, and the GitHub release: they follow from
+the conventional-commit messages on `main`, and merging the release PR is what cuts the release.
 
-the new version will be: 2025.9.0
+The one thing it cannot do is refresh the coverage claim.  Before merging the release PR, update the end
+date in @README.md in the phrase
 
-1. update the version in @pyproject.toml
-2. update the end date referenced in @README.rst in the phrase
+accurate coverage is provided from Feb 1, 2007 through at least <date>
 
-accurate coverage is provided from Jan 1, 2015 through at least Jan 31, 2025
-
-to todays date
-
-3. read the git history back to the tag labeling the current version and create the release history in @docs/changelog.rst
-
-Group the changes in the release history into 2 buckets:
-
-3.1 user visible changes
-3.2 internal, developer changes
+to the date through which coverage has been verified.
