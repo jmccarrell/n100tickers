@@ -162,11 +162,16 @@ Release Please treats the year as the semver major, so it will never roll
 
 ### The release token
 
-The `release-please` job authenticates with `secrets.RELEASE_PLEASE_TOKEN`, a
-fine-grained PAT scoped to this repository with Contents and Pull requests set
-to read and write.  The built-in `GITHUB_TOKEN` cannot be used: GitHub does not
-run workflows from events that token creates, so the release PR would never run
-Validate and would never satisfy the required `build` check.
+The `release-please` job authenticates as the `mcc-lab-agent` GitHub App: it
+mints a one-hour installation token from `vars.MCC_LAB_AGENT_APP_ID` and
+`secrets.MCC_LAB_AGENT_PRIVATE_KEY`, and the App needs Contents and Pull
+requests set to read and write on this repository.  Neither alternative works:
+
+- The built-in `GITHUB_TOKEN`: GitHub does not run workflows from events that
+  token creates, so the release PR would never run Validate and would never
+  satisfy the required `build` check.
+- A personal access token: its owner becomes the release PR's author, and GitHub
+  does not let an author approve their own PR.
 
 ### The workflow
 

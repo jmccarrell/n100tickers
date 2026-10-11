@@ -34,11 +34,20 @@ jobs:
     steps:
       # Not GITHUB_TOKEN: GitHub refuses to run workflows from events that token
       # creates, so the release PR would never run Validate and could never
-      # satisfy the required `build` check.
+      # satisfy the required `build` check.  Not a personal token either: its owner
+      # becomes the release PR's author, and GitHub won't let an author approve.
+      # GitHub accepts the App ID where `client-id` asks for the Client ID.
+      - uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          client-id: ${{ vars.MCC_LAB_AGENT_APP_ID }}
+          private-key: ${{ secrets.MCC_LAB_AGENT_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
       - uses: googleapis/release-please-action@v5
         id: release
         with:
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
