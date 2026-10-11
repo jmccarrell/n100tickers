@@ -144,8 +144,11 @@ subject is not a Conventional Commit at all is invisible and moves nothing.
 
 1. Merge work to `main` with Conventional Commit titles
 2. Release Please opens or updates the release PR ("chore: release 2026.11.0")
-3. Review it — it edits `pyproject.toml`, `CHANGELOG.md`, and
-   `.release-please-manifest.json`
+3. Review it — it edits `pyproject.toml`, `CHANGELOG.md`,
+   `.release-please-manifest.json`, and this package's own entry in `uv.lock`.
+   Release Please has no built-in `uv.lock` support, so that last one is an
+   `extra-files` entry in `release-please-config.json`; its JSONPath matches on
+   `name.value` because Release Please's TOML parser wraps every value
 4. Merge it.  The tag `v2026.11.0`, the GitHub Release, and the attached
    `uv build` artifacts follow automatically
 
