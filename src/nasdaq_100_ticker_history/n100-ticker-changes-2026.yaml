@@ -150,3 +150,8 @@ changes:
   "2026-09-14":
     difference:
       - KHC
+  "2026-10-09":
+    difference:
+      - WBD
+    union:
+      - MRNA

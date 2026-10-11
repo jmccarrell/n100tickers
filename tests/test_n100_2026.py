@@ -113,3 +113,9 @@ def test_sep_2026_khc_removal() -> None:
     assert len(tickers_after) == num_tickers_2026
     assert "KHC" in tickers_before
     assert "KHC" not in tickers_after
+
+
+def test_oct_2026_mrna_wbd_swap() -> None:
+    # On Oct 9, Moderna (MRNA) replaced Warner Bros. Discovery (WBD)
+    # Source: https://ir.nasdaq.com/news-releases/news-release-details/moderna-inc-join-nasdaq-100-indexr-beginning-october-9-2026
+    _test_one_swap(datetime.date.fromisoformat("2026-10-09"), "WBD", "MRNA", num_tickers_2026)
