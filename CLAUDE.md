@@ -178,9 +178,13 @@ Validate and would never satisfy the required `build` check.
 
 Releases are created as drafts on purpose.  This repository has immutable
 releases enabled, so a published release rejects new assets with HTTP 422 — the
-build has to be attached while the release is still a draft.  Publishing the
-draft is also what creates the tag, which is why `publish` checks out the sha
-rather than the tag.
+build has to be attached while the release is still a draft.
+
+A draft has no tag of its own, and Release Please finds the previous release by
+its tag — without one, the next release PR it opens in the same run is built
+against older history.  `force-tag-creation` in `release-please-config.json`
+makes Release Please create the tag along with the draft, so that PR starts from
+the release just cut.
 
 ## Notes
 
