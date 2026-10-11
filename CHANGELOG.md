@@ -1,5 +1,18 @@
 # Changelog
 
+## [2026.12.0](https://github.com/jmccarrell/n100tickers/compare/v2026.11.0...v2026.12.0) (2026-10-11)
+
+
+### User-Visible Changes
+
+* record MRNA replacing WBD on 2026-10-09 ([#101](https://github.com/jmccarrell/n100tickers/issues/101)) ([47e5f15](https://github.com/jmccarrell/n100tickers/commit/47e5f1585d290885b83fa5e352bf7bfeda6a76af)), closes [#99](https://github.com/jmccarrell/n100tickers/issues/99)
+
+
+### Internal Changes
+
+* create the release tag along with the draft ([#104](https://github.com/jmccarrell/n100tickers/issues/104)) ([f524f28](https://github.com/jmccarrell/n100tickers/commit/f524f2848313d3b2dfb7a684acea63026017a75e)), closes [#103](https://github.com/jmccarrell/n100tickers/issues/103)
+* have Release Please bump this package's version in uv.lock ([#105](https://github.com/jmccarrell/n100tickers/issues/105)) ([a888092](https://github.com/jmccarrell/n100tickers/commit/a8880928428c8f7bed8741501f15cb56137c453b))
+
 ## [2026.11.0](https://github.com/jmccarrell/n100tickers/compare/v2026.10.2...v2026.11.0) (2026-09-26)
 
 
