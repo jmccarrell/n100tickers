@@ -49,8 +49,25 @@ def test_tickers_2015() -> None:
     assert "LILA" in jul_2_tickers
     assert "LILAK" in jul_2_tickers
 
-    _test_one_swap(datetime.date.fromisoformat("2015-07-27"), "DTV", "BMRN", 107)
-    _test_one_swap(datetime.date.fromisoformat("2015-07-29"), "CTRX", "JD", 107)
+    # Nasdaq removed Catamaran (CTRX) before market open Jul 24, and JD.com (JD)
+    # only joined on Jul 29, so the index held one security fewer in between.
+    # https://ir.nasdaq.com/news-releases/news-release-details/catamaran-corporation-be-removed-nasdaq-100-index-beginning-july
+    # https://ir.nasdaq.com/news-releases/news-release-details/jdcom-inc-join-nasdaq-100-index-beginning-july-29-2015
+    jul_23_tickers = tickers_as_of(2015, 7, 23)
+    jul_24_tickers = tickers_as_of(2015, 7, 24)
+    assert len(jul_23_tickers) == 107
+    assert len(jul_24_tickers) == 106
+    assert "CTRX" in jul_23_tickers
+    assert "CTRX" not in jul_24_tickers
+
+    _test_one_swap(datetime.date.fromisoformat("2015-07-27"), "DTV", "BMRN", 106)
+
+    jul_28_tickers = tickers_as_of(2015, 7, 28)
+    jul_29_tickers = tickers_as_of(2015, 7, 29)
+    assert len(jul_28_tickers) == 106
+    assert len(jul_29_tickers) == 107
+    assert "JD" not in jul_28_tickers
+    assert "JD" in jul_29_tickers
     _test_one_swap(datetime.date.fromisoformat("2015-08-03"), "SIAL", "SWKS", 107)
     _test_one_swap(datetime.date.fromisoformat("2015-10-07"), "ALTR", "INCY", 107)
     _test_one_swap(datetime.date.fromisoformat("2015-11-11"), "BRCM", "PYPL", 107)
