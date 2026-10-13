@@ -49,20 +49,20 @@ def test_tickers_2016() -> None:
     assert apr_18_additions.isdisjoint(apr_17_tickers)
     assert apr_18_additions.issubset(apr_18_tickers)
 
-    # https://en.wikipedia.org/wiki/Nasdaq-100#cite_note-38
-    #  this is a 4 for one change as of June 10
-    jun_09_tickers = tickers_as_of(2016, 6, 9)
-    assert len(jun_09_tickers) == 107
-    jun_10_tickers = tickers_as_of(2016, 6, 10)
-    assert len(jun_10_tickers) == 104
+    # A 4-for-1 change announced Jun 10, effective before market open Jun 20.
+    # https://ir.nasdaq.com/news-releases/news-release-details/dentsply-sirona-inc-join-nasdaq-100-index-beginning-june-20-2016
+    jun_19_tickers = tickers_as_of(2016, 6, 19)
+    assert len(jun_19_tickers) == 107
+    jun_20_tickers = tickers_as_of(2016, 6, 20)
+    assert len(jun_20_tickers) == 104
 
-    jun_10_removals = frozenset(("LMCA", "LMCK", "BATRA", "BATRK"))
-    assert jun_10_removals.issubset(jun_09_tickers)
-    assert jun_10_tickers.isdisjoint(jun_10_removals)
+    jun_20_removals = frozenset(("LMCA", "LMCK", "BATRA", "BATRK"))
+    assert jun_20_removals.issubset(jun_19_tickers)
+    assert jun_20_tickers.isdisjoint(jun_20_removals)
 
-    jun_10_additions = frozenset(("XRAY",))
-    assert jun_10_additions.isdisjoint(jun_09_tickers)
-    assert jun_10_additions.issubset(jun_10_tickers)
+    jun_20_additions = frozenset(("XRAY",))
+    assert jun_20_additions.isdisjoint(jun_19_tickers)
+    assert jun_20_additions.issubset(jun_20_tickers)
 
     # https://en.wikipedia.org/wiki/Nasdaq-100#cite_note-39
     _test_one_swap(datetime.date.fromisoformat("2016-07-18"), "ENDP", "MCHP", num_tickers_2016_eoy)
