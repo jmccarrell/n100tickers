@@ -116,7 +116,8 @@ changes:
       - NLOK
       - TCOM
 
-  '2019-11-19':
+  # Announced Nov 18; effective Nov 21.
+  '2019-11-21':
     difference:
       - CELG
     union:
