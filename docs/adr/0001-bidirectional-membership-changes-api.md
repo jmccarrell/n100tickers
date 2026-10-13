@@ -22,3 +22,7 @@ The anchor is the load-bearing idea. With it, neither forward nor backward expan
 ## Considered and rejected: synthetic-baseline event
 
 The obvious alternative was a single `changes()` iterator that emits the earliest Jan-1 baseline as a synthetic `MembershipChange(earliest, additions=initial_set, removals=frozenset())`, then real events. Rejected because backward expansion shifts the synthetic event's date *and* its tickers, breaking iterator idempotency: a row a consumer stored from a prior sync becomes wrong rather than just incomplete. The two-iterator anchor design preserves stable identity per emitted event under expansion in either direction.
+
+## Corrections are not expansion
+
+The stability above covers growing the coverage; it does not freeze errors.  When a recorded date is found to be wrong under [ADR 0002](0002-membership-dates-follow-nasdaq-index-effective-date.md), the event moves to the right date, and rows a consumer stored from the wrong event become wrong.  Each correction ships as a `fix:` commit with a changelog entry naming the old and new dates, so a consumer can find the rows to resync.
