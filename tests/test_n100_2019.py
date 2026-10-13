@@ -11,7 +11,7 @@ def test_tickers_2019() -> None:
     _test_at_year_boundary(2019)
 
     # https://www.nasdaq.com/press-release/exelon-corporation-to-join-the-nasdaq-100-index-beginning-november-21-2019-2019-11-18
-    _test_one_swap(datetime.date.fromisoformat("2019-11-19"), "CELG", "EXC", num_tickers_2019)
+    _test_one_swap(datetime.date.fromisoformat("2019-11-21"), "CELG", "EXC", num_tickers_2019)
 
     # Ctrip.com International, Ltd. (CTRP) will change its name, trading symbol,
     # and CUSIP to Trip.com Group Limited (TCOM), CUSIP 89677Q107
