@@ -123,10 +123,18 @@ changes:
     union:
       - NTES
 
+  # Added at zero weight; LSXMA and LSXMK left again the next day.
   '2016-04-18':
     union:
       - BATRA
       - BATRK
+      - LSXMA
+      - LSXMK
+
+  '2016-04-19':
+    difference:
+      - LSXMA
+      - LSXMK
 
   # Announced Jun 10; effective Jun 20.
   '2016-06-20':

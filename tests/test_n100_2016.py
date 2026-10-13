@@ -38,16 +38,24 @@ def test_tickers_2016() -> None:
     #  https://www.nasdaq.com/about/press-center/netease-inc-join-nasdaq-100-index-beginning-march-16-2016
     _test_one_swap(datetime.date.fromisoformat("2016-03-16"), "SNDK", "NTES", num_tickers_2016_boy)
 
-    # adds BATRA, BATRK as of Apr 18; no replacements
-    #  https://en.wikipedia.org/wiki/Nasdaq-100#cite_note-37
+    # Liberty Media's recapitalization added BATRA, BATRK, LSXMA and LSXMK at zero
+    # weight on Apr 18, with no replacements.  LSXMA and LSXMK left again before
+    # the open on Apr 19.
+    #  https://www.nasdaqtrader.com/TraderNews.aspx?id=fpnews2016-25
     apr_17_tickers = tickers_as_of(2016, 4, 17)
     assert len(apr_17_tickers) == 105
     apr_18_tickers = tickers_as_of(2016, 4, 18)
-    assert len(apr_18_tickers) == 107
+    assert len(apr_18_tickers) == 109
+    apr_19_tickers = tickers_as_of(2016, 4, 19)
+    assert len(apr_19_tickers) == 107
 
-    apr_18_additions = frozenset(("BATRA", "BATRK"))
+    apr_18_additions = frozenset(("BATRA", "BATRK", "LSXMA", "LSXMK"))
     assert apr_18_additions.isdisjoint(apr_17_tickers)
     assert apr_18_additions.issubset(apr_18_tickers)
+
+    apr_19_removals = frozenset(("LSXMA", "LSXMK"))
+    assert apr_19_tickers.isdisjoint(apr_19_removals)
+    assert frozenset(("BATRA", "BATRK")).issubset(apr_19_tickers)
 
     # A 4-for-1 change announced Jun 10, effective before market open Jun 20.
     # https://ir.nasdaq.com/news-releases/news-release-details/dentsply-sirona-inc-join-nasdaq-100-index-beginning-june-20-2016
