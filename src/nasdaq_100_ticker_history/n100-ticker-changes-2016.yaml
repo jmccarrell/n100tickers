@@ -108,7 +108,7 @@ tickers_on_Jan_1:
   - YHOO
 
 changes:
-  # the main source of these changes is the wikipedia page:
+  # Dates follow Nasdaq's index announcements (docs/adr/0002); this Wikipedia page is only a lead to them:
   #  https://en.wikipedia.org/wiki/NASDAQ-100#Changes_in_2016
 
   '2016-02-22':

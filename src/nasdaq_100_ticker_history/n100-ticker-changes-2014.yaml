@@ -103,7 +103,7 @@ tickers_on_Jan_1:
   - YHOO
 
 changes:
-  # the main source of these changes is the wikipedia page:
+  # Dates follow Nasdaq's index announcements (docs/adr/0002); this Wikipedia page is only a lead to them:
   #  https://en.wikipedia.org/wiki/Historical_components_of_the_Nasdaq-100
 
   # Google's Class C distribution renamed the Class A line to GOOGL and gave the new Class C the
