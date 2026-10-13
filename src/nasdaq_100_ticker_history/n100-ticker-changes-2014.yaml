@@ -117,7 +117,7 @@ changes:
     union:
       - LMCK
 
-  # Missing from the source table; Series C began regular-way trading.
+  # Missing from the source table; the Series C dividend's ex-date.
   '2014-08-07':
     union:
       - DISCK

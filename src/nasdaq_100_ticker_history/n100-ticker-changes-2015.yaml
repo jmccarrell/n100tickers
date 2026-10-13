@@ -125,6 +125,11 @@ changes:
       - LILA
       - LILAK
 
+  # Removed ahead of its replacement; JD joins Jul 29.
+  '2015-07-24':
+    difference:
+      - CTRX
+
   '2015-07-27':
     difference:
       - DTV
@@ -132,8 +137,6 @@ changes:
       - BMRN
 
   '2015-07-29':
-    difference:
-      - CTRX
     union:
       - JD
 
