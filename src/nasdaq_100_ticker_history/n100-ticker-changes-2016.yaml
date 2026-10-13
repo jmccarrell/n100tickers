@@ -128,7 +128,8 @@ changes:
       - BATRA
       - BATRK
 
-  '2016-06-10':
+  # Announced Jun 10; effective Jun 20.
+  '2016-06-20':
     difference:
       - LMCA
       - LMCK
