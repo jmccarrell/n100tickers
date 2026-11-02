@@ -1,6 +1,6 @@
 # Changelog
 
-## [2026.12.2](https://github.com/jmccarrell/n100tickers/compare/v2026.12.1...v2026.12.2) (2026-11-02)
+## 2026.12.2 (2026-11-02)
 
 
 ### Fixes

@@ -117,57 +117,59 @@ When NASDAQ announces index changes:
 
 Version follows CalVer format: `YYYY.minor.patch`.
 
-Releases are driven by [Release Please](https://github.com/googleapis/release-please).
-Nothing is released by hand: every commit that reaches `main` is read as a
-Conventional Commit, and Release Please keeps an open release PR that carries the
-next version bump and the changelog entry.  Merging that PR is the release.
+Releases are driven by [knope](https://knope.tech).  Nothing is released by
+hand: every commit that reaches `main` is read as a Conventional Commit, and
+knope keeps an open release PR that carries the next version bump and the
+changelog entry.  Merging that PR is the release.
 
 ### Conventional Commits
 
 The squash-merge title of every PR must be a Conventional Commit, because that
-title is the only commit Release Please sees:
+title is the only commit knope sees:
 
 - `feat: ...` bumps the minor version — use this for index membership changes,
   which are the user-visible change this package exists to ship
-- `fix: ...` bumps the patch version
+- `fix: ...` bumps the patch version.  A dependency change that reaches
+  consumers, such as a new range in `pyproject.toml`, is titled `fix(deps): ...`
+  so that it is released
 - `feat!: ...` or a `BREAKING CHANGE:` footer bumps the major version, which here
   is the year — do not use it for ordinary work
-- `docs:`, `deps:`, `ci:`, `refactor:`, `test:`, `chore:` bump the patch version
+- `docs:`, `deps:`, `ci:`, `refactor:`, `test:`, `chore:` release nothing and
+  make no changelog entry (ADR 0003)
 
-Every parseable Conventional Commit moves the version, including the types
-hidden from the changelog — verified by dry run, where two `ci:` commits alone
-proposed 2026.10.1.  What a type controls is the size of the bump and whether it
-shows up in `CHANGELOG.md`, not whether a release happens.  A commit whose
-subject is not a Conventional Commit at all is invisible and moves nothing.
-The PR Title workflow fails a PR whose title is not one of the types above,
-then an optional lowercase scope, an optional `!`, `: ` and a summary.
+A commit whose subject is not a Conventional Commit at all is invisible and
+moves nothing.  The PR Title workflow fails a PR whose title is not one of the
+types above, then an optional lowercase scope, an optional `!`, `: ` and a
+summary.
 
 ### Cutting a release
 
 1. Merge work to `main` with Conventional Commit titles
-2. Release Please opens or updates the release PR ("chore: release 2026.11.0")
-3. Review it — it edits `pyproject.toml`, `CHANGELOG.md`,
-   `.release-please-manifest.json`, and this package's own entry in `uv.lock`.
-   Release Please has no built-in `uv.lock` support, so that last one is an
-   `extra-files` entry in `release-please-config.json`; its JSONPath matches on
-   `name.value` because Release Please's TOML parser wraps every value
-4. Merge it.  The tag `v2026.11.0`, the GitHub Release, and the attached
+2. knope opens or updates the release PR ("chore: release 2026.13.0") from the
+   `release` branch
+3. Review it — it edits `pyproject.toml`, `CHANGELOG.md`, and this package's own
+   entry in `uv.lock`.  knope has no built-in `uv.lock` support
+   (knope-dev/knope#1995), so that last one is a regex `versioned_files` entry
+   in `knope.toml`
+4. Merge it.  The tag `v2026.13.0`, the GitHub Release, and the attached
    `uv build` artifacts follow automatically
 
 ### The year rollover
 
-Release Please treats the year as the semver major, so it will never roll
-`2026.x` to `2027.0.0` on its own — a `feat:` in January 2027 would produce
-`2026.12.0`.  Force the first release of a new year by putting
-`Release-As: 2027.0.0` in the commit body, or by setting `release-as` in
-`release-please-config.json` for that one release.
+knope treats the year as the semver major, so it will never roll `2026.x` to
+`2027.0.0` on its own — a `feat:` in January 2027 would produce `2026.13.0`.
+Force the first release of a new year by running the Release workflow by hand
+with `override_version: 2027.0.0`.  knope ignores `Release-As:` in commit
+bodies.
 
 ### The release token
 
-The `release-please` job authenticates as the `mcc-lab-agent` GitHub App: it
-mints a one-hour installation token from `vars.MCC_LAB_AGENT_APP_ID` and
-`secrets.MCC_LAB_AGENT_PRIVATE_KEY`, and the App needs Contents and Pull
-requests set to read and write on this repository.  Neither alternative works:
+The `prepare` job authenticates as the `mcc-lab-agent` GitHub App: it mints a
+one-hour installation token from `vars.MCC_LAB_AGENT_APP_ID` and
+`secrets.MCC_LAB_AGENT_PRIVATE_KEY`, and uses it both to push the `release`
+branch and as knope's `GITHUB_TOKEN` to open the PR.  The App needs Contents and
+Pull requests set to read and write on this repository.  Neither alternative
+works:
 
 - The built-in `GITHUB_TOKEN`: GitHub does not run workflows from events that
   token creates, so the release PR would never run Validate and would never
@@ -177,24 +179,27 @@ requests set to read and write on this repository.  Neither alternative works:
 
 ### The workflow
 
-`.github/workflows/release-please.yml` runs on every push to `main`:
+`.github/workflows/release.yml` runs on every push to `main`, and by hand:
 
-1. `verify` runs the test suite.  Release Please tags at merge time, so this job
-   is the last gate that can stop a bad release
-2. `release-please` opens/updates the release PR, or — when the merged commit was
-   the release PR — creates the tag and the GitHub Release
-3. `publish` runs only on an actual release: it checks out the release sha, runs
-   `uv build`, uploads `dist/*`, and only then publishes the draft
+1. `verify` runs the test suite.  knope publishes a release in the same step
+   that creates it, so this job is the last gate that can stop a bad release
+2. `release` skips unless the version in `pyproject.toml` has no tag yet.
+   Otherwise it runs `uv build`, checks the wheel and sdist exist, runs
+   `knope release`, and checks the published release carries the files.  If an
+   earlier run left a draft with no tag, it finishes that draft by hand
+   (`gh release upload --clobber`, then `gh release edit --draft=false`), since
+   `knope release` refuses a release that already exists
+3. `prepare` runs `knope prepare-release` to open or update the release PR.
+   `releases::no_release` — nothing since the last tag bumps the version —
+   counts as success; it happens after every release merge
 
-Releases are created as drafts on purpose.  This repository has immutable
-releases enabled, so a published release rejects new assets with HTTP 422 — the
-build has to be attached while the release is still a draft.
+This repository has immutable releases enabled, so a published release rejects
+new assets with HTTP 422.  knope creates the release as a draft, attaches
+`dist/*`, and only then publishes it.
 
-A draft has no tag of its own, and Release Please finds the previous release by
-its tag — without one, the next release PR it opens in the same run is built
-against older history.  `force-tag-creation` in `release-please-config.json`
-makes Release Please create the tag along with the draft, so that PR starts from
-the release just cut.
+A GitHub-forge release has no local tag: GitHub creates the tag when the release
+is published, and `prepare` runs after `release` with a fresh checkout, so the
+next release PR starts from the release just cut.
 
 ## Notes
 
