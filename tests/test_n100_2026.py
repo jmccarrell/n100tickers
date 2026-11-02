@@ -94,10 +94,11 @@ def test_jul_2026_spcx_addition() -> None:
 
 
 def test_aug_2026_ea_removal() -> None:
-    # Electronic Arts (EA) left the index on Aug 4 with no replacement, taking it
-    # from 103 to 102.
-    tickers_before = tickers_as_of(2026, 8, 3)
-    tickers_after = tickers_as_of(2026, 8, 4)
+    # Electronic Arts (EA) left the index on Aug 5 with no replacement, taking it
+    # from 103 to 102.  It traded through the close on Aug 4.
+    # http://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2026-545
+    tickers_before = tickers_as_of(2026, 8, 4)
+    tickers_after = tickers_as_of(2026, 8, 5)
     assert len(tickers_before) == num_tickers_2026 + 2
     assert len(tickers_after) == num_tickers_2026 + 1
     assert "EA" in tickers_before
