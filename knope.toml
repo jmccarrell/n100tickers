@@ -1,0 +1,56 @@
+[package]
+versioned_files = [
+    "pyproject.toml",
+    # knope has no uv.lock support yet (knope-dev/knope#1995)
+    { path = "uv.lock", regex = 'name = "nasdaq-100-ticker-history"\nversion = "(?<version>[^"]+)"' },
+]
+changelog = "CHANGELOG.md"
+assets = "dist/*"
+extra_changelog_sections = [
+    { types = ["minor"], name = "User-Visible Changes" },
+    { types = ["patch"], name = "Fixes" },
+]
+
+[release_notes]
+change_templates = [
+    "* $summary ([$commit_hash](https://github.com/jmccarrell/n100tickers/commit/$commit_hash))",
+    "* $summary",
+]
+
+[[workflows]]
+name = "prepare-release"
+
+[[workflows.steps]]
+type = "Command"
+command = "git switch -c release"
+
+[[workflows.steps]]
+type = "PrepareRelease"
+
+[[workflows.steps]]
+type = "Command"
+command = "git commit -m \"chore: release $version\""
+
+[[workflows.steps]]
+type = "Command"
+command = "git push --force --set-upstream origin release"
+
+[[workflows.steps]]
+type = "CreatePullRequest"
+base = "main"
+
+[workflows.steps.title]
+template = "chore: release $version"
+
+[workflows.steps.body]
+template = "$changelog"
+
+[[workflows]]
+name = "release"
+
+[[workflows.steps]]
+type = "Release"
+
+[github]
+owner = "jmccarrell"
+repo = "n100tickers"

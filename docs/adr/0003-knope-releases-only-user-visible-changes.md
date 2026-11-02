@@ -11,6 +11,6 @@ Releases are cut by knope, a Rust tool, replacing Release Please.  A release fol
 
 - A dependency change that reaches consumers, such as a new range in `pyproject.toml`, is titled `fix(deps):` so it is released.
 - The changelog has only the sections knope fills from `feat:`, `fix:`, and breaking commits.  Entries are plainer: no compare link in the heading, and no "closes #N".
-- The `2026.12.1` heading is rewritten once into knope's format so that new entries land above it; the entries beneath it are untouched.
+- The `2026.12.2` heading, the last Release Please wrote, is rewritten once into knope's format so that new entries land above it; the entries beneath it are untouched.
 - The year rollover is forced by running the release workflow by hand with `--override-version`, since knope ignores `Release-As:` in commit bodies.
 - `uv.lock` is bumped through a regex entry until knope supports it natively (knope-dev/knope#1995).

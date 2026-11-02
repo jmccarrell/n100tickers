@@ -1,0 +1,125 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      override_version:
+        description: "Version for the release PR, e.g. 2027.0.0 for the year rollover"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  # knope publishes a release in the same step that creates it, so this is the
+  # last point where a red main can still stop a release.
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v8.0.0
+      - name: Set up Python
+        run: uv python install 3.14
+      - name: Install dependencies
+        run: uv sync
+      - name: Run pytest
+        run: uv run -m pytest
+
+  release:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v8.0.0
+      - name: Find an unreleased version
+        id: version
+        run: |
+          set -euo pipefail
+          tag="v$(uv version --short)"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          if git rev-parse -q --verify "refs/tags/$tag" > /dev/null; then
+            echo "pending=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "pending=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Set up Python
+        if: steps.version.outputs.pending == 'true'
+        run: uv python install 3.14
+      - name: Build
+        if: steps.version.outputs.pending == 'true'
+        run: uv build
+      - uses: knope-dev/action@v2.1.2
+        if: steps.version.outputs.pending == 'true'
+        with:
+          version: 0.23.2
+      # Releases are immutable once published, and knope publishes a release even
+      # when its asset glob matches nothing.
+      - name: Publish the release with the build attached
+        if: steps.version.outputs.pending == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          set -euo pipefail
+          ls dist/*.whl dist/*.tar.gz
+          # A failed upload leaves a draft with no tag, which knope will not recreate.
+          if [ "$(gh release view "$TAG" --json isDraft --jq .isDraft 2> /dev/null)" = true ]; then
+            gh release upload "$TAG" dist/* --clobber
+            gh release edit "$TAG" --draft=false
+          else
+            knope release
+          fi
+          gh release view "$TAG" --json isDraft,assets \
+            --jq 'if .isDraft or (.assets | length) == 0
+                  then error("release published without assets") else "published with \(.assets|length) assets" end'
+
+  prepare:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      # Not GITHUB_TOKEN: GitHub refuses to run workflows from events that token
+      # creates, so the release PR would never run Validate and could never
+      # satisfy the required `build` check.  Not a personal token either: its owner
+      # becomes the release PR's author, and GitHub won't let an author approve.
+      # GitHub accepts the App ID where `client-id` asks for the Client ID.
+      - uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          client-id: ${{ vars.MCC_LAB_AGENT_APP_ID }}
+          private-key: ${{ secrets.MCC_LAB_AGENT_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+      # A fresh checkout, so it sees the tag the release job just published.
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+      - uses: knope-dev/action@v2.1.2
+        with:
+          version: 0.23.2
+      - name: Open or update the release PR
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          OVERRIDE: ${{ inputs.override_version }}
+        run: |
+          set -euo pipefail
+          git config user.name 'mcc-lab-agent[bot]'
+          git config user.email '319506792+mcc-lab-agent[bot]@users.noreply.github.com'
+          # Nothing since the last tag bumps the version: there is no release PR to open.
+          if ! out=$(knope prepare-release ${OVERRIDE:+--override-version "$OVERRIDE"} 2>&1); then
+            printf '%s\n' "$out"
+            grep -q 'releases::no_release' <<< "$out" || exit 1
+          else
+            printf '%s\n' "$out"
+          fi
