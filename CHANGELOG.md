@@ -1,5 +1,17 @@
 # Changelog
 
+## [2026.12.2](https://github.com/jmccarrell/n100tickers/compare/v2026.12.1...v2026.12.2) (2026-11-02)
+
+
+### Fixes
+
+* move the EA removal from 2026-08-04 to 2026-08-05 ([#126](https://github.com/jmccarrell/n100tickers/issues/126)) ([dde4176](https://github.com/jmccarrell/n100tickers/commit/dde4176d3bd619d59f682bb6bc6f452172cb64a5))
+
+
+### Internal Changes
+
+* check that PR titles are Conventional Commits ([#130](https://github.com/jmccarrell/n100tickers/issues/130)) ([27bf7d1](https://github.com/jmccarrell/n100tickers/commit/27bf7d198ee9a247fb36f81b8d7279d60309277f)), closes [#129](https://github.com/jmccarrell/n100tickers/issues/129)
+
 ## [2026.12.1](https://github.com/jmccarrell/n100tickers/compare/v2026.12.0...v2026.12.1) (2026-10-13)
 
 
