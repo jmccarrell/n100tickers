@@ -1,0 +1,27 @@
+name: PR Title
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, edited, reopened, synchronize]
+
+permissions: {}
+
+jobs:
+  conventional-commit:
+    runs-on: ubuntu-latest
+    steps:
+      # The squash title is the only commit the release manager reads, and it
+      # silently skips a title it can't parse.  The title goes through env, not
+      # into the script, so it can't inject shell.
+      - name: Check the title is a Conventional Commit
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          pattern='^(feat|fix|docs|deps|ci|refactor|test|chore)(\([a-z0-9-]+\))?!?: [^ ]'
+          if [[ ! $TITLE =~ $pattern ]]; then
+            printf 'Title: %s\n' "$TITLE"
+            echo "::error::PR title is not a Conventional Commit"
+            exit 1
+          fi
