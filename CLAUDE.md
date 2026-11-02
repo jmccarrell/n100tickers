@@ -139,6 +139,8 @@ hidden from the changelog — verified by dry run, where two `ci:` commits alone
 proposed 2026.10.1.  What a type controls is the size of the bump and whether it
 shows up in `CHANGELOG.md`, not whether a release happens.  A commit whose
 subject is not a Conventional Commit at all is invisible and moves nothing.
+The PR Title workflow fails a PR whose title is not one of the types above,
+then an optional lowercase scope, an optional `!`, `: ` and a summary.
 
 ### Cutting a release
 
