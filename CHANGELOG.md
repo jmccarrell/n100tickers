@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026.13.0 (2026-11-16)
+
+### User-Visible Changes
+
+* cover all of 2007, checked against Nasdaq's index data endpoint ([0960655](https://github.com/jmccarrell/n100tickers/commit/0960655))
+
+### Fixes
+
+* move the NTLI to VMED rename from 2007-08-27 to 2007-02-08 ([dc7fb31](https://github.com/jmccarrell/n100tickers/commit/dc7fb31))
+
 ## 2026.12.2 (2026-11-02)
 
 
