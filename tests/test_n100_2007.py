@@ -13,8 +13,8 @@ def test_year_boundary_2007_2008() -> None:
 
 
 def test_membership_at_start_of_coverage() -> None:
-    """Anchor the backward extension: the whole index on Feb 14, 2007, as the
-    Nasdaq-100 article listed it that day. Every other set in the years this
+    """Anchor the backward extension: the whole index on Feb 14, 2007, as
+    Nasdaq's index data endpoint listed it at the start of that day. Every other set in the years this
     package covers is derived by walking changes away from this one."""
 
     feb_14_tickers = frozenset(
@@ -22,7 +22,7 @@ def test_membership_at_start_of_coverage() -> None:
         AAPL ADBE ADSK AEOS AKAM ALTR AMAT AMGN AMLN AMZN APOL ATVI BBBY BEAS BIIB BMET BRCM CDNS CDWC
         CELG CHKP CHRW CKFR CMCSA COST CSCO CTAS CTSH CTXS DELL DISCA DISH EBAY ERIC ERTS ESRX EXPD EXPE
         FAST FISV FLEX GENZ GILD GOOG GRMN IACI INFY INTC INTU ISRG JNPR JOYG KLAC LAMR LBTYA LINTA LLTC
-        LOGI LRCX LVLT MCHP MEDI MICC MNST MRVL MSFT MXIM NIHD NTAP NTLI NVDA ORCL PAYX PCAR PDCO PETM
+        LOGI LRCX LVLT MCHP MEDI MICC MNST MRVL MSFT MXIM NIHD NTAP VMED NVDA ORCL PAYX PCAR PDCO PETM
         PTEN QCOM RIMM ROST RYAAY SBUX SEPR SHLD SIAL SIRI SNDK SPLS SUNW SYMC TEVA TLAB VRSN VRTX WFMI
         WYNN XLNX XMSR XRAY YHOO
         """.split()
@@ -41,16 +41,9 @@ def test_tickers_2007() -> None:
     _test_one_swap(datetime.date.fromisoformat("2007-06-01"), "MEDI", "CEPH", num_tickers_2007_boy)
     _test_one_swap(datetime.date.fromisoformat("2007-07-12"), "BMET", "FWLT", num_tickers_2007_boy)
 
-    # both pairs are ticker changes: NTL became Virgin Media, Sun Microsystems became JAVA
-    before = tickers_as_of(2007, 8, 26)
-    on = tickers_as_of(2007, 8, 27)
-    removals = frozenset(("NTLI", "SUNW"))
-    assert removals.issubset(before)
-    assert on.isdisjoint(removals)
-    additions = frozenset(("JAVA", "VMED"))
-    assert additions.isdisjoint(before)
-    assert additions.issubset(on)
-    assert len(on) == len(before) - 2 + 2
+    # ticker changes: NTL became Virgin Media, Sun Microsystems became JAVA
+    _test_one_swap(datetime.date.fromisoformat("2007-02-08"), "NTLI", "VMED", num_tickers_2007_boy)
+    _test_one_swap(datetime.date.fromisoformat("2007-08-27"), "SUNW", "JAVA", num_tickers_2007_boy)
 
     # Maxim was suspended from Nasdaq over delinquent filings; it rejoins in Dec 2008.
     _test_one_swap(datetime.date.fromisoformat("2007-10-02"), "MXIM", "HSIC", num_tickers_2007_boy)
