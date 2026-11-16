@@ -1,5 +1,7 @@
 # Membership dates follow Nasdaq's index effective date
 
+Its ranking of sources is superseded by [ADR 0004](0004-nasdaq-endpoint-is-the-membership-authority.md), which makes Nasdaq's index data endpoint the authority; the effective-date rule stands.
+
 A membership change is recorded on the index effective date named in Nasdaq's own announcement, and Nasdaq's announcements outrank every other source.  So a security stays a member after it stops trading if Nasdaq's announcement keeps it in the index, and the index briefly holds fewer securities if Nasdaq removes one before its replacement joins.  The package describes Nasdaq's index, and Nasdaq's announcements are the record of that index.
 
 ## Considered Options
