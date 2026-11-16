@@ -75,7 +75,7 @@ jobs:
           ls dist/*.whl dist/*.tar.gz
           # A failed upload leaves a draft with no tag, which knope will not recreate.
           if [ "$(gh release view "$TAG" --json isDraft --jq .isDraft 2> /dev/null)" = true ]; then
-            gh release upload "$TAG" dist/* --clobber
+            gh release upload "$TAG" dist/nasdaq_100_ticker_history-* --clobber
             gh release edit "$TAG" --draft=false
           else
             knope release

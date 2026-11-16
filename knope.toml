@@ -5,7 +5,7 @@ versioned_files = [
     { path = "uv.lock", regex = 'name = "nasdaq-100-ticker-history"\nversion = "(?<version>[^"]+)"' },
 ]
 changelog = "CHANGELOG.md"
-assets = "dist/*"
+assets = "dist/nasdaq_100_ticker_history-*"
 extra_changelog_sections = [
     { types = ["minor"], name = "User-Visible Changes" },
     { types = ["patch"], name = "Fixes" },
