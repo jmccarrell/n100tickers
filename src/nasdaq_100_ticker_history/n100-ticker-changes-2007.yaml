@@ -115,6 +115,15 @@ changes:
     union:
       - LOGI
 
+  # A ticker change, not an index change: NTL Incorporated became Virgin Media.
+  # Virgin Media's 8-K of 2007-02-08 calls it NASDAQ: VMED, launched that morning:
+  #  https://www.sec.gov/Archives/edgar/data/1270400/000089534507000061/ex99_1.htm
+  '2007-02-08':
+    difference:
+      - NTLI
+    union:
+      - VMED
+
   '2007-02-14':
     difference:
       - APCC
@@ -139,15 +148,14 @@ changes:
     union:
       - FWLT
 
-  # Both pairs are ticker changes, not index changes: NTL Incorporated became Virgin Media and Sun
-  # Microsystems became JAVA. The source table records only the first, and misspells NTLI as NLTI.
+  # A ticker change, not an index change: Sun Microsystems began trading as JAVA.
+  # Sun's FY2007 10-K: "Prior to August 27, 2007, our common stock traded under the symbol SUNW."
+  #  https://www.sec.gov/Archives/edgar/data/709519/000119312507191776/d10k.htm
   '2007-08-27':
     difference:
-      - NTLI
       - SUNW
     union:
       - JAVA
-      - VMED
 
   # Missing from the source table. Maxim was suspended from Nasdaq over delinquent filings and
   # rejoined the index in December 2008.
