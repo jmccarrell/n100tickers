@@ -1,4 +1,4 @@
-# CLAUDE.md
+# AGENTS.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -42,7 +42,7 @@ either identity.
 This project uses `just` for task automation and `uv` for Python dependency management.
 
 ### Run python code
-- use `uv run python` to execute python (never bare `python`/`python3`; package ops via `uv add`/`uv sync` — repo-wide rule, see top-level CLAUDE.md)
+- use `uv run python` to execute python (never bare `python`/`python3`; package ops via `uv add`/`uv sync`)
 
 ### Testing
 - Run all tests: `just test`
