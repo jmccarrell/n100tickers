@@ -1,0 +1,160 @@
+---
+year: 2005
+tickers_on_Jan_1:
+  - AAPL
+  - ADBE
+  - ADSK
+  - ALTR
+  - AMAT
+  - AMGN
+  - AMZN
+  - APCC
+  - APOL
+  - ATYT
+  - BBBY
+  - BEAS
+  - BIIB
+  - BMET
+  - BRCM
+  - CDWC
+  - CECO
+  - CHIR
+  - CHKP
+  - CHRW
+  - CMCSA
+  - CMVT
+  - COST
+  - CSCO
+  - CTAS
+  - CTSH
+  - CTXS
+  - DELL
+  - DISH
+  - DLTR
+  - EBAY
+  - ERICY
+  - ERTS
+  - ESRX
+  - EXPD
+  - FAST
+  - FISV
+  - FLEX
+  - GENZ
+  - GILD
+  - GRMN
+  - IACI
+  - INTC
+  - INTU
+  - ISIL
+  - IVGN
+  - JDSU
+  - JNPR
+  - KLAC
+  - KMRT
+  - LAMR
+  - LBTYA
+  - LLTC
+  - LNCR
+  - LRCX
+  - LVLT
+  - MCHP
+  - MCIP
+  - MEDI
+  - MERQ
+  - MLNM
+  - MOLX
+  - MRVL
+  - MSFT
+  - MXIM
+  - NTAP
+  - NTLI
+  - NVLS
+  - NXTL
+  - ORCL
+  - PAYX
+  - PCAR
+  - PDCO
+  - PETM
+  - PIXR
+  - QCOM
+  - QLGC
+  - RIMM
+  - ROST
+  - SANM
+  - SBUX
+  - SEBL
+  - SIAL
+  - SIRI
+  - SNDK
+  - SNPS
+  - SPLS
+  - SSCC
+  - SUNW
+  - SYMC
+  - TEVA
+  - TLAB
+  - VRSN
+  - VRTS
+  - WFMI
+  - WYNN
+  - XLNX
+  - XMSR
+  - XRAY
+  - YHOO
+changes:
+  # Every 2005 trading day matches the start-of-day list of Nasdaq's index data endpoint
+  # (docs/adr/0004). tickers_on_Jan_1 is the list of 2004-12-31, the previous year's last trading
+  # day. Each change names the release that confirms it. Nasdaq's index of its 2005 releases:
+  #  https://web.archive.org/web/20071217060529id_/http://www.nasdaq.com/newsroom/news/2005.stm
+
+  # Kmart Holding merged with Sears, Roebuck to form Sears Holdings, which began trading as SHLD
+  # on Nasdaq that day, per its 8-K12G3 of 2005-03-24. Nasdaq announced no index change.
+  #  https://www.sec.gov/Archives/edgar/data/1310067/000095012305003586/y06960cexv99w1.htm
+  '2005-03-28':
+    difference:
+      - KMRT
+    union:
+      - SHLD
+
+  #  https://ir.nasdaq.com/news-releases/news-release-details/celgene-corporation-join-nasdaq-100-index-beginning-july-5-2005
+  '2005-07-05':
+    difference:
+      - VRTS
+    union:
+      - CELG
+
+  #  https://ir.nasdaq.com/news-releases/news-release-details/sepracor-inc-join-nasdaq-100-index-beginning-august-15-2005
+  '2005-08-15':
+    difference:
+      - NXTL
+    union:
+      - SEPR
+
+  #  https://web.archive.org/web/20071219210302id_/http://www.nasdaq.com/newsroom/news/pr2005/ne_section05_121.stm
+  '2005-12-19':
+    difference:
+      - CECO
+      - DLTR
+      - ISIL
+      - IVGN
+      - LVLT
+      - MLNM
+      - MOLX
+      - NVLS
+      - QLGC
+      - SANM
+      - SNPS
+      - SSCC
+    union:
+      - ATVI
+      - CDNS
+      - CKFR
+      - DISCA
+      - EXPE
+      - GOOG
+      - MNST
+      - NIHD
+      - NVDA
+      - PTEN
+      - RHAT
+      - URBN
