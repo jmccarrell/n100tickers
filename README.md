@@ -7,14 +7,14 @@ set of ticker symbols (eg, `AAPL`) that were in the index on that date.
 
 ## Coverage
 
-Accurate coverage is provided from January 1, 2007 through at least October 11, 2026.  Most
+Accurate coverage is provided from January 1, 2006 through at least October 11, 2026.  Most
 likely, the coverage is accurate further into 2026 subject to additional changes being announced by Nasdaq.  A new
 version of the API is released on each update Nasdaq announces, typically with a time lag of a few days to a
 few weeks.  It is the intent of the project maintainers to provide accurate coverage on an ongoing basis.
 
-2007 is checked against every trading day's start-of-day list from Nasdaq's index data endpoint, the authority for
-membership ([ADR 0004](docs/adr/0004-nasdaq-endpoint-is-the-membership-authority.md)).  Each change also names the
-Nasdaq release or filing that confirms it, where one exists.
+2006 and 2007 are checked against every trading day's start-of-day list from Nasdaq's index data endpoint, the
+authority for membership ([ADR 0004](docs/adr/0004-nasdaq-endpoint-is-the-membership-authority.md)).  Each change
+also names the Nasdaq release or filing that confirms it, where one exists.
 
 Ticker symbols are the ones that actually traded on the date queried, so a company that later renamed appears
 under its contemporaneous symbol: `tickers_as_of(2010, 1, 1)` returns `PCLN`, not `BKNG`.
