@@ -103,12 +103,13 @@ tickers_on_Jan_1:
   - YHOO
 
 changes:
-  # Dates follow Nasdaq's index announcements (docs/adr/0002); this Wikipedia page is only a lead to them:
-  #  https://en.wikipedia.org/wiki/Historical_components_of_the_Nasdaq-100
+  # Every 2007 trading day matches the start-of-day list of Nasdaq's index data endpoint
+  # (docs/adr/0004). tickers_on_Jan_1 is the list of 2007-01-03, the year's first trading day, and no
+  # change took effect in January. Each change names the release that confirms it. Nasdaq's index of
+  # its 2007 releases:
+  #  https://web.archive.org/web/20080122210226id_/http://www.nasdaq.com/Newsroom/news/newsroomnewsheadlines.aspx?year=2007
 
-  # Sourced coverage starts Feb 1, 2007, where the source table begins. tickers_on_Jan_1 is what
-  # undoing the Feb 1 change implies, so a January 2007 change would be invisible here.
-
+  #  https://ir.nasdaq.com/news-releases/news-release-details/logitech-international-sa-join-nasdaq-100-index-beginning
   '2007-02-01':
     difference:
       - CMVT
@@ -124,24 +125,28 @@ changes:
     union:
       - VMED
 
+  #  https://www.globenewswire.com/news-release/2007/02/12/354997/6948/en/ryanair-holdings-plc-to-join-the-nasdaq-100-index-beginning-february-14-2007.html
   '2007-02-14':
     difference:
       - APCC
     union:
       - RYAAY
 
+  #  https://www.globenewswire.com/news-release/2007/03/01/355880/6948/en/ual-corporation-to-join-the-nasdaq-100-index-beginning-march-8-2007.html
   '2007-03-08':
     difference:
       - AEOS
     union:
       - UAUA
 
+  #  https://www.globenewswire.com/news-release/2007/05/31/360625/6948/en/cephalon-inc-to-join-the-nasdaq-100-index-beginning-june-1-2007.html
   '2007-06-01':
     difference:
       - MEDI
     union:
       - CEPH
 
+  #  https://ir.nasdaq.com/news-releases/news-release-details/foster-wheeler-ltd-join-nasdaq-100-index-beginning-july-12-2007
   '2007-07-12':
     difference:
       - BMET
@@ -157,26 +162,31 @@ changes:
     union:
       - JAVA
 
-  # Missing from the source table. Maxim was suspended from Nasdaq over delinquent filings and
-  # rejoined the index in December 2008.
+  # Maxim was suspended from Nasdaq over delinquent filings and rejoined the index in December 2008.
+  #  https://ir.nasdaq.com/news-releases/news-release-details/henry-schein-inc-join-nasdaq-100-index-beginning-october-2-2007
   '2007-10-02':
     difference:
       - MXIM
     union:
       - HSIC
 
+  #  https://ir.nasdaq.com/news-releases/news-release-details/leap-wireless-international-inc-join-nasdaq-100-index-beginning
   '2007-10-08':
     difference:
       - CDWC
     union:
       - LEAP
 
+  # Nasdaq's release names only Baidu, so CKFR's removal is confirmed by the endpoint only. Fiserv
+  # closed its purchase of CheckFree on the evening of 2007-12-03.
+  #  https://ir.nasdaq.com/news-releases/news-release-details/baiducom-inc-join-nasdaq-100-index-beginning-december-4-2007
   '2007-12-04':
     difference:
       - CKFR
     union:
       - BIDU
 
+  #  https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-announces-annual-re-ranking-nasdaq-100-index-1
   '2007-12-24':
     difference:
       - ERIC
