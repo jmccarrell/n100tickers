@@ -1,0 +1,160 @@
+---
+year: 2003
+tickers_on_Jan_1:
+  - AAPL
+  - ADBE
+  - ADCT
+  - ALTR
+  - AMAT
+  - AMGN
+  - AMZN
+  - APCC
+  - APOL
+  - BBBY
+  - BEAS
+  - BGEN
+  - BMET
+  - BRCD
+  - BRCM
+  - CDWC
+  - CEPH
+  - CHIR
+  - CHKP
+  - CHRW
+  - CIEN
+  - CMCSA
+  - CMVT
+  - COST
+  - CPWR
+  - CSCO
+  - CTAS
+  - CTXS
+  - DELL
+  - DISH
+  - DLTR
+  - EBAY
+  - ERICY
+  - ERTS
+  - ESRX
+  - EXPD
+  - FAST
+  - FHCC
+  - FISV
+  - FLEX
+  - GENZ
+  - GILD
+  - GNTX
+  - HGSI
+  - HSIC
+  - ICOS
+  - IDPH
+  - INTC
+  - INTU
+  - IVGN
+  - JDSU
+  - JNPR
+  - KLAC
+  - LAMR
+  - LLTC
+  - LNCR
+  - MCHP
+  - MEDI
+  - MERQ
+  - MLNM
+  - MOLX
+  - MSFT
+  - MXIM
+  - NTAP
+  - NVDA
+  - NVLS
+  - NXTL
+  - ORCL
+  - PAYX
+  - PCAR
+  - PDCO
+  - PETM
+  - PIXR
+  - PSFT
+  - PTEN
+  - QCOM
+  - QLGC
+  - RFMD
+  - ROST
+  - RYAAY
+  - SANM
+  - SBUX
+  - SEBL
+  - SIAL
+  - SNPS
+  - SPLS
+  - SPOT
+  - SSCC
+  - SUNW
+  - SYMC
+  - TEVA
+  - TLAB
+  - TMPW
+  - USAI
+  - VRSN
+  - VRTS
+  - WFMI
+  - XLNX
+  - XRAY
+  - YHOO
+changes:
+  # Every 2003 trading day matches the start-of-day list of Nasdaq's index data endpoint
+  # (docs/adr/0004). The endpoint holds nothing before 2003-01-02, so tickers_on_Jan_1 is the list
+  # of that day, the year's first trading day; neither Nasdaq's releases nor the QQQ trust's count
+  # of changes shows one effective on it. Each change names the release or filing that confirms it.
+  # Nasdaq's index of its 2003 releases:
+  #  https://web.archive.org/web/20071224035952id_/http://www.nasdaq.com/Newsroom/news/2003.stm
+
+  # A ticker change, not an index change: TMP Worldwide became Monster Worldwide, per its 8-K:
+  #  https://www.sec.gov/Archives/edgar/data/1020416/000104746903015907/a2109934zex-99_1.htm
+  '2003-05-01':
+    difference:
+      - TMPW
+    union:
+      - MNST
+
+  # A ticker change, not an index change: USA Interactive became InterActiveCorp, per its 8-K of
+  # that day:
+  #  https://www.sec.gov/Archives/edgar/data/891103/000089882203000624/ex99-1june23.txt
+  '2003-06-23':
+    difference:
+      - USAI
+    union:
+      - IACI
+
+  # IDEC merged with Biogen and became Biogen Idec, its symbol changing from IDPH to BIIB, and
+  # Biogen was delisted, per Biogen Idec's 8-K of 2003-11-12. SanDisk took Biogen's place:
+  #  https://www.sec.gov/Archives/edgar/data/875045/000104746903037053/a2122254z8-k.htm
+  #  https://ir.nasdaq.com/news-releases/news-release-details/sandisk-corporation-join-nasdaq-100-index-beginning-november-13
+  '2003-11-13':
+    difference:
+      - BGEN
+      - IDPH
+    union:
+      - BIIB
+      - SNDK
+
+  #  https://ir.nasdaq.com/news-releases/news-release-details/nasdaq-announces-annual-re-ranking-nasdaq-100-index-0
+  '2003-12-22':
+    difference:
+      - ADCT
+      - BRCD
+      - CIEN
+      - ERICY
+      - HGSI
+      - ICOS
+      - MNST
+      - RFMD
+    union:
+      - ATYT
+      - CECO
+      - GRMN
+      - ISIL
+      - LRCX
+      - LVLT
+      - MRVL
+      - RIMM
