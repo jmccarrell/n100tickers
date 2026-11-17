@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026.16.0 (2026-11-17)
+
+### User-Visible Changes
+
+* cover 2004, checked against Nasdaq's index data endpoint ([e0b777c](https://github.com/jmccarrell/n100tickers/commit/e0b777c))
+
 ## 2026.15.0 (2026-11-16)
 
 ### User-Visible Changes
