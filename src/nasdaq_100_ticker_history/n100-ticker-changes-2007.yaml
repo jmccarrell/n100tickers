@@ -103,8 +103,7 @@ tickers_on_Jan_1:
   - YHOO
 
 changes:
-  # Every 2007 trading day matches the start-of-day list of Nasdaq's index data endpoint
-  # (docs/adr/0004). tickers_on_Jan_1 is the list of 2007-01-03, the year's first trading day, and no
+  # tickers_on_Jan_1 is the list of 2007-01-03, the year's first trading day, and no
   # change took effect in January. Each change names the release that confirms it. Nasdaq's index of
   # its 2007 releases:
   #  https://web.archive.org/web/20080122210226id_/http://www.nasdaq.com/Newsroom/news/newsroomnewsheadlines.aspx?year=2007
@@ -177,7 +176,7 @@ changes:
     union:
       - LEAP
 
-  # Nasdaq's release names only Baidu, so CKFR's removal is confirmed by the endpoint only. Fiserv
+  # Nasdaq's release names only Baidu, so nothing Nasdaq published confirms CKFR's removal. Fiserv
   # closed its purchase of CheckFree on the evening of 2007-12-03.
   #  https://ir.nasdaq.com/news-releases/news-release-details/baiducom-inc-join-nasdaq-100-index-beginning-december-4-2007
   '2007-12-04':

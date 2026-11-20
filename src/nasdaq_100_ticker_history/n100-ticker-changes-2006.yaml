@@ -102,8 +102,7 @@ tickers_on_Jan_1:
   - XRAY
   - YHOO
 changes:
-  # Every 2006 trading day matches the start-of-day list of Nasdaq's index data endpoint
-  # (docs/adr/0004). tickers_on_Jan_1 is the list of 2005-12-30, the previous year's last trading
+  # tickers_on_Jan_1 is the list of 2005-12-30, the previous year's last trading
   # day. Each change names the release that confirms it. Nasdaq's index of its 2006 releases, and of
   # 2005's, which holds Joy Global's:
   #  https://web.archive.org/web/20071217060533id_/http://www.nasdaq.com/newsroom/news/2006.stm
