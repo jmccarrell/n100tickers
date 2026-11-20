@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026.17.1 (2026-11-20)
+
+### Fixes
+
+* drop the 2003-2007 data source from docs and comments ([927795f](https://github.com/jmccarrell/n100tickers/commit/927795f))
+* keep CONTEXT.md's primary source definition ([ab299f4](https://github.com/jmccarrell/n100tickers/commit/ab299f4))
+
 ## 2026.17.0 (2026-11-17)
 
 ### User-Visible Changes
