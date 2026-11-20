@@ -24,4 +24,4 @@ The symbol a member traded under on the day in question.  A rename is a membersh
 _Avoid_: Current symbol
 
 **Primary source**:
-The start-of-day list Nasdaq's index data endpoint returned for a day (ADR 0004).  Nasdaq's own announcement of a membership change confirms it; failing that, an exchange or SEC notice such as a delisting notice or an 8-K.  Secondary sources, Wikipedia included, only point to where a primary source might be.
+Nasdaq's own announcement of a membership change; failing that, an exchange or SEC notice such as a delisting notice or an 8-K.  Secondary sources, Wikipedia included, only point to where a primary source might be.

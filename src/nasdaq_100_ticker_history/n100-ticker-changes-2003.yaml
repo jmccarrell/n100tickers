@@ -102,10 +102,9 @@ tickers_on_Jan_1:
   - XRAY
   - YHOO
 changes:
-  # Every 2003 trading day matches the start-of-day list of Nasdaq's index data endpoint
-  # (docs/adr/0004). The endpoint holds nothing before 2003-01-02, so tickers_on_Jan_1 is the list
-  # of that day, the year's first trading day; neither Nasdaq's releases nor the QQQ trust's count
-  # of changes shows one effective on it. Each change names the release or filing that confirms it.
+  # tickers_on_Jan_1 is the list of 2003-01-02, the year's first trading day; neither Nasdaq's
+  # releases nor the QQQ trust's count of changes shows one effective on it. Each change names
+  # the release or filing that confirms it.
   # Nasdaq's index of its 2003 releases:
   #  https://web.archive.org/web/20071224035952id_/http://www.nasdaq.com/Newsroom/news/2003.stm
 

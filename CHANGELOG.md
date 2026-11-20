@@ -4,31 +4,31 @@
 
 ### User-Visible Changes
 
-* cover 2003, checked against Nasdaq's index data endpoint ([6a3a449](https://github.com/jmccarrell/n100tickers/commit/6a3a449))
+* cover 2003 ([6a3a449](https://github.com/jmccarrell/n100tickers/commit/6a3a449))
 
 ## 2026.16.0 (2026-11-17)
 
 ### User-Visible Changes
 
-* cover 2004, checked against Nasdaq's index data endpoint ([e0b777c](https://github.com/jmccarrell/n100tickers/commit/e0b777c))
+* cover 2004 ([e0b777c](https://github.com/jmccarrell/n100tickers/commit/e0b777c))
 
 ## 2026.15.0 (2026-11-16)
 
 ### User-Visible Changes
 
-* cover 2005, checked against Nasdaq's index data endpoint ([b6306a9](https://github.com/jmccarrell/n100tickers/commit/b6306a9))
+* cover 2005 ([b6306a9](https://github.com/jmccarrell/n100tickers/commit/b6306a9))
 
 ## 2026.14.0 (2026-11-16)
 
 ### User-Visible Changes
 
-* cover 2006, checked against Nasdaq's index data endpoint ([35104d5](https://github.com/jmccarrell/n100tickers/commit/35104d5))
+* cover 2006 ([35104d5](https://github.com/jmccarrell/n100tickers/commit/35104d5))
 
 ## 2026.13.0 (2026-11-16)
 
 ### User-Visible Changes
 
-* cover all of 2007, checked against Nasdaq's index data endpoint ([0960655](https://github.com/jmccarrell/n100tickers/commit/0960655))
+* cover all of 2007 ([0960655](https://github.com/jmccarrell/n100tickers/commit/0960655))
 
 ### Fixes
 

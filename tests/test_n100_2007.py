@@ -14,8 +14,8 @@ def test_year_boundary_2007_2008() -> None:
 
 def test_membership_at_start_of_coverage() -> None:
     """Anchor the backward extension: the whole index on Feb 14, 2007, as
-    Nasdaq's index data endpoint listed it at the start of that day. Every other set in the years this
-    package covers is derived by walking changes away from this one."""
+    it stood at the start of that day. Every other set in the years this package covers is
+    derived by walking changes away from this one."""
 
     feb_14_tickers = frozenset(
         """

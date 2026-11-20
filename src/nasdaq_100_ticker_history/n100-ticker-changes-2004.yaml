@@ -102,8 +102,7 @@ tickers_on_Jan_1:
   - XRAY
   - YHOO
 changes:
-  # Every 2004 trading day matches the start-of-day list of Nasdaq's index data endpoint
-  # (docs/adr/0004). tickers_on_Jan_1 is the list of 2003-12-31, the previous year's last trading
+  # tickers_on_Jan_1 is the list of 2003-12-31, the previous year's last trading
   # day. Each change names the release that confirms it. Nasdaq's index of its 2004 releases:
   #  https://web.archive.org/web/20071217060523id_/http://www.nasdaq.com/newsroom/news/2004.stm
 
