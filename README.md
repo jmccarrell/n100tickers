@@ -12,10 +12,6 @@ likely, the coverage is accurate further into 2026 subject to additional changes
 version of the API is released on each update Nasdaq announces, typically with a time lag of a few days to a
 few weeks.  It is the intent of the project maintainers to provide accurate coverage on an ongoing basis.
 
-2003 through 2007 are checked against every trading day's start-of-day list from Nasdaq's index data endpoint, the
-authority for membership ([ADR 0004](docs/adr/0004-nasdaq-endpoint-is-the-membership-authority.md)).  Each change
-also names the Nasdaq release or filing that confirms it, where one exists.
-
 Ticker symbols are the ones that actually traded on the date queried, so a company that later renamed appears
 under its contemporaneous symbol: `tickers_as_of(2010, 1, 1)` returns `PCLN`, not `BKNG`.
 
